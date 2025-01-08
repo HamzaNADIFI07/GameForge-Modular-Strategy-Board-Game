@@ -22,6 +22,9 @@ Les paragraphes concernant les livrables doivent être rempli avant la date de r
 
 Un lien vers une image de l'UML doit être fourni (une photo d'un diagramme UML fait à la main est suffisant).
 
+## UML
+https://lucid.app/lucidchart/7054f712-50b3-4e10-b6b1-dec0da30ec03/edit?viewport_loc=-11%2C-11%2C2219%2C1048%2C0_0&invitationId=inv_59b50eb4-21e7-436e-b32d-8b2cb42cb428
+
 ## Livrable 1
 
 ### Atteinte des objectifs
