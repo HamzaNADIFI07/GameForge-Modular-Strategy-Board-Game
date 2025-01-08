@@ -4,4 +4,5 @@ import tuile.Tuile;
 
 public class Paturage extends Tuile{
 
+    
 }
