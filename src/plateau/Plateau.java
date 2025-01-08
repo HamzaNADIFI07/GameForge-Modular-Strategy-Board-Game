@@ -1,5 +1,5 @@
 package plateau;
 
-public class Plateau{
-    
+public class Plateau {
+
 }
