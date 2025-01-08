@@ -65,6 +65,11 @@ Pour chaque semaine on y trouvera :
 
 ### Objectifs pour la semaine
 
+- avancement sur l'uml
+- création de la class Plateau
+- création de la class Tuile
+- création des class de Type de Tuile
+- Implémentation de l'algorithme de création du plateau
 ## Semaine 2
 
 ### Ce qui a été réalisé
