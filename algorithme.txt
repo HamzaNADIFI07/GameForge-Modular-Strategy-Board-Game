@@ -1,0 +1,20 @@
+
+### Étape 1 : Initialisation du plateau avec la mer
+- Créer une plateau 2D où chaque case est initialisée avec une tuile de type `mer`.
+- Comptez le nombre total de tuiles comme `totalTuiles`.
+
+### Étape 2 : Placement aléatoire des tuiles non-mer
+- Calculer le nombre maximal de tuiles non-mer autorisées comme `maxNonMer = totalTuiles / 3`.
+- Ajouter des tuiles non-mer de manière aléatoire jusqu’à atteindre ce maximum, en vérifiant à chaque ajout que la tuile placée ne dépasse pas la contrainte.
+
+### Étape 3 : Vérification des voisins
+- Parcourer chaque case du plateau :
+  - Si la case est une tuile non-mer, vérifier qu’elle a au moins une tuile adjacente non-mer dans les quatre directions.
+  - Si elle n’a pas de voisin non-mer :
+    - Trouver une case adjacente aléatoire pour y placer une tuile non-mer.
+    - Vérifier que cette action respecte toujours le ratio 1/3 de tuiles non-mer.
+    - Si le placement d’une nouvelle tuile dépasse le ratio, supprimez la tuile problématique et remplacez-la par une tuile `mer`.
+
+### Étape 4 : Suppression des contraintes isolées
+- Si une tuile non-mer reste isolée même après les vérifications et ajustements, remplacez-la par une tuile de type `mer`.
+
