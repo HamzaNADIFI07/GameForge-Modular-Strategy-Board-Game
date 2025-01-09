@@ -9,4 +9,5 @@ public class Paturage extends Tuile{
     public Paturage() {
         super("Paturage");
     }
+    
 }
