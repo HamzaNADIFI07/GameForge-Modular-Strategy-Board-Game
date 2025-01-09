@@ -1,10 +1,10 @@
 package plateau;
 
+import tuile.Tuile;
+import tuile.type_tuile.Mer;
+
 public class Plateau {
-	/**
-	 * en attendant la creation de la classe tuile je l'ai mit en commentaire
-	 */
-	//private Tuilles[][] tuilles ;
+	private Tuile[][] tuile ;
 	private int x ;
 	private int y;
 	private int nbMers;
@@ -12,18 +12,42 @@ public class Plateau {
     private int nbForets;
     private int nbMontagnes;
     private int nbPaturages;
+
+
+    /**
+     * Constructeur de la classe Plateau.
+     * Initialise un plateau de dimensions x par y, avec uniquement des tuiles de type Mer.
+     * 
+     * @param x la largeur du plateau (nombre de colonnes)
+     * @param y la hauteur du plateau (nombre de lignes)
+     */
     
-        public Plateau(int x, int y) {
-            this.x = x;
-            this.y = y;
-            //this.tuile = new Tuiles[x][y];
-            this.nbMers = 0;
-            this.nbChamps = 0;
-            this.nbForets = 0;
-            this.nbMontagnes = 0;
-            this.nbPaturages = 0;
-        
+    public Plateau(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.tuile = new Tuile[x][y];
+        this.nbMers = x*y;
+        this.nbChamps = 0;
+        this.nbForets = 0;
+        this.nbMontagnes = 0;
+        this.nbPaturages = 0;
+        initialiserPlateau();
+    
+    }
+
+    /**
+     * Initialise le plateau avec des tuiles de type Mer.
+     */
+    
+    private void initialiserPlateau() {
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                tuile[i][j] = new Mer();
+            }
         }
+    }
+
+        
     }
 	
 
