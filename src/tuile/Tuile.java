@@ -12,4 +12,13 @@ public abstract class Tuile {
     public Tuile(String type) {
         this.type = type;
     }
+
+    /**
+     * Retourne le type de la tuile.
+     * 
+     * @return le type de la tuile
+     */
+    public String getType() {
+        return type;
+    }
 }
