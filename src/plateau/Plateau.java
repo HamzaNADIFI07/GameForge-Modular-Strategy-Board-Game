@@ -12,6 +12,18 @@ public class Plateau {
     private int nbForets;
     private int nbMontagnes;
     private int nbPaturages;
+    
+        public Plateau(int x, int y) {
+            this.x = x;
+            this.y = y;
+            //this.tuile = new Tuiles[x][y];
+            this.nbMers = 0;
+            this.nbChamps = 0;
+            this.nbForets = 0;
+            this.nbMontagnes = 0;
+            this.nbPaturages = 0;
+        
+        }
+    }
 	
 
-}
