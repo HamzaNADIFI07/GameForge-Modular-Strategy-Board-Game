@@ -1,7 +1,12 @@
 package plateau;
 
+import java.util.Random;
 import tuile.Tuile;
+import tuile.type_tuile.Champ;
+import tuile.type_tuile.Foret;
 import tuile.type_tuile.Mer;
+import tuile.type_tuile.Montagne;
+import tuile.type_tuile.Paturage;
 
 public class Plateau {
 	private Tuile[][] tuile ;
@@ -43,6 +48,49 @@ public class Plateau {
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
                 tuile[i][j] = new Mer();
+            }
+        }
+    }
+
+    /**
+     * Génère aléatoirement les tuiles du plateau en respectant une contrainte 
+     * de proportion : 1/3 des tuiles sont non-Mer, et 2/3 sont des tuiles de type Mer.
+     */
+
+    public void genererTuiles() {
+
+        Random random = new Random();
+
+        int nombreNonMer = (int) ((this.x * this.y) * (1.0 / 3.0));
+        int tuilesNonMerPlacees = 0;
+
+        // Boucle avec condition qui vérifie la contrainte de 1/3 Tuile Non Mer et 2/3 Tuile Mer
+        while (tuilesNonMerPlacees < nombreNonMer) {
+            int randomX = random.nextInt(this.x);
+            int randomY = random.nextInt(this.y);
+
+            // Vérifie que la case est encore Mer pour ne pas recréer une tuile non Mer sur une tuile qui est déjà non Mer
+            if (tuile[randomX][randomY] instanceof Mer) {
+                // Place une tuile non mer aléatoire
+                int type = random.nextInt(4);
+                switch (type) {
+                    case 0: 
+                        tuile[randomX][randomY] = new Champ();
+                        break;
+                    case 1: 
+                        tuile[randomX][randomY] = new Foret();
+                        break;
+                    case 2: 
+                        tuile[randomX][randomY] = new Montagne();
+                        break;
+                    case 3: 
+                        tuile[randomX][randomY] = new Paturage();
+                        break;
+                    default: 
+                        tuile[randomX][randomY] = new Mer();//à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
+                        break;
+                    }
+                tuilesNonMerPlacees++;
             }
         }
     }

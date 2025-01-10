@@ -4,12 +4,13 @@ import plateau.Plateau;
 public class Main {
     public static void main(String[] args) {
         // Taille du plateau
-        int x = 5;
-        int y=1;
+        int x = 10;
+        int y=10;
 
         // Création du plateau
         Plateau plateau = new Plateau(x,y);
-
+        // Géneration des Tuiles dans le plateau
+        plateau.genererTuiles();
         // Affichage du plateau
         System.out.println("Plateau généré :");
         plateau.display();
@@ -44,4 +45,35 @@ M M M M M
 M M M M M 
 M M M M M 
 M M M M M 
+ *
+ * 
+ * Après implémentation de la méthode genererTuiles(), l'affichage devient comme suit:
+ * Il va falloir maintenant implémenter la deuxième contrainte de tout les tuiles non Mer doivent avoir en moins une tuile adjacente qui n’est
+ * pas de type mer
+ * Premier rendu Pour 10*10:
+Plateau généré :
+M M C F M M M M C M 
+M C M M P M M M M M 
+C M M M F P M M M M 
+M M M M F M P M M M 
+M M M F M M M M M M 
+M M P M M M M M M M 
+M F M F M M M M C P 
+M M M M M M C P M M 
+F M M P C M M C M M 
+M F M M M C M M M M 
+ *
+ * Deuxième rendu pour 10*10 qui montre que la géneration des coordonnées et types de tuile non Mer se fait aléatoirement:
+ * 
+Plateau généré :
+P M M M C M M M M C 
+M P M P M M F M M F 
+C P M M M C C M M M 
+M M M M M M M M M C 
+P M M M M M M M M M 
+M M M M M M M M M C 
+M C M M C M M M M M 
+M M M M F F M M M P 
+M C M M M M M M M M 
+P M F M M P P M M M 
  */
