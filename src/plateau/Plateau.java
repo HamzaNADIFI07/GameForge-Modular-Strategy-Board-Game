@@ -47,6 +47,17 @@ public class Plateau {
         }
     }
 
+    /**
+     * Affiche le plateau de jeu dans la console.
+     */
+    public void display() {
+        for (int i = 0; i < this.y; i++) {
+            for (int j = 0; j < this.x; j++) {
+                System.out.print(tuile[j][i].getType().charAt(0) + " ");
+            }
+            System.out.println();
+        }
+    }
 
     }
 	
