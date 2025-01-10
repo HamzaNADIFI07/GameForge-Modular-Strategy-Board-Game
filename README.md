@@ -62,6 +62,7 @@ Pour chaque semaine on y trouvera :
 ### Ce qui a été réalisé
 
 ### Difficultés rencontrées
+- Le display pour l'instant il marche et affiche bien le Plateau avec le type de chaque tuile mais après qu'on aura à afficher le nom du joueur dans la tuile ça va pas marché parce que y aura des décalages, donc à modifier après.
 
 ### Objectifs pour la semaine
 

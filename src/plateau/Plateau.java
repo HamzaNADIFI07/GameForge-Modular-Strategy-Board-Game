@@ -127,7 +127,12 @@ public class Plateau {
         for (int i = 0; i < this.y; i++) {
             System.out.printf("%2d ", i);// Affiche le numéro de ligne avec un décalage
             for (int j = 0; j < this.x; j++) {
-                System.out.print("|  " + tuile[j][i].getType().charAt(0) + "  ");//affiche la première lettre de chaque type de tuile
+                if ("Mer".equals(tuile[j][i].getType()) || "Montagne".equals(tuile[j][i].getType())) {
+                    System.out.print("| " + tuile[j][i].getType().charAt(0)+ tuile[j][i].getType().charAt(1) + "  ");//affiche la première et deuxième lettre des types des tuiles Mer et Montagne vu que les deux commencent par M, donc pour éviter la confusions entre les deux on affiche les deux premières carctères de leur types
+                }
+                else{
+                    System.out.print("|  " + tuile[j][i].getType().charAt(0) + "  ");//affiche la première lettre de chaque type de tuile
+                }
             }
             System.out.println("|");
     
