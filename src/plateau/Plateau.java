@@ -79,6 +79,27 @@ public class Plateau {
     }
 
     /**
+     * Génère une tuile non-marine aléatoirement
+     */
+    private Tuile genererTuileNonMerAleatoire() {
+        Random random = new Random();
+        int type = random.nextInt(4); // 4 types de tuiles non-marines
+
+        switch (type) {
+            case 0: 
+                return new Champ();
+            case 1: 
+                return new Foret();
+            case 2: 
+                return new Montagne();
+            case 3: 
+                return new Paturage();
+            default: 
+                return new Mer(); //à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
+        }
+    }
+
+    /**
      * Affiche le plateau de jeu dans la console.
      */
     public void display() {
