@@ -71,25 +71,8 @@ public class Plateau {
 
             // Vérifie que la case est encore Mer pour ne pas recréer une tuile non Mer sur une tuile qui est déjà non Mer
             if (tuile[randomX][randomY] instanceof Mer) {
-                // Place une tuile non mer aléatoire
-                int type = random.nextInt(4);
-                switch (type) {
-                    case 0: 
-                        tuile[randomX][randomY] = new Champ();
-                        break;
-                    case 1: 
-                        tuile[randomX][randomY] = new Foret();
-                        break;
-                    case 2: 
-                        tuile[randomX][randomY] = new Montagne();
-                        break;
-                    case 3: 
-                        tuile[randomX][randomY] = new Paturage();
-                        break;
-                    default: 
-                        tuile[randomX][randomY] = new Mer();//à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
-                        break;
-                    }
+                // Place une tuile non-marine aléatoire
+                tuile[randomX][randomY] = genererTuileNonMerAleatoire();// ça cause une erreur pour l'instant le temps qu'on implémente la méthode genererTuileNonMerAleatoire() qui génere les tuiles avec un type aléatoire
                 tuilesNonMerPlacees++;
             }
         }

@@ -4,7 +4,7 @@ import plateau.Plateau;
 public class Main {
     public static void main(String[] args) {
         // Taille du plateau
-        int x = 10;
+        int x = 20;
         int y=10;
 
         // Création du plateau
