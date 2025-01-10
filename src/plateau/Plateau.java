@@ -103,13 +103,43 @@ public class Plateau {
      * Affiche le plateau de jeu dans la console.
      */
     public void display() {
-        for (int i = 0; i < this.y; i++) {
-            for (int j = 0; j < this.x; j++) {
-                System.out.print(tuile[j][i].getType().charAt(0) + " ");
+        // Ligne supérieure
+        System.out.print("   ");
+        for (int j = 0; j < this.x; j++) {
+            // La condition permet de gérer le décalage des indice quand l'indice dépace 9 donc il devient un nombre à deux chiffre, on enlève un décalage pour avoir chque indice bien aligner avec la colonne dédié
+            if (j<10) {
+                System.out.print("   " + j + "  ");
             }
-            System.out.println();
+            else{
+                System.out.print("  " + j + "  ");
+            }
+        }
+        System.out.println();
+        
+        // Bordure supérieure de chaque ligne
+        System.out.print("   ");
+        for (int j = 0; j < this.x; j++) {
+            System.out.print("+-----");
+        }
+        System.out.println("+");
+    
+        // Contenu du plateau
+        for (int i = 0; i < this.y; i++) {
+            System.out.printf("%2d ", i);// Affiche le numéro de ligne avec un décalage
+            for (int j = 0; j < this.x; j++) {
+                System.out.print("|  " + tuile[j][i].getType().charAt(0) + "  ");//affiche la première lettre de chaque type de tuile
+            }
+            System.out.println("|");
+    
+            // Bordure inférieure de chaque ligne
+            System.out.print("   ");
+            for (int j = 0; j < this.x; j++) {
+                System.out.print("+-----");
+            }
+            System.out.println("+");
         }
     }
+    
 
     }
 	
