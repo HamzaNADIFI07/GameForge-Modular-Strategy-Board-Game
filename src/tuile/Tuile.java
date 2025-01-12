@@ -1,4 +1,5 @@
 package tuile;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Tuile {
@@ -14,8 +15,11 @@ public abstract class Tuile {
      * 
      * @param type le type de la tuile
      */
-    public Tuile(String type) {
+    public Tuile(String type,int x,int y) {
         this.type = type;
+        this.x=x;
+        this.y=y;
+        this.adjacents = new ArrayList<>();
     }
 
     /**
