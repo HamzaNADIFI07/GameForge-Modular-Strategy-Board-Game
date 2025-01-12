@@ -1,8 +1,13 @@
 package tuile;
+import java.util.List;
 
 public abstract class Tuile {
 
     protected String type;
+    //protected Batiment batiment;
+    protected List<Tuile> adjacents;
+    protected int x;
+    protected int y;
 
     /**
      * Constructeur de la classe Tuile.
