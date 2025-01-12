@@ -30,4 +30,15 @@ public abstract class Tuile {
     public String getType() {
         return type;
     }
+    public List<Tuile> getAdjacents(){
+    	return adjacents;
+    }
+    public void setAdjacents(List<Tuile> adjacents) {
+    	this.adjacents = adjacents;
+    }
+    //cette méthode ert à forcer les sous-classes à définir comment chaque type de tuile produit une ressource spécifique
+    //mais il faut definir une classe abstraite Ressource
+    //public abstract Ressource produireRessource();
+    
+    
 }
