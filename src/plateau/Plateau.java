@@ -31,11 +31,11 @@ public class Plateau {
         this.x = x;
         this.y = y;
         this.tuile = new Tuile[x][y];
-        this.nbMers = x*y;
-        this.nbChamps = 0;
-        this.nbForets = 0;
-        this.nbMontagnes = 0;
-        this.nbPaturages = 0;
+        this.setNbMers(x*y);
+        this.setNbChamps(0);
+        this.setNbForets(0);
+        this.setNbMontagnes(0);
+        this.setNbPaturages(0);
         initialiserPlateau();
     
     }
@@ -144,6 +144,37 @@ public class Plateau {
             System.out.println("+");
         }
     }
+
+	public int getNbMers() {
+		return nbMers;
+	}
+
+	public void setNbMers(int nbMers) {
+		this.nbMers = nbMers;
+	}
+
+	public int getNbChamps() {
+		return nbChamps;
+	}
+
+	public void setNbChamps(int nbChamps) {
+		this.nbChamps = nbChamps;
+	}
+
+	public int getNbForets() {
+		return nbForets;
+	}
+
+	public int getNbMontagnes() {
+		return nbMontagnes;
+	}
+
+
+
+	public int getNbPaturages() {
+		return nbPaturages;
+	}
+
     
 
     }
