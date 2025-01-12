@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Tuile {
 
     protected String type;
-    //protected Batiment batiment;
+    protected Batiment batiment;
     protected List<Tuile> adjacents;
     protected int x;
     protected int y;
@@ -40,5 +40,7 @@ public abstract class Tuile {
     //mais il faut definir une classe abstraite Ressource
     //public abstract Ressource produireRessource();
     
-    
+    public void retirerBatiment() {
+    	this.batiment = null;
+    }
 }
