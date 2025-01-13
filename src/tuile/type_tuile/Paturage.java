@@ -6,8 +6,8 @@ public class Paturage extends Tuile{
     /**
      * Constructeur de la classe Paturage.
      */
-    public Paturage() {
-        super("Paturage");
+    public Paturage(int x,int y) {
+        super("Paturage",x,y);
     }
     
 }
