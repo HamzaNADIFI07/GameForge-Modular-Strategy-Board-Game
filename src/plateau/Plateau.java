@@ -81,6 +81,9 @@ public class Plateau {
     /**
      * Génère une tuile non-marine aléatoirement
      */
+    
+    //On évite le switch en POO parce qu'il rend le code moins flexible et plus difficile à maintenir,
+    // il faut qu'on trouve une autre facon de faire cette méthode :
     private Tuile genererTuileNonMerAleatoire() {
         Random random = new Random();
         int type = random.nextInt(4); // 4 types de tuiles non-marines
