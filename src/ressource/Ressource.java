@@ -1,4 +1,4 @@
-package tuile.type_tuile;
+package ressource;
 
 public class Ressource {
 	 private String type;

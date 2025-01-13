@@ -1,5 +1,6 @@
 package tuile.type_tuile;
 
+import ressource.Ressource;
 import tuile.Tuile;
 
 public class Champ extends Tuile {
