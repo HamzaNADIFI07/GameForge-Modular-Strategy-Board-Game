@@ -84,23 +84,37 @@ public class Plateau {
     
     //On évite le switch en POO parce qu'il rend le code moins flexible et plus difficile à maintenir,
     // il faut qu'on trouve une autre facon de faire cette méthode :
+    // private Tuile genererTuileNonMerAleatoire() {
+    //     Random random = new Random();
+    //     int type = random.nextInt(4); // 4 types de tuiles non-marines
+
+    //     switch (type) {
+    //         case 0: 
+    //             return new Champ();
+    //         case 1: 
+    //             return new Foret();
+    //         case 2: 
+    //             return new Montagne();
+    //         case 3: 
+    //             return new Paturage();
+    //         default: 
+    //             return new Mer(); //à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
+    //     }
+    // }
+
+
     private Tuile genererTuileNonMerAleatoire() {
         Random random = new Random();
-        int type = random.nextInt(4); // 4 types de tuiles non-marines
-
-        switch (type) {
-            case 0: 
-                return new Champ();
-            case 1: 
-                return new Foret();
-            case 2: 
-                return new Montagne();
-            case 3: 
-                return new Paturage();
-            default: 
-                return new Mer(); //à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
-        }
+    
+        Tuile[] tuilesNonMer = {
+            new Champ(),
+            new Foret(),
+            new Montagne(),
+            new Paturage()
+        };
+        return tuilesNonMer[random.nextInt(tuilesNonMer.length)];
     }
+    
 
     /**
      * Affiche le plateau de jeu dans la console.
