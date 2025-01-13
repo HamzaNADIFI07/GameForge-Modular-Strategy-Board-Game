@@ -47,7 +47,7 @@ public class Plateau {
     private void initialiserPlateau() {
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
-                tuile[i][j] = new Mer();
+                tuile[i][j] = new Mer(i,j);
             }
         }
     }
@@ -72,7 +72,7 @@ public class Plateau {
             // Vérifie que la case est encore Mer pour ne pas recréer une tuile non Mer sur une tuile qui est déjà non Mer
             if (tuile[randomX][randomY] instanceof Mer) {
                 // Place une tuile non-marine aléatoire
-                tuile[randomX][randomY] = genererTuileNonMerAleatoire();// ça cause une erreur pour l'instant le temps qu'on implémente la méthode genererTuileNonMerAleatoire() qui génere les tuiles avec un type aléatoire
+                tuile[randomX][randomY] = genererTuileNonMerAleatoire(randomX,randomY);
                 tuilesNonMerPlacees++;
             }
         }
@@ -103,14 +103,14 @@ public class Plateau {
     // }
 
 
-    private Tuile genererTuileNonMerAleatoire() {
+    private Tuile genererTuileNonMerAleatoire(int x,int y) {
         Random random = new Random();
     
         Tuile[] tuilesNonMer = {
-            new Champ(),
-            new Foret(),
-            new Montagne(),
-            new Paturage()
+            new Champ(x,y),
+            new Foret(x,y),
+            new Montagne(x,y),
+            new Paturage(x,y)
         };
         return tuilesNonMer[random.nextInt(tuilesNonMer.length)];
     }
