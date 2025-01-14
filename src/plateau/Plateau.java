@@ -173,7 +173,7 @@ public class Plateau {
     // Méthode pour récupérer les positions adjacentes contenant des tuiles marines
     private List<int[]> getPositionsAdjacentesMarines(int x, int y) {
         List<int[]> positions = new ArrayList<>();
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut,
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
 
         for (int[] d : directions) {
             int newX = x + d[0];
@@ -185,6 +185,23 @@ public class Plateau {
             }
         }
         return positions;
+    }
+
+
+    // Vérifie si une tuile a au moins une tuile adjacente non Mer
+    private boolean aUneTuileAdjacenteNonMer(int x, int y) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
+    
+        for (int[] d : directions) {
+            int newX = x + d[0];
+            int newY = y + d[1];
+            if (newX >= 0 && newX < this.x && newY >= 0 && newY < this.y) {
+                if (!(tuile[newX][newY] instanceof Mer)) {
+                    return true; // Une tuile non Mer adjacente a été trouvée
+                }
+            }
+        }
+        return false; // Aucune tuile non Mer adjacente trouvée
     }
 
     
