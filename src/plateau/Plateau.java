@@ -1,5 +1,6 @@
 package plateau;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import tuile.Tuile;
@@ -166,6 +167,24 @@ public class Plateau {
             }
         }
         return count;
+    }
+
+
+    // Méthode pour récupérer les positions adjacentes contenant des tuiles marines
+    private List<int[]> getPositionsAdjacentesMarines(int x, int y) {
+        List<int[]> positions = new ArrayList<>();
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut,
+
+        for (int[] d : directions) {
+            int newX = x + d[0];
+            int newY = y + d[1];
+            if (newX >= 0 && newX < this.x && newY >= 0 && newY < this.y) {
+                if (tuile[newX][newY] instanceof Mer) {
+                    positions.add(new int[]{newX, newY});
+                }
+            }
+        }
+        return positions;
     }
 
     
