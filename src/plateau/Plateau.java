@@ -120,18 +120,11 @@ public class Plateau {
 
 
 
-     // Ajuste les contraintes d'adjacence pour les tuiles non-marines
+    // Ajuste les contraintes d'adjacence pour les tuiles non-marines
     private void ajusterContraintesAdjacentes() {
         Random random = new Random();
 
-        int totalTuilesNonMarines = 0;
-        for (int i = 0; i < this.x; i++) {
-            for (int j = 0; j < this.y; j++) {
-                if (!(tuile[i][j] instanceof Mer)) {
-                    totalTuilesNonMarines++;
-                }
-            }
-        }
+        int totalTuilesNonMarines = getNbTuilesNonMer();
         int nombreMaxTuilesNonMarines = (int) Math.floor((this.x * this.y) * (1.0 / 3.0)); // Un tiers du plateau
     
         for (int i = 0; i < this.x; i++) {
@@ -162,7 +155,18 @@ public class Plateau {
         }
     }
 
-
+    // Méthode pour compter le nombre de tuiles non Mer
+    private int getNbTuilesNonMer() {
+        int count = 0;
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                if (!(tuile[i][j] instanceof Mer)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
     
 
