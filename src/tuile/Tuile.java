@@ -1,4 +1,5 @@
 package tuile;
+import batiment.Batiment;
 import java.util.ArrayList;
 import java.util.List;
 

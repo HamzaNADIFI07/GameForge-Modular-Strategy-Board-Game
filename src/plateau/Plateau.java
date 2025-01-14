@@ -1,5 +1,6 @@
 package plateau;
 
+import java.util.List;
 import java.util.Random;
 import tuile.Tuile;
 import tuile.type_tuile.Champ;
@@ -76,6 +77,7 @@ public class Plateau {
                 tuilesNonMerPlacees++;
             }
         }
+        ajusterContraintesAdjacentes();
     }
 
     /**
@@ -114,6 +116,54 @@ public class Plateau {
         };
         return tuilesNonMer[random.nextInt(tuilesNonMer.length)];
     }
+
+
+
+
+     // Ajuste les contraintes d'adjacence pour les tuiles non-marines
+    private void ajusterContraintesAdjacentes() {
+        Random random = new Random();
+
+        int totalTuilesNonMarines = 0;
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                if (!(tuile[i][j] instanceof Mer)) {
+                    totalTuilesNonMarines++;
+                }
+            }
+        }
+        int nombreMaxTuilesNonMarines = (int) Math.floor((this.x * this.y) * (1.0 / 3.0)); // Un tiers du plateau
+    
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                // Si la tuile est non marine et qu'elle n'a pas de tuile non marine adjacente
+                if (!(tuile[i][j] instanceof Mer) && !aUneTuileAdjacenteNonMer(i, j)) {
+                    // Si ajouter une tuile non marine adjacente dépasse la limite du nombre total
+                    if (totalTuilesNonMarines >= nombreMaxTuilesNonMarines) {
+                        // Remplacer la tuile isolée par une tuile marine
+                        tuile[i][j] = new Mer(i,j);
+                    } else {
+                        // Récupère les positions adjacentes marines
+                        List<int[]> adjacentesMarines = getPositionsAdjacentesMarines(i, j);
+    
+                        if (!adjacentesMarines.isEmpty()) {
+                            // Sélectionne une position adjacente aléatoire
+                            int[] position = adjacentesMarines.get(random.nextInt(adjacentesMarines.size()));
+                            int adjacenteX = position[0];
+                            int adjacenteY = position[1];
+    
+                            // Place une nouvelle tuile non marine aléatoire sur cette position
+                            tuile[adjacenteX][adjacenteY] = genererTuileNonMerAleatoire(adjacenteX , adjacenteY);
+                            totalTuilesNonMarines++; // Mise à jour du compteur de tuiles non marines
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
     
 
     /**
