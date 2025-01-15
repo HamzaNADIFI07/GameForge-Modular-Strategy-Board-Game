@@ -2,7 +2,7 @@ package ressource;
 
 public class Ressource {
 	 private String type;
-	    private int quantite;
+	 private int quantite;
 
 	    public Ressource(String type, int quantite) {
 	        this.type = type;

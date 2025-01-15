@@ -1,20 +1,18 @@
 package tuile.type_tuile;
 
-import ressource.Ressource;
+import ressource.enumRessource;
 import tuile.Tuile;
 
+
 public class Champ extends Tuile {
-	private Ressource ressource;
+	private enumRessource ressource;
 
     /**
      * Constructeur de la classe Champ.
      */
 	    public Champ(int x, int y) {
 	        super("Champ", x, y);
-	        this.ressource = new Ressource("Blé",1);
+	        this.ressource = enumRessource.Ble;
 	    }
 
-	    public Ressource produireRessource() {
-	        return ressource;
-	    }
 }
