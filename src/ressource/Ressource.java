@@ -4,9 +4,9 @@ public class Ressource {
 	 private String type;
 	 private int quantite;
 
-	    public Ressource(String type, int quantite) {
+	    public Ressource(String type) {
 	        this.type = type;
-	        this.quantite = quantite;
+	        this.quantite = 0;
 	    }
 
 	    public String getType() {

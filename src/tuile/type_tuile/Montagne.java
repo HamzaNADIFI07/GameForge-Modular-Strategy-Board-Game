@@ -8,7 +8,7 @@ public class Montagne extends Tuile {
 
     public Montagne(int x, int y) {
         super("Montagne", x, y);
-        this.ressource = new Ressource("Minerai", 1);
+        this.ressource = new Ressource("Minerai");
     }
 
     public Ressource produireRessource() {
