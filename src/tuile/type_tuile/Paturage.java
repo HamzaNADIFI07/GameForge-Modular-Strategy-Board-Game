@@ -10,7 +10,7 @@ public class Paturage extends Tuile{
      */
     public Paturage(int x, int y) {
         super("Pâturage", x, y);
-        this.ressource = new Ressource("Mouton", 1);
+        this.ressource = new Ressource("Mouton");
     }
 
     public Ressource produireRessource() {

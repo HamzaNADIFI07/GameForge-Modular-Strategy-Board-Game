@@ -11,7 +11,7 @@ public class Champ extends Tuile {
      */
 	    public Champ(int x, int y) {
 	        super("Champ", x, y);
-	        this.ressource = new Ressource("Blé",1);
+	        this.ressource = new Ressource("Blé");
 	    }
 
 	    public Ressource produireRessource() {
