@@ -10,6 +10,7 @@ public class Foret extends Tuile{
      */
 	  public Foret(int x, int y) {
 	      super("Forêt", x, y);
+          this.ressource = new Ressource("Bois",1);
 }
       public Ressource produireRessource() {
       return ressource;
