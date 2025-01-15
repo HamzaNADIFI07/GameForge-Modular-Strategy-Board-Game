@@ -60,7 +60,8 @@ Pour chaque semaine on y trouvera :
 ## Semaine 1
 
 ### Ce qui a été réalisé
-
+LePlateau ainsi que l'algorithme de création on été fait, une abstract class Tuile qui représente les tuiles ainsi que les types de tuile qui en héritent.
+Une class Batiment ainsi qu'une class ressource ont été creer pour représenté les ressources et les batiments.
 ### Difficultés rencontrées
 - Le display pour l'instant il marche et affiche bien le Plateau avec le type de chaque tuile mais après qu'on aura à afficher le nom du joueur dans la tuile ça va pas marché parce que y aura des décalages, donc à modifier après.
 
