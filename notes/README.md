@@ -182,3 +182,15 @@ Plateau généré :
 ```
 On peut constater sur les rendus qu'on a aucune tuile non Mer toute seul et que le nombre de tuiles non Mer et toujours inférieur ou égale 1/3 du nombres totale des tuiles.
 
+### **Hamza** Le 14/01/2024
+
+Les Commandes pour afficher le Plateau:
+- Pour compiler le programme:
+```bash
+javac Main.java ./plateau/Plateau.java ./tuile/Tuile.java
+```
+- Pour exécuter le programme:
+```bash
+java main
+```
+
