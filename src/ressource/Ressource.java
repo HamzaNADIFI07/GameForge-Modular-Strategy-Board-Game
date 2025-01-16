@@ -1,21 +1,19 @@
 package ressource;
 
-public class Ressource {
-	 private String type;
-	 private int quantite;
+public abstract class Ressource {
+    private String type;
 
-	    public Ressource(String type) {
-	        this.type = type;
-	        this.quantite = 0;
-	    }
+    public Ressource(String type) {
+        this.type = type;
+    }
 
-	    public String getType() {
-	        return type;
-	    }
+    public String getType() {
+        return type;
+    }
 
-	    public int getQuantite() {
-	        return quantite;
-	    }
-
-
+    @Override
+    public String toString() {
+        return type;
+    }
 }
+
