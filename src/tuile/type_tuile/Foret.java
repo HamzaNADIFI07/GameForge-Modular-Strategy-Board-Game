@@ -1,18 +1,18 @@
 package tuile.type_tuile;
 
-import ressource.Ressource;
+import ressource.enumRessource;
 import tuile.Tuile;
 
 public class Foret extends Tuile{
-    private Ressource ressource;
+    private enumRessource ressource;
     /**
      * Constructeur de la classe Foret.
      */
 	  public Foret(int x, int y) {
 	      super("Forêt", x, y);
-          this.ressource = new Ressource("Bois");
+          this.ressource = enumRessource.Bois;
 }
-      public Ressource produireRessource() {
+      public enumRessource produireRessource() {
       return ressource;
 }
 
