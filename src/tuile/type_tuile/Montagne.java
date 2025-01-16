@@ -1,17 +1,17 @@
 package tuile.type_tuile;
 
-import ressource.Ressource;
+import ressource.enumRessource;
 import tuile.Tuile;
 
 public class Montagne extends Tuile {
-	private Ressource ressource;
+	private enumRessource ressource;
 
     public Montagne(int x, int y) {
         super("Montagne", x, y);
-        this.ressource = new Ressource("Minerai");
+        this.ressource = enumRessource.Minerai;
     }
 
-    public Ressource produireRessource() {
+    public enumRessource produireRessource() {
         return ressource;
     }
 }
