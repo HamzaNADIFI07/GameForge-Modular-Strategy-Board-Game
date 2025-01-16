@@ -75,11 +75,16 @@ Une class Batiment ainsi qu'une class ressource ont été creer pour représent�
 ## Semaine 2
 
 ### Ce qui a été réalisé
+Après une réflexion sur le diagramme UML, nous avons conclu qu'il est nécessaire de créer
+ une classe énumération (enum) pour représenter les différents types de ressources.
+ Nous avons également modifié la classe Forêt afin qu'elle soit mieux compatible avec les autres classes
 
 ### Difficultés rencontrées
-
+Pendant la séance, l'adaptation du reste du code du projet à cette classe d'énumération était floue, 
+et le diagramme UML n'était pas à jour par rapport au reste du code
 ### Objectifs pour la semaine
-
+Il s'agit de mettre à jour le diagramme UML, 
+d'adapter la classe Ressource au reste du code, et d'intégrer efficacement la classe d'énumération
 ## Semaine 3
 
 ### Ce qui a été réalisé
