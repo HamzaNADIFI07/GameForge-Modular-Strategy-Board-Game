@@ -10,6 +10,12 @@ import tuile.type_tuile.Mer;
 import tuile.type_tuile.Montagne;
 import tuile.type_tuile.Paturage;
 
+/**
+ * La classe Plateau représente un plateau de jeu composé de tuiles.
+ * Elle permet d'initialiser un plateau, de générer des tuiles aléatoires
+ * et d'appliquer des contraintes d'adjacence pour les tuiles non Mer 
+ * avec le respect de la contrainte de 1/3 des tuile non Mer et 2/3 de tuile Mer
+ */
 public class Plateau {
 	private final Tuile[][] tuile ;
 	private final int x ;
@@ -73,7 +79,11 @@ public class Plateau {
     }
 
     /**
-     * Génère une tuile non-marine aléatoirement
+     * Génère une tuile non Mer aléatoirement.
+     * 
+     * @param x la coordonnée en x de la tuile
+     * @param y la coordonnée en y de la tuile
+     * @return une tuile non Mer aléatoire
      */
     private Tuile genererTuileNonMerAleatoire(int x,int y) {
         Random random = new Random();
@@ -90,7 +100,10 @@ public class Plateau {
 
 
 
-    // Ajuste les contraintes d'adjacence pour les tuiles non-marines
+    /**
+     * Ajuste les contraintes d'adjacence pour les tuiles non Mer.
+     * Assure qu'aucune tuile non Mer n'est isolée sans tuile adjacente non Mer.
+     */
     private void ajusterContraintesAdjacentes() {
         Random random = new Random();
 
@@ -125,7 +138,11 @@ public class Plateau {
         }
     }
 
-    // Méthode pour compter le nombre de tuiles non Mer
+    /**
+     * Compte le nombre de tuiles non Mer sur le plateau.
+     * 
+     * @return le nombre de tuiles non Mer
+     */
     private int getNbTuilesNonMer() {
         int count = 0;
         for (int i = 0; i < this.x; i++) {
@@ -139,7 +156,13 @@ public class Plateau {
     }
 
 
-    // Méthode pour récupérer les positions adjacentes contenant des tuiles marines
+    /**
+     * Récupère les positions adjacentes contenant des tuiles Mer.
+     * 
+     * @param x la coordonnée en x de la tuile
+     * @param y la coordonnée en y de la tuile
+     * @return une liste des positions adjacentes contenant des tuiles marines
+     */
     private List<int[]> getPositionsAdjacentesMarines(int x, int y) {
         List<int[]> positions = new ArrayList<>();
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
@@ -157,12 +180,12 @@ public class Plateau {
     }
 
     /**
-     * Vérifie si une tuile a au moins une tuile adjacente non Mer
-     * @param x 
-     * @param y
-     * @return
+     * Vérifie si une tuile a au moins une tuile adjacente non Mer.
+     * 
+     * @param x la coordonnée en x de la tuile
+     * @param y la coordonnée en y de la tuile
+     * @return true si la tuile a une tuile adjacente non-Mer, sinon false
      */
-    // Vérifie si une tuile a au moins une tuile adjacente non Mer
     private boolean aUneTuileAdjacenteNonMer(int x, int y) {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
     
@@ -187,7 +210,7 @@ public class Plateau {
         // Ligne supérieure
         System.out.print("   ");
         for (int j = 0; j < this.x; j++) {
-            // La condition permet de gérer le décalage des indice quand l'indice dépace 9 donc il devient un nombre à deux chiffre, on enlève un décalage pour avoir chque indice bien aligner avec la colonne dédié
+            // La condition permet de gérer le décalage des indice quand l'indice dépace 9 donc il devient un nombre à deux chiffre, on enlève un espace pour avoir chqaue indice bien aligner avec la colonne dédié
             if (j<10) {
                 System.out.print("   " + j + "  ");
             }
