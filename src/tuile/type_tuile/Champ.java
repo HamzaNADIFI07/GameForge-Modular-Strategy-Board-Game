@@ -7,6 +7,7 @@ import tuile.Tuile;
  * La classe Champ représente une tuile de type champ dans le jeu.
  */
 public class Champ extends Tuile {
+    
 	private final enumRessource ressource;
 
     /**
