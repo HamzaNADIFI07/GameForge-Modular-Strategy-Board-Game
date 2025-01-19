@@ -3,18 +3,30 @@ package tuile.type_tuile;
 import ressource.enumRessource;
 import tuile.Tuile;
 
-
+/**
+ * La classe Champ représente une tuile de type champ dans le jeu.
+ */
 public class Champ extends Tuile {
 	private final enumRessource ressource;
 
     /**
      * Constructeur de la classe Champ.
+     * Initialise une tuile de type Champ avec des coordonnées spécifiques.
+     * La ressource produite par un champ est toujours du blé.
+     * 
+     * @param x la coordonnée x de la tuile
+     * @param y la coordonnée y de la tuile
      */
     public Champ(int x, int y) {
         super("Champ", x, y);
-        this.ressource = enumRessource.Ble; // Utilisation correcte de l'énumération
+        this.ressource = enumRessource.Ble;
     }
 
+    /**
+     * Retourne la ressource produite par cette tuile (blé).
+     * 
+     * @return la ressource produite par la tuile (enumRessource.Ble)
+     */
     public enumRessource getRessource() {
         return ressource;
     }
