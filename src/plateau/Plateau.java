@@ -11,14 +11,10 @@ import tuile.type_tuile.Montagne;
 import tuile.type_tuile.Paturage;
 
 public class Plateau {
-	private Tuile[][] tuile ;
-	private int x ;
-	private int y;
-	private int nbMers;
-    private int nbChamps;
-    private int nbForets;
-    private int nbMontagnes;
-    private int nbPaturages;
+	private final Tuile[][] tuile ;
+	private final int x ;
+	private final int y;
+
 
 
     /**
@@ -33,11 +29,6 @@ public class Plateau {
         this.x = x;
         this.y = y;
         this.tuile = new Tuile[x][y];
-        this.nbMers = x*y;
-        this.nbChamps = 0;
-        this.nbForets = 0;
-        this.nbMontagnes = 0;
-        this.nbPaturages = 0;
         initialiserPlateau();
     
     }
@@ -84,28 +75,6 @@ public class Plateau {
     /**
      * Génère une tuile non-marine aléatoirement
      */
-    
-    //On évite le switch en POO parce qu'il rend le code moins flexible et plus difficile à maintenir,
-    // il faut qu'on trouve une autre facon de faire cette méthode :
-    // private Tuile genererTuileNonMerAleatoire() {
-    //     Random random = new Random();
-    //     int type = random.nextInt(4); // 4 types de tuiles non-marines
-
-    //     switch (type) {
-    //         case 0: 
-    //             return new Champ();
-    //         case 1: 
-    //             return new Foret();
-    //         case 2: 
-    //             return new Montagne();
-    //         case 3: 
-    //             return new Paturage();
-    //         default: 
-    //             return new Mer(); //à la base ils sont tous de type Mer mais on mais le cas par defaut Mer au cas où par securité
-    //     }
-    // }
-
-
     private Tuile genererTuileNonMerAleatoire(int x,int y) {
         Random random = new Random();
     
@@ -187,7 +156,12 @@ public class Plateau {
         return positions;
     }
 
-
+    /**
+     * Vérifie si une tuile a au moins une tuile adjacente non Mer
+     * @param x 
+     * @param y
+     * @return
+     */
     // Vérifie si une tuile a au moins une tuile adjacente non Mer
     private boolean aUneTuileAdjacenteNonMer(int x, int y) {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
@@ -252,26 +226,6 @@ public class Plateau {
         }
     }
 
-	public int getNbMers() {
-		return nbMers;
-	}
-
-	public int getNbChamps() {
-		return nbChamps;
-	}
-
-	public int getNbForets() {
-		return nbForets;
-	}
-
-	public int getNbMontagnes() {
-		return nbMontagnes;
-	}
-
-	public int getNbPaturages() {
-		return nbPaturages;
-	}
-    
 
     }
 	

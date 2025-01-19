@@ -4,7 +4,7 @@ import ressource.enumRessource;
 import tuile.Tuile;
 
 public class Foret extends Tuile{
-    private enumRessource ressource;
+    private final enumRessource ressource;
     /**
      * Constructeur de la classe Foret.
      */

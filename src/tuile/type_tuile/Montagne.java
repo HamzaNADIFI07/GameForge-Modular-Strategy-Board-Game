@@ -4,7 +4,7 @@ import ressource.enumRessource;
 import tuile.Tuile;
 
 public class Montagne extends Tuile {
-	private enumRessource ressource;
+	private final enumRessource ressource;
 
     public Montagne(int x, int y) {
         super("Montagne", x, y);
