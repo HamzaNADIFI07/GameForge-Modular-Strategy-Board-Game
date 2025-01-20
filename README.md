@@ -26,8 +26,54 @@ Un lien vers une image de l'UML doit être fourni (une photo d'un diagramme UML 
 https://lucid.app/lucidchart/7054f712-50b3-4e10-b6b1-dec0da30ec03/edit?viewport_loc=-11%2C-11%2C2219%2C1048%2C0_0&invitationId=inv_59b50eb4-21e7-436e-b32d-8b2cb42cb428
 
 ## Livrable 1
-
+- Commande pour creer uniquement le Jar:
+```bash
+Make jar
+```
+- Commande pour exécuter  uniquement le Jar:
+```bash
+Make run_jar
+```
+- Commandes pour compiler et exécuter via le Jar(afficher le Plateau):
+```bash
+Make
+```
+- Commandes pour supprimer les fichier compilés et le Jar:
+```bash
+Make clean
+```
 ### Atteinte des objectifs
+
+Pour le premier livrable, nous avons travaillé sur la **modélisation du plateau de jeu** et la **gestion des tuiles** et des **ressources**.
+
+Les objectifs atteints :
+
+1. Structure du plateau :
+
+- Création de la classe `Plateau` permettant de représenter le plateau de jeu sous la forme d'une grille de dimensions personnalisées à la creation du plateau.
+- Mise en place d'une méthode d'initialisation du plateau où toutes les tuiles sont de type Mer par défaut.
+- Ajout d'une méthode pour **générer aléatoirement les tuiles** du plateau tout en respectant les contraintes spécifiées dans le sujet :
+    - Au moins 2/3 des tuiles doivent être de type `Mer`.
+    - Les tuiles non Mer doivent être adjacentes à au moins une autre tuile non Mer.
+
+2. Gestion des types de tuiles et des ressources:
+
+- Création des classes spécifiques pour les différents types de tuiles : `Champ`, `Foret`, `Montagne`, `Paturage`, et `Mer`.
+- Chaque type de tuile est associé à une ressource spécifique via une énumération `enumRessource`.
+
+3. Affichage du plateau :
+
+- Mise en place d'une méthode `display` dans la classe `Plateau` permettant un affichage visuel du plateau de jeu dans la console.
+- Les tuiles sont représentées par leurs initiales (ou par les deux premières lettres pour éviter les ambiguïtés).
+
+4. La classe **Main**:
+
+- Création d'une classe `Main` pour tester l'initialisation, la génération des tuiles, et l'affichage du plateau.
+
+5. Organisation et structure du projet :
+
+- Organisation des fichiers sources dans des packages distincts (`plateau`, `tuile`, `type_tuile`,`ressource`,`batiment`).
+- Mise en place d'un Makefile pour la compilation, l'exécution, et la génération d'un fichier `L2S4-Projet-2025.jar` exécutable.
 
 ### Difficultés restant à résoudre
 
