@@ -182,15 +182,22 @@ Plateau généré :
 ```
 On peut constater sur les rendus qu'on a aucune tuile non Mer toute seul et que le nombre de tuiles non Mer et toujours inférieur ou égale 1/3 du nombres totale des tuiles.
 
-### **Hamza** Le 14/01/2024
+### **Hamza** Le 20/01/2024
+- Commande pour creer uniquement le Jar:
+```bash
+Make jar
+```
+- Commande pour exécuter  uniquement le Jar:
+```bash
+Make run_jar
+```
+- Commandes pour compiler et exécuter via le Jar(afficher le Plateau):
+```bash
+Make
+```
+- Commandes pour supprimer les fichier compilés et le Jar:
+```bash
+Make clean
+```
 
-Les Commandes pour afficher le Plateau:
-- Pour compiler le programme:
-```bash
-#javac Main.java ./plateau/Plateau.java ./tuile/Tuile.java
-```
-- Pour exécuter le programme:
-```bash
-#java main
-```
 
