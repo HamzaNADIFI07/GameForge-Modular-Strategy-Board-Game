@@ -64,7 +64,7 @@ local.properties
 
 # Uncomment this line if you wish to ignore the project description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
-#.project
+.project
 
 ### Eclipse Patch ###
 # Spring Boot Tooling
@@ -265,6 +265,8 @@ Temporary Items
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+.vscode/
+
 # Local History for Visual Studio Code
 .history/
 
@@ -301,5 +303,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+.classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/java,linux,windows,macos,eclipse,visualstudiocode,intellij
