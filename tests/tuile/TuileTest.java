@@ -18,4 +18,13 @@ public void testGetType() {
     assertEquals("Champ", champ.getType(), "Le type de la tuile doit être 'champ'.");
 
 }
+@Test
+public void testGetAdjacents() {
+    Tuile mer1 = new Mer(0, 0);
+    assertTrue(mer1.getAdjacents().isEmpty(), "La liste des adjacents doit être vide par défaut.");
+    Tuile mer2 = new Mer(0, 1);
+    assertTrue(mer2.getAdjacents().contains(mer1));
+}
+
+
 }
