@@ -1,14 +1,17 @@
 package plateau;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+public class PlateauTest{
+	
+private Plateau plateau;
 
-class PlateauTest {
+@BeforeEach
+public void setup() {
+    plateau = new Plateau(10, 10); // Plateau 10x10
+}
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
 
 }
