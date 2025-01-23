@@ -14,4 +14,5 @@ class TuileTest {
         Tuile tuile = new Mer(0, 0); 
         assertEquals("Mer", tuile.getType());
     }
+    
 }
