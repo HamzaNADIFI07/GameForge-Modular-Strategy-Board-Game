@@ -4,7 +4,11 @@ import tuile.type_tuile.Mer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
 
 public class PlateauTest{
 	
@@ -19,8 +23,16 @@ public class PlateauTest{
 		plateau.genererTuiles();
 		int nombreTuileMer = plateau.getNbTuilesMer();
 		int nbTuiles = plateau.getX() * plateau.getY();
-		assertTrue(nombreTuileMer>=2*nbTuiles/3, 
-				"Le nombre de tuiles non-Mer doit être égal à 1/3 du nombre total de tuiles.");
+		assertTrue(nombreTuileMer>=2*nbTuiles/3, "Le nombre de tuiles non-Mer doit être égal à 1/3 du nombre total de tuiles.");
+		for (int i = 0; i < plateau.getX(); i++) {
+    		for (int j = 0; j < plateau.getY(); j++) {
+    			if (!(plateau.getTuile(i, j) instanceof Mer)) {
+					List<int[]> positions = plateau.getTuile(i, j).getPositionsAdjacentesMarines(i,j);//On récupère les positions adjacentes Mer de la tuile en question
+    				assertTrue(positions.size()<4);// Et on vérifie qu'il y a moins de 4 tuiles adjacentes de type Mer
+        		}	
+        	}
+    	}
+
 	}
 	@Test
 	public void testPlateauInitialiseAvecMer() {
