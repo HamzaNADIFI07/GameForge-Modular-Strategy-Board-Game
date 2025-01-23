@@ -11,6 +11,7 @@ class TuileTest {
 
     @BeforeEach
     public void setup() {
-        tuile = new TuileTestConcrete("Foret", 5, 7);
+        Tuile tuile = new Mer(0, 0); 
+        assertEquals("Mer", tuile.getType());
     }
 }
