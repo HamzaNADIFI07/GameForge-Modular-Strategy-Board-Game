@@ -14,5 +14,8 @@ class TuileTest {
         Tuile tuile = new Mer(0, 0); 
         assertEquals("Mer", tuile.getType());
     }
-    
-}
+@Test
+public void testGetType() {
+    assertEquals("Mer", tuile.getType(), "Le type de la tuile doit être 'Mer'.");
+}}
+
