@@ -155,6 +155,23 @@ public class Plateau {
         return count;
     }
 
+    /**
+     * Compte le nombre de tuiles Mer sur le plateau.
+     * 
+     * @return le nombre de tuiles Mer
+     */
+    int getNbTuilesMer() {
+        int count = 0;
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                if ((tuile[i][j] instanceof Mer)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 
     /**
      * Récupère les positions adjacentes contenant des tuiles Mer.

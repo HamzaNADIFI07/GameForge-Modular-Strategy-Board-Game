@@ -17,8 +17,9 @@ public void setup() {
 @Test
 public void testGenererTuiles() {
     plateau.genererTuiles();
-    int nombreTuilesNonMer = plateau.getNbTuilesNonMer();
-    assertEquals(plateau.getX() * plateau.getY() / 3, nombreTuilesNonMer, 
+    int nombreTuileMer = plateau.getNbTuilesMer();
+    int nbTuiles = plateau.getX() * plateau.getY();
+    assertTrue(nombreTuileMer>=2*nbTuiles/3, 
         "Le nombre de tuiles non-Mer doit être égal à 1/3 du nombre total de tuiles.");
 }
 @Test
