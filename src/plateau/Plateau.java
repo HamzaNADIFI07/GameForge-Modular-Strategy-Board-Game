@@ -255,6 +255,10 @@ public class Plateau {
     public int getY() {
         return this.y;
     }
+    public Tuile getTuile(int x, int y) {
+        return tuile[x][y];
+    }
+
 
 
 
