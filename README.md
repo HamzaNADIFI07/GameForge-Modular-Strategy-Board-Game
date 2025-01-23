@@ -134,10 +134,18 @@ d'adapter la classe Ressource au reste du code, et d'intégrer efficacement la c
 ## Semaine 3
 
 ### Ce qui a été réalisé
+Mise à jour du diagramme UML en tenant compte des modifications mise en place dans l'algorithme.
+Reflexion sur la classe abstraite Batiment pour savoir s'il s'agit d'un heritage de tuile ou non ( cette reflexion sera peaufinée) dans le livrable 2.
+Mise en place des methodes de test.
 
 ### Difficultés rencontrées
 
+reflexion encore sur la representation de la classe 
+abstrait Batiment 
+
 ### Objectifs pour la semaine
+Mettre à jour le diagramme UML,
+Créer les methodes de test
 
 ## Semaine 4
 
