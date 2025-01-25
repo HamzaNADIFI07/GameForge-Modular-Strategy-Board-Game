@@ -3,6 +3,7 @@ package batiment;
 public abstract class Batiment {
     protected String type;
     protected int dimension;
+    
 
 
     /**
@@ -14,6 +15,15 @@ public abstract class Batiment {
     public Batiment(String type, int dimension) {
         this.type = type;
         this.dimension = dimension;
+    }
+
+    /**
+     * Retourne le type du bâtiment.
+     * 
+     * @return le type du bâtiment
+     */
+    public String getType() {
+        return type;
     }
 
     public abstract int getDimension();
