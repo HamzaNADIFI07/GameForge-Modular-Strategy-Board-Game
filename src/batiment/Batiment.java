@@ -1,8 +1,11 @@
 package batiment;
 
+import tuile.Tuile;
+
 public abstract class Batiment {
     protected String type;
     protected int dimension;
+    protected Tuile tuile;
     
 
 
@@ -42,6 +45,15 @@ public abstract class Batiment {
      */
     public void setDimension(int dimension) {
         this.dimension = dimension;
+    }
+
+    /**
+     * Retourne la tuile sur laquelle le bâtiment est construit.
+     * 
+     * @return la tuile sur laquelle le bâtiment est construit
+     */
+    public Tuile getTuile() {
+        return tuile;
     }
 
     /**
