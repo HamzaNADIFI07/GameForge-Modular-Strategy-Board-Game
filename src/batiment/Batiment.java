@@ -43,6 +43,12 @@ public abstract class Batiment {
     public void setDimension(int dimension) {
         this.dimension = dimension;
     }
-    
+
+    /**
+     * Vérifie si le bâtiment peut être construit sur une tuile donnée.(Pour la contrainte des ports, camps, exploitation)
+     * 
+     * @return true si le bâtiment peut être construit, sinon false
+     */
+    public abstract boolean peutEtreConstruit(String tuileType);
 }
 

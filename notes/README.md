@@ -199,5 +199,9 @@ Make
 ```bash
 Make clean
 ```
+### **Hamza** Le 25/01/2024
 
+En pensant à la modélisation des batiments, je pense qu'on a deux manière pour modéliser les camps et les exploitations, soit on mets camp et exploitation comme attribut boolean initialisé à False à la class armées et ferme et on les met à jour à True dès que le joueur le souhaite en verifiant les conditions nécessaires pour creer un camp et une exploitaion.
+
+Soit on crée une class Camp et Exploitation dès que le joueur souhaite creer un Camp ou une Exploitation on cree une instance de l'objet souhaité et on le remplace à la place de l'instance de armée ou ferme.
 
