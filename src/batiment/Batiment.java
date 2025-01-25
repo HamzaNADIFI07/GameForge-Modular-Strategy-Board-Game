@@ -10,7 +10,7 @@ public abstract class Batiment {
      * Constructeur de la classe Batiment.
      * 
      * @param nom le nom du bâtiment
-     * @param taille la taille ou la capacité du bâtiment
+     * @param dimension la dimensiondu bâtiment
      */
     public Batiment(String type, int dimension) {
         this.type = type;
@@ -26,8 +26,23 @@ public abstract class Batiment {
         return type;
     }
 
-    public abstract int getDimension();
+    /**
+     * Retourne la dimension du bâtiment.
+     * 
+     * @return la dimension du bâtiment
+     */
+    public int getDimension() {
+        return dimension;
+    }
 
-    public abstract int setDimension();  /** sous reserve */
+    /**
+     * Définit une nouvelle dimension pour le bâtiment.
+     * 
+     * @param dimension la nouvelle dimension du bâtiment
+     */
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+    }
+    
 }
 
