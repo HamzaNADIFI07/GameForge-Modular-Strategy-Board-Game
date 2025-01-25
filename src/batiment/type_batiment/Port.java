@@ -6,16 +6,15 @@ import tuile.type_tuile.Mer;
 
 public class Port extends Batiment{
     /**
-     * Constructeur de la classe Ferme.
+     * Constructeur de la classe Port.
      */
-    public Port() {
-        super("Port", 1);
+    public Port(Tuile tuile) {
+        super("Port", 1, tuile);
     }
 
     /**
      * Vérifie si le bâtiment peut être construit.
      * 
-     *  @param tuileType le type de la tuile
      */
     // Pour l'instant dans cette  méthode, on va implémenter juste la contrainte du fait qu'un port ne peut être construit que sur une tuile voisine à une tuile de type Mer.
     // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construirePort()

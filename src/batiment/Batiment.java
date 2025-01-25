@@ -15,9 +15,10 @@ public abstract class Batiment {
      * @param nom le nom du bâtiment
      * @param dimension la dimensiondu bâtiment
      */
-    public Batiment(String type, int dimension) {
+    public Batiment(String type, int dimension, Tuile tuile) {
         this.type = type;
         this.dimension = dimension;
+        this.tuile = tuile;
     }
 
     /**
