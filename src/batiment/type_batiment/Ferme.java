@@ -15,12 +15,11 @@ public class Ferme extends Batiment{
      * 
      *  @param tuileType le type de la tuile
      */
-    // Pour l'instant la méthode n'est pas encore complételemt implémentée en attendant la modélisation des actions 
-    // pour vérifier si le joueur dispose des ressources nécessaires pour construire une ferme.
+    // Pour l'instant dans cette  méthode, on va implémenter juste la contrainte du fait qu'une ferme ne peut pas être construite sur une tuile de type Mer.
+    // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construireFerme()
     public boolean peutEtreConstruit() {
         if (this.getType().equals("Mer")) {
             throw new IllegalArgumentException("Une ferme ne peut pas être construite sur une tuile de type Mer.");
-            
         }
         return true;
     }
