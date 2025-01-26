@@ -24,6 +24,13 @@ public class Paturage extends Tuile{
         this.ressource = enumRessource.Moutons;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
     /**
      * Retourne la ressource produite par cette tuile (moutons).
      * 
