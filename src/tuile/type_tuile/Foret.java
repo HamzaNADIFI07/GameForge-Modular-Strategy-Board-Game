@@ -36,7 +36,7 @@ public class Foret extends Tuile{
      * 
      * @return la ressource produite par la tuile (enumRessource.Bois)
      */
-    public enumRessource getRessource() {
+    public enumRessource produireRessource() {
         return ressource;
 }
 
