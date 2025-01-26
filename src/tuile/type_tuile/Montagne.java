@@ -22,6 +22,13 @@ public class Montagne extends Tuile {
         this.ressource = enumRessource.Minerai;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
     /**
      * Retourne la ressource produite par cette tuile (minerai).
      * 
