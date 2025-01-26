@@ -20,5 +20,11 @@ public class Mer extends Tuile{
         super("Mer", x, y);
     }
 
-    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

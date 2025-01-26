@@ -17,7 +17,7 @@ public class ForetTest {
 
 		// Verifie si les coordonnées sont bien initialisées
 		assertEquals(x, foret.getX());
-		assretEquals(y, foret.getY());
+		assertEquals(y, foret.getY());
 
 		// Verifier si la ressource est correctement initialisée à enumRessource.Bois
 		assertEquals(enumRessource.Bois, foret.getRessource());

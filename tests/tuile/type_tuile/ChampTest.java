@@ -16,8 +16,8 @@ public class ChampTest {
 	public void testChampConstructor() {
 		// on crée une instance de champs avec des coordonnées(x, y)
 
-		int x = 15;
-		int y = 30;
+		int x = 10;
+		int y = 20;
 		Champ champ = new Champ(x, y);
 
 		// Verifie si les coordonnées sont bien initialisées
