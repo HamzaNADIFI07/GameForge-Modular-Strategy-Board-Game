@@ -13,7 +13,7 @@ import java.util.List;
 public class ChampTest {
 
 	@Test
-	public void test() {
+	public void testChampConstructor() {
 		// on crée une instance de champs avec des coordonnées(x, y)
 
 		int x = 15;

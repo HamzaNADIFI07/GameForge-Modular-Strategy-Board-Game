@@ -23,6 +23,13 @@ public class Champ extends Tuile {
         this.ressource = enumRessource.Ble;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
     /**
      * Retourne la ressource produite par cette tuile (blé).
      * 

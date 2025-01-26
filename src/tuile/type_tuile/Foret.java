@@ -22,6 +22,15 @@ public class Foret extends Tuile{
 	    super("Forêt", x, y);
         this.ressource = enumRessource.Bois;
 }
+
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
     /**
      * Retourne la ressource produite par cette tuile (bois).
      * 

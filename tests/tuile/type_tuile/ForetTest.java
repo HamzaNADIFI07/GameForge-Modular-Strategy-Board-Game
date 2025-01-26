@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class ForetTest {
 
 	@Test
-	public void ForetTest() {
+	public void testForetConstructor() {
 		int x = 10;
 		int y = 20;
 		Foret foret = new Foret(x, y);
