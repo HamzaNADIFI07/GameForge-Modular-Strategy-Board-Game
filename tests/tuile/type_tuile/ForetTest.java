@@ -15,11 +15,16 @@ public class ForetTest {
 		int y = 20;
 		Foret foret = new Foret(x, y);
 
+
+		// Verifier si le nom est correctement Foret
+		assertEquals("Foret", foret.getType());
+
 		// Verifie si les coordonnées sont bien initialisées
 		assertEquals(x, foret.getX());
 		assertEquals(y, foret.getY());
 
-		// Verifier si la ressource est correctement initialisée à enumRessource.Bois
+
+		// Verifie si la ressource est correctement initialisée à enumRessource.Bois
 		assertEquals(enumRessource.Bois, foret.getRessource());
 
 	}

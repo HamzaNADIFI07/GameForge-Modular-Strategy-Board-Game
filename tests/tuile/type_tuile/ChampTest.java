@@ -20,6 +20,9 @@ public class ChampTest {
 		int y = 20;
 		Champ champ = new Champ(x, y);
 
+		// Verifier si le nom est correctement Montagne
+		assertEquals("Champ", champ.getType());
+
 		// Verifie si les coordonnées sont bien initialisées
 		assertEquals(x, champ.getX());
 		assertEquals(y, champ.getY());

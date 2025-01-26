@@ -13,6 +13,10 @@ public class MerTest {
 		// créer une instance de mer
 		Mer mer = new Mer(10, 20);
 
+
+		// Verifier si le nom est correctement Montagne
+		assertEquals("Mer", mer.getType());
+
 		// Verifier que les valeurs sont initialisées
 		assertEquals(15, mer.getX());
         assertEquals(20, mer.getY());
