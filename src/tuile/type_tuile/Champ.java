@@ -35,7 +35,7 @@ public class Champ extends Tuile {
      * 
      * @return la ressource produite par la tuile (enumRessource.Ble)
      */
-    public enumRessource getRessource() {
+    public enumRessource produireRessource() {
         return ressource;
     }
 
