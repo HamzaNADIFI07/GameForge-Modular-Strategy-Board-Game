@@ -1,11 +1,14 @@
 package tuile.type_tuile;
 import tuile.type_tuile.Montagne;
-
+import ressource.enumRessource;
+import tuile.Tuile;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 class MontagneTest {
 
@@ -19,12 +22,13 @@ class MontagneTest {
 
 		// Verifie si le nom est correctement Montagne
 		 assertEquals("Montagne", montagne.getType());
-	}
+	
 		// Verifie si les coordonnées sont initialisées
-		assertEquals(x, montagne.getX());
-		assertEquals(y, montagne.getY());
+		 assertEquals(x, montagne.getX());
+		 assertEquals(y, montagne.getY());
 
 
 		//Verifie si la ressource est bien Minerai
 		assertEquals(enumRessource.Minerai, montagne.produireRessource());
-}
+	}
+}	
