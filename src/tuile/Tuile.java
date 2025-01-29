@@ -69,4 +69,9 @@ public abstract class Tuile {
     public void retirerBatiment() {
     	this.batiment = null;
     }
+
+    public List<int[]> getPositionsAdjacentesMer(int i, int j) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPositionsAdjacentesMer'");
+    }
 }
