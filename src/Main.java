@@ -1,25 +1,36 @@
 
 import plateau.Plateau;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.out.println("Usage: java Plateau <largeur> <hauteur>");
-            return;
+        Scanner scanner = new Scanner(System.in);
+
+        int x, y;
+        while (true) {
+            try {
+                System.out.print("Entrez la largeur du plateau: ");
+                x = Integer.parseInt(scanner.nextLine());
+
+                System.out.print("Entrez la hauteur du plateau: ");
+                y = Integer.parseInt(scanner.nextLine());
+
+                if (x > 0 && y > 0) {
+                    break;
+                } else {
+                    System.out.println("Les dimensions doivent être des entiers positifs.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Veuillez entrer des nombres valides.");
+            }
         }
 
-        try {
-            int x = Integer.parseInt(args[0]);
-            int y = Integer.parseInt(args[1]);
-        // Création du plateau
-        Plateau plateau = new Plateau(x,y);
-        // Géneration des Tuiles dans le plateau
+        // Création et affichage du plateau
+        Plateau plateau = new Plateau(x, y);
         plateau.genererTuiles();
-        // Affichage du plateau
         System.out.println("Plateau généré :");
         plateau.display();
-        } catch (NumberFormatException e) {
-            System.out.println("Les arguments doivent être des nombres entiers.");
-        }
+
+        scanner.close();
     }
 }
