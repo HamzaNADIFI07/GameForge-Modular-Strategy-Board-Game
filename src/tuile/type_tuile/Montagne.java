@@ -18,7 +18,7 @@ public class Montagne extends Tuile {
      * @param y la coordonnée y de la tuile
      */
     public Montagne(int x, int y) {
-        super("Montagne", x, y);
+        super(x, y);
         this.ressource = enumRessource.Minerai;
     }
 
@@ -36,5 +36,9 @@ public class Montagne extends Tuile {
      */
     public enumRessource produireRessource() {
         return ressource;
+    }
+
+    public String toString(){
+        return "M";
     }
 }
