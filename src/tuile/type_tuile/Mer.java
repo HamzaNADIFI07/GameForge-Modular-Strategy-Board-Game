@@ -17,7 +17,7 @@ public class Mer extends Tuile{
      * @param y la coordonnée y de la tuile
      */
     public Mer(int x, int y) {
-        super("Mer", x, y);
+        super(x, y);
     }
 
     public int getX() {
@@ -26,5 +26,8 @@ public class Mer extends Tuile{
 
     public int getY() {
         return y;
+    }
+    public String toString(){
+        return "~";
     }
 }
