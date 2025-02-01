@@ -18,9 +18,9 @@ public class Champ extends Tuile {
      * @param x la coordonnée x de la tuile
      * @param y la coordonnée y de la tuile
      */
-    public Champ(int x, int y) {
-        super("Champ", x, y);
-        this.ressource = enumRessource.Ble;
+    public Champ(int x,int y) {
+        super(x,y);
+        this.ressource=enumRessource.Ble;
     }
 
     public int getX() {
@@ -37,6 +37,9 @@ public class Champ extends Tuile {
      */
     public enumRessource produireRessource() {
         return ressource;
+    }
+    public String toString(){
+        return "C";
     }
 
 }
