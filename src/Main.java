@@ -5,32 +5,30 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int largeur, hauteur;
-        System.out.println("Bienvenue ! Veuillez entrer les dimensions du plateau.");
-
+        int x, y;
         while (true) {
             try {
-                System.out.print("Largeur: ");
-                largeur = Integer.parseInt(scanner.nextLine());
+                System.out.print("Entrez la largeur du plateau: ");
+                x = Integer.parseInt(scanner.nextLine());
 
-                System.out.print("Hauteur: ");
-                hauteur = Integer.parseInt(scanner.nextLine());
+                System.out.print("Entrez la hauteur du plateau: ");
+                y = Integer.parseInt(scanner.nextLine());
 
-                if (largeur > 0 && hauteur > 0) {
-                    break; // Sortie de la boucle si les valeurs sont valides
+                if (x > 0 && y > 0) {
+                    break;
                 } else {
-                    System.out.println("Erreur: Les dimensions doivent être des entiers positifs.");
+                    System.out.println("Les dimensions doivent être des entiers positifs.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Erreur: Veuillez entrer des nombres valides.");
+                System.out.println("Veuillez entrer des nombres valides.");
             }
         }
 
         // Création et affichage du plateau
-        Plateau plateau = new Plateau(largeur, hauteur);
-        plateau.genererTuiles(); // Assure-toi que cette méthode existe
+        Plateau plateau = new Plateau(x, y);
+        plateau.genererTuiles();
         System.out.println("Plateau généré :");
-        plateau.display(); // Assure-toi que la méthode display() affiche bien le plateau
+        plateau.display();
 
         scanner.close();
     }
