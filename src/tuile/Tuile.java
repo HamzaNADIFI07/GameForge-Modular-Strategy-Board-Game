@@ -9,36 +9,55 @@ import java.util.List;
  * et un bâtiment.
  */
 public abstract class Tuile {
-
-    protected String type;
     protected Batiment batiment;
     protected List<Tuile> adjacents;
     protected int x;
     protected int y;
 
-    /**
-     * Constructeur de la classe Tuile.
-     * Initialise une tuile avec un type, des coordonnées et une liste vide pour les tuiles adjacentes.
-     * 
-     * @param type le type de la tuile
-     * @param x la coordonnée x de la tuile
-     * @param y la coordonnée y de la tuile
-     */
-    public Tuile(String type,int x,int y) {
-        this.type = type;
-        this.x=x;
-        this.y=y;
-        this.adjacents = new ArrayList<>();
+    
+        private String tuile;
+    
+        /**
+         * Constructeur de la classe Tuile.
+         * Initialise une tuile avec un type, des coordonnées et une liste vide pour les tuiles adjacentes.
+         * 
+         * @param type le type de la tuile
+         * @param x la coordonnée x de la tuile
+         * @param y la coordonnée y de la tuile
+         */
+        public Tuile(int x,int y) {
+            this.x=x;
+            this.y=y;
+            this.adjacents = new ArrayList<>();
+        }
+        public String getType(){
+            return this.tuile;
     }
 
-    /**
-     * Retourne le type de la tuile.
-     * 
-     * @return le type de la tuile
-     */
-    public String getType() {
-        return type;
+    public Batiment getBatiment() {
+        return this.batiment;
     }
+
+    public void setBatiment(Batiment batiment) {
+        this.batiment = batiment;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     /**
      * Retourne la liste des tuiles adjacentes.
      * 
@@ -69,9 +88,11 @@ public abstract class Tuile {
     public void retirerBatiment() {
     	this.batiment = null;
     }
-
+    /*
     public List<int[]> getPositionsAdjacentesMer(int i, int j) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPositionsAdjacentesMer'");
     }
+        */
+
+    
 }
