@@ -1,5 +1,6 @@
 package batiment;
-
+import ressource.enumRessource;
+import java.util.Map;
 import tuile.Tuile;
 
 public abstract class Batiment {
@@ -63,5 +64,6 @@ public abstract class Batiment {
      * @return true si le bâtiment peut être construit, sinon false
      */
     public abstract boolean peutEtreConstruit();
+    public abstract Map<enumRessource, Integer> getCout();
 }
 
