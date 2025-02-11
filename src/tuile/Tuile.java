@@ -2,6 +2,7 @@ package tuile;
 import batiment.Batiment;
 import plateau.Plateau;
 import plateau.Plateau.Position;
+import tuile.type_tuile.Mer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,9 +74,10 @@ public abstract class Tuile {
             int newX = this.x + dir[0];
             int newY = this.y + dir[1];
 
-            if (plateau.isValidPosition(new Position(newX, newY)) && plateau.getTuile(newX, newY) instanceof Mer) {
-                positionsMer.add(new int[]{newX, newY});
-            }
+            if (plateau.isValidPosition(plateau.new Position(newX, newY)) && 
+                    plateau.getTuile(newX, newY) instanceof Mer) {
+                    positionsMer.add(new int[]{newX, newY});
+                }
         }
         return positionsMer;
     }
