@@ -31,6 +31,13 @@ public class Plateau {
         this.tuile = new Tuile[x][y];
         cons();
     }
+    public void genererTuiles() {
+        List<Tuile> listeTuile = this.genereListe();  // Récupère la liste des tuiles générées
+        for (Tuile t : listeTuile) {
+            this.tuile[t.getX()][t.getY()] = t;  // Place chaque tuile dans `tuile[][]`
+        }
+    }
+
 
     /**
      * Initialise le plateau avec des tuiles respectant la contrainte des couples non Mer.
