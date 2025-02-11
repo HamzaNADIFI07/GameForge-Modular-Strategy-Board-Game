@@ -14,17 +14,18 @@ public class Port extends Batiment{
 
     /**
      * Vérifie si le bâtiment peut être construit.
-     * 
+     * Un port doit être adjacent à une tuile de type Mer.
+     * @return true si la construction est possible, sinon false.
      */
-    // Pour l'instant dans cette  méthode, on va implémenter juste la contrainte du fait qu'un port ne peut être construit que sur une tuile voisine à une tuile de type Mer.
-    // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construirePort()
     @Override
     public boolean peutEtreConstruit() {
+        if (this.getTuile() == null) return false;
+
         for (Tuile tuile : this.getTuile().getAdjacents()) {
             if (tuile instanceof Mer) {
-                return true;
+                return true; //  Le port peut être construit car une tuile voisine est de type Mer
             }
         }
-        return false;
+        return false; // Si aucune tuile adjacente n'est une Mer, le port ne peut pas être construit
     }
 }
