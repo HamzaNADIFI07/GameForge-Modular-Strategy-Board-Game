@@ -2,6 +2,11 @@ package batiment;
 
 import tuile.Tuile;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import ressource.enumRessource;
+
 public abstract class Batiment {
     protected String type;
     protected int dimension;
