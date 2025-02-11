@@ -27,7 +27,7 @@ public class Ferme extends Batiment{
      */
     @Override
     public boolean peutEtreConstruit() {
-        if (this.getTuile() != null && this.getTuile().getType().equals("Mer")) {
+        if (this.getTuile() != null && !(this.getTuile().getType().equals("Mer"))) {
             throw new IllegalArgumentException("Une ferme ne peut pas être construite sur une tuile de type Mer.");
         }
         return true;
