@@ -1,33 +1,36 @@
 import plateau.Plateau;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Vérification des arguments
-        if (args.length < 2) {
-            System.out.println("Usage: java Main <largeur> <hauteur>");
-            return;
-        }
+        Scanner scanner = new Scanner(System.in);
 
-        try {
-            // Récupération des dimensions du plateau depuis les arguments
-            int x = Integer.parseInt(args[0]);
-            int y = Integer.parseInt(args[1]);
+        int x, y;
+        while (true) {
+            try {
+                System.out.print("Entrez la largeur du plateau: ");
+                x = Integer.parseInt(scanner.nextLine());
 
-            // Vérification des contraintes de taille minimale
-            if (x < 10 || y < 10) {
-                System.out.println("La largeur (x) et la hauteur (y) doivent être au moins égales à 10.");
-                return;
+                System.out.print("Entrez la hauteur du plateau: ");
+                y = Integer.parseInt(scanner.nextLine());
+
+                if (x > 0 && y > 0) {
+                    break;
+                } else {
+                    System.out.println("Les dimensions doivent être des entiers positifs.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Veuillez entrer des nombres valides.");
             }
-
-            // Création du plateau
-            Plateau plateau = new Plateau(x, y);
-            // Génération des tuiles dans le plateau
-            plateau.genererTuiles();
-            // Affichage du plateau
-            System.out.println("Plateau généré :");
-            plateau.display();
-        } catch (NumberFormatException e) {
-            System.out.println("Veuillez entrer des nombres entiers valides pour la largeur et la hauteur.");
         }
+
+        // Création et affichage du plateau
+        Plateau plateau = new Plateau(x, y);
+        plateau.genererTuiles();
+        System.out.println("Plateau généré :");
+        plateau.display();
+
+        scanner.close();
     }
 }
+
