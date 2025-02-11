@@ -143,7 +143,7 @@ public class Plateau {
      * 
      * @return le nombre de tuiles non Mer
      */
-    int getNbTuilesNonMer() {
+    public int getNbTuilesNonMer() {
         int count = 0;
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
@@ -160,7 +160,7 @@ public class Plateau {
      * 
      * @return le nombre de tuiles Mer
      */
-    int getNbTuilesMer() {
+    public int getNbTuilesMer() {
         int count = 0;
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {

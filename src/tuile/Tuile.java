@@ -57,6 +57,14 @@ public abstract class Tuile {
     	this.adjacents = adjacents;
     }
 
+    /**
+     * Retourne le batiment construit dans cette tuile.
+     * 
+     * @return batiment construit dans la tuile
+     */
+    public Batiment getBatiment(){
+        return this.batiment;
+    }
     
     //cette méthode ert à forcer les sous-classes à définir comment chaque type de tuile produit une ressource spécifique
     //mais il faut definir une classe abstraite Ressource
