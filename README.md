@@ -151,10 +151,15 @@ Créer les methodes de test
 ## Semaine 4
 
 ### Ce qui a été réalisé
+-Capture d'écran de UML realise pour le livrable 1 et ajout dans le projet
+-Reflexion sur comment générer le plateau avec des arguments entrés par l'utilisateur
 
 ### Difficultés rencontrées
-
+- Plateau de taille standard, qui est problématique lorsque l'utilisateur voudra changer la taille pour des eventuels besoins.
+-Ereur dans le test TestGenererTuile(de la classe plateau)
 ### Objectifs pour la semaine
+- Reflexion sur la création des batiments pour les differents jeux
+-Resolution des probèmes évoqués
 
 ## Semaine 5
 
