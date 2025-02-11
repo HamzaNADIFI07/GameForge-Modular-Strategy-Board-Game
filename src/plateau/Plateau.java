@@ -180,7 +180,7 @@ public class Plateau {
      * @param y la coordonnée en y de la tuile
      * @return une liste des positions adjacentes contenant des tuiles marines
      */
-    private List<int[]> getPositionsAdjacentesMarines(int x, int y) {
+    public List<int[]> getPositionsAdjacentesMarines(int x, int y) {
         List<int[]> positions = new ArrayList<>();
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
 
