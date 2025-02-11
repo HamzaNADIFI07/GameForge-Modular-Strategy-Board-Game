@@ -1,5 +1,8 @@
 package tuile;
 import batiment.Batiment;
+import plateau.Plateau;
+import plateau.Plateau.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +60,26 @@ public abstract class Tuile {
     public void setY(int y) {
         this.y = y;
     }
+    /**
+     * Retourne la liste des positions adjacentes contenant des tuiles de type Mer.
+     * @param plateau Le plateau contenant les tuiles.
+     * @return Liste des positions des tuiles Mer adjacentes.
+     */
+    public List<int[]> getPositionsAdjacentesMer(Plateau plateau) {
+        List<int[]> positionsMer = new ArrayList<>();
+        int[][] directions = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} }; // Haut, Bas, Gauche, Droite
+
+        for (int[] dir : directions) {
+            int newX = this.x + dir[0];
+            int newY = this.y + dir[1];
+
+            if (plateau.isValidPosition(new Position(newX, newY)) && plateau.getTuile(newX, newY) instanceof Mer) {
+                positionsMer.add(new int[]{newX, newY});
+            }
+        }
+        return positionsMer;
+    }
+
 
     /**
      * Retourne la liste des tuiles adjacentes.
