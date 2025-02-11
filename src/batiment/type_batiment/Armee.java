@@ -1,8 +1,10 @@
 package batiment.type_batiment;
 
 import batiment.Batiment;
+import ressource.enumRessource;
 import tuile.Tuile;
-
+import java.util.HashMap;
+import java.util.Map;
 public class Armee extends Batiment {
     
     private int nombreGuerriers;
@@ -31,7 +33,17 @@ public class Armee extends Batiment {
     public int getNombreGuerriers() {
         return nombreGuerriers;
     }
-
+    /**
+     * Retourne le coût de construction de l'armée.
+     * @return Un Map contenant les ressources nécessaires.
+     */
+    @Override
+    public Map<enumRessource, Integer> getCout() {
+        Map<enumRessource, Integer> cout = new HashMap<>();
+        cout.put(enumRessource.Bois, 1);
+        cout.put(enumRessource.Moutons, 1);
+        return cout;
+    }
 
     /**
      * Vérifie si le bâtiment peut être construit.
