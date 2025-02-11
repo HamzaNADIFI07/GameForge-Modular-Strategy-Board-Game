@@ -1,12 +1,10 @@
 package batiment.type_batiment;
 
 import batiment.Batiment;
-import tuile.Tuile;
-
-import ressource.enumRessource;
-
 import java.util.HashMap;
 import java.util.Map;
+import ressource.enumRessource;
+import tuile.Tuile;
 
 public class Armee extends Batiment {
     
@@ -57,7 +55,7 @@ public class Armee extends Batiment {
     // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construireArmee()
     @Override
     public boolean peutEtreConstruit() {
-        if (this.getTuile().getType().equals("Mer")) {
+        if ((this.tuile != null) && !this.getTuile().getType().equals("Mer")) {
             throw new IllegalArgumentException("Une Armee ne peut pas être construite sur une tuile de type Mer.");
         }
         return true;

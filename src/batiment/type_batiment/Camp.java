@@ -1,9 +1,9 @@
 package batiment.type_batiment;
 import batiment.Batiment;
-import ressource.enumRessource;
-import tuile.Tuile;
 import java.util.HashMap;
 import java.util.Map;
+import ressource.enumRessource;
+import tuile.Tuile;
 
 public class Camp extends Batiment {
 
@@ -22,6 +22,6 @@ public class Camp extends Batiment {
 
     @Override
     public boolean peutEtreConstruit() {
-        return (this.tuile != null) && !this.tuile.getType().equals("Mer");
+        return (this.tuile != null) && !this.getTuile().getBatiment().getType().equals("Armee");
     }
 }

@@ -159,12 +159,15 @@ Créer les methodes de test
 -Ereur dans le test TestGenererTuile(de la classe plateau)
 ### Objectifs pour la semaine
 - Reflexion sur la création des batiments pour les differents jeux
--Resolution des probèmes évoqués
+- Resolution des probèmes évoqués
 
 ## Semaine 5
 
 ### Ce qui a été réalisé
-
+- Après avoir fait plusieurs modifications majeurs dans l'algorithme de création du plateau dans la classe `Plateau`, on choisit de revenir à l'ancienne approche qu'on avait avant en récupérant un ancienne commit contenant l'ancienne version de l'algorithme, on créer une nouvelle branche appelé `branche`, on a fusionner les deux branche `main` et `branche` en gardant que ce qui dans la branche `branche`.
+- On a implémenter les deux classe `Exploitation` et `camp` héritant de `Batiment` avec :
+    - Une méthode `getCout()` pour chacune des deux classes et permettant de récupérer le cout de constuction du batiment concerné.
+    - Une méthode `peutEtreConstruit` pour chacune des deux classes et permettant de vérifier la contrainte du fait que une `exploitation`peut etre construite que dans une tuile contenant déjà une `Ferme` et un `camp` peut etre construite que dans une tuile contenant déjà une `Armee`.
 ### Difficultés rencontrées
 
 ### Objectifs pour la semaine
