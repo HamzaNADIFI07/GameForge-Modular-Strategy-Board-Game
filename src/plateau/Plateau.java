@@ -37,6 +37,21 @@ public class Plateau {
             this.tuile[t.getX()][t.getY()] = t;  // Place chaque tuile dans `tuile[][]`
         }
     }
+    /**
+     * Retourne le nombre de tuiles de type Mer sur le plateau.
+     * @return Nombre de tuiles Mer.
+     */
+    public int getNbTuilesMer() {
+        int count = 0;
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                if (this.tuile[i][j] instanceof Mer) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
 
     /**
