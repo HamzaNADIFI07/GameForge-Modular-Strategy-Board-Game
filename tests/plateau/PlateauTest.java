@@ -27,7 +27,7 @@ public class PlateauTest{
 		for (int i = 0; i < plateau.getX(); i++) {
     		for (int j = 0; j < plateau.getY(); j++) {
     			if (!(plateau.getTuile(i, j) instanceof Mer)) {
-					List<int[]> positions = plateau.getTuile(i, j).getPositionsAdjacentesMarines(i,j);//On récupère les positions adjacentes Mer de la tuile en question
+					List<int[]> positions = plateau.getPositionsAdjacentesMarines(i,j);//On récupère les positions adjacentes Mer de la tuile en question
     				assertTrue(positions.size()<4);// Et on vérifie qu'il y a moins de 4 tuiles adjacentes de type Mer
         		}	
         	}

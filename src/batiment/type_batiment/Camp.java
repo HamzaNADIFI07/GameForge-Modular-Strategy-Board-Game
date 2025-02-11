@@ -10,6 +10,8 @@ public class Camp extends Batiment {
     public Camp(Tuile tuile) {
         super("Camp", 3, tuile);  
     }
+    //j'ai utilisé  HashMap car elle permet d’associer chaque type de ressource à sa quantité
+    
     @Override
     public Map<enumRessource, Integer> getCout() {
         Map<enumRessource, Integer> cout = new HashMap<>();
