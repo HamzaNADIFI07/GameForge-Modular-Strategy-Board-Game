@@ -63,5 +63,7 @@ public abstract class Batiment {
      * @return true si le bâtiment peut être construit, sinon false
      */
     public abstract boolean peutEtreConstruit();
+
+    public abstract Map<enumRessource, Integer> getCout();
 }
 
