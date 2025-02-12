@@ -12,5 +12,7 @@ public class Livrable2 {
 		int largeur = Math.max(10,Integer.parseInt(args[0]));
 		int longeur = Math.max(10,Integer.parseInt(args[0]));
 		Plateau plateau = new Plateau(largeur , longeur);
+		plateau.genererTuiles();
+		plateau.display();
 	}
 }
