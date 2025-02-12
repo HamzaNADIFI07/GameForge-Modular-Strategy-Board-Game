@@ -1,3 +1,4 @@
+package main;
 import plateau.Plateau;
 import java.util.Scanner;
 

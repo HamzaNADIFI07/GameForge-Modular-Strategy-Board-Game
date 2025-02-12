@@ -15,6 +15,7 @@ public abstract class Tuile {
     protected List<Tuile> adjacents;
     protected int x;
     protected int y;
+    protected int quatite_ressource;
 
     /**
      * Constructeur de la classe Tuile.
@@ -49,6 +50,30 @@ public abstract class Tuile {
     }
 
     /**
+     * Retourne la quantité de ressource.
+     * 
+     * @return quantité de ressource
+     */
+    public int getQuantiteRessource(){
+        return this.quatite_ressource;
+    }
+    /**
+     * Permet d'incrémenter la quantité de ressource
+     * 
+     */
+    public void incrementerRessource(){
+        this.quatite_ressource++;
+    }
+    /**
+     * Définit la quantité de ressource.
+     * 
+     * @param adjacents la nouvelle quantité de ressource
+     */
+    public void setQuantiteRessource(int quantite){
+        this.quatite_ressource=quantite;
+    }
+
+    /**
      * Définit la liste des tuiles adjacentes.
      * 
      * @param adjacents la nouvelle liste des tuiles adjacentes
@@ -77,4 +102,6 @@ public abstract class Tuile {
     public void retirerBatiment() {
     	this.batiment = null;
     }
+
+
 }
