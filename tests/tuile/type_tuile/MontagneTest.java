@@ -29,6 +29,6 @@ class MontagneTest {
 
 
 		//Verifie si la ressource est bien Minerai
-		assertEquals(enumRessource.Minerai, montagne.produireRessource());
+		assertEquals(enumRessource.Minerai, montagne.getRessource());
 	}
 }	

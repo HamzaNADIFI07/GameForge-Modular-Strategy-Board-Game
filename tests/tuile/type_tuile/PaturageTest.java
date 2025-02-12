@@ -25,7 +25,7 @@ class PaturageTest {
 		assertEquals(y, paturage.getY());
 
 		// Verifie si la ressource est Moutons
-		assertEquals(enumRessource.Moutons, paturage.produireRessource());
+		assertEquals(enumRessource.Moutons, paturage.getRessource());
 		
 	}
 

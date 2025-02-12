@@ -28,7 +28,7 @@ public class ChampTest {
 		assertEquals(y, champ.getY());
 
 		// Verifie si la ressource est correctement initialisée à enumRessource.Ble
-		assertEquals(enumRessource.Ble, champ.produireRessource());
+		assertEquals(enumRessource.Ble, champ.getRessource());
 	}
 
 }

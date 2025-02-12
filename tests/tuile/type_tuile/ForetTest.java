@@ -25,7 +25,7 @@ public class ForetTest {
 
 
 		// Verifie si la ressource est correctement initialisée à enumRessource.Bois
-		assertEquals(enumRessource.Bois, foret.produireRessource());
+		assertEquals(enumRessource.Bois, foret.getRessource());
 
 	}
 
