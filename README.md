@@ -174,12 +174,16 @@ Créer les methodes de test
 ### Objectifs pour la semaine
 
 ## Semaine 6
--Mise à jour de UML
--Mise à jour de l'algorithme tenant compte de l'ancien algorithme
--Création du livrable 2 et des classe Exploitation, Armée, Camp
--Adaptation des classes Champ, Paturage, Foret, Montagne
+-Mettre à jour de UML
+-Mettre à jour de l'algorithme tenant compte de l'ancien algorithme
+-Créer du livrable 2 et des classe Exploitation, Armée, Camp
+-Adaptater des classes Champ, Paturage, Foret, Montagne
 
 ### Ce qui a été réalisé
+-mise à jour de UML
+-mise à jopur de l'algorithme tenant compte de l'ancien algorithme
+-création du livrable 2 et des classes Exploitation, Armée, Camp
+-Adaptation des classes Champ, Patrurage, Foret, Montagne
 
 ### Difficultés rencontrées
 
