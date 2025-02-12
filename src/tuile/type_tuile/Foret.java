@@ -36,8 +36,21 @@ public class Foret extends Tuile{
      * 
      * @return la ressource produite par la tuile (enumRessource.Bois)
      */
-    public enumRessource produireRessource() {
+    public enumRessource getRessource() {
         return ressource;
-}
+    }
+
+    /**
+     * Produit la resource en incrementant sa quantité
+     */
+    public enumRessource produireRessource() {
+        if (super.getBatiment().getType().equals("Exploitation")||super.getBatiment().getType().equals("Camp")){
+            super.incrementerRessource();
+            super.incrementerRessource();
+        }
+        else{
+            super.incrementerRessource();
+        }
+    }
 
 }

@@ -36,8 +36,19 @@ public class Paturage extends Tuile{
      * 
      * @return la ressource produite par la tuile (enumRessource.Moutons)
      */
-    public enumRessource produireRessource() {
-        return ressource;
+    public enumRessource getRessource() {
+        return this.ressource;
     }
-    
+    /**
+     * Produit la resource en incrementant sa quantité
+     */
+    public enumRessource produireRessource() {
+        if (super.getBatiment().getType().equals("Exploitation")||super.getBatiment().getType().equals("Camp")){
+            super.incrementerRessource();
+            super.incrementerRessource();
+        }
+        else{
+            super.incrementerRessource();
+        }
+    }
 }

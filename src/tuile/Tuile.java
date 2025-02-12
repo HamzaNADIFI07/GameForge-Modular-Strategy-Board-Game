@@ -27,9 +27,10 @@ public abstract class Tuile {
      */
     public Tuile(String type,int x,int y) {
         this.type = type;
-        this.x=x;
-        this.y=y;
+        this.x = x;
+        this.y = y;
         this.adjacents = new ArrayList<>();
+        this.quatite_ressource = 0;
     }
 
     /**
