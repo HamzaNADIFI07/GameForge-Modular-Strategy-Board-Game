@@ -78,6 +78,7 @@ Les objectifs atteints :
 
 ### Difficultés restant à résoudre
 
+
 ## Livrable 2
 
 ### Atteinte des objectifs
@@ -173,6 +174,10 @@ Créer les methodes de test
 ### Objectifs pour la semaine
 
 ## Semaine 6
+-Mise à jour de UML
+-Mise à jour de l'algorithme tenant compte de l'ancien algorithme
+-Création du livrable 2 et des classe Exploitation, Armée, Camp
+-Adaptation des classes Champ, Paturage, Foret, Montagne
 
 ### Ce qui a été réalisé
 
