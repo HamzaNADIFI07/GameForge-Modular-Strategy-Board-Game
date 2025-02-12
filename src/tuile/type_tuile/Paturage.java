@@ -42,7 +42,7 @@ public class Paturage extends Tuile{
     /**
      * Produit la resource en incrementant sa quantité
      */
-    public enumRessource produireRessource() {
+    public void produireRessource() {
         if (super.getBatiment().getType().equals("Exploitation")||super.getBatiment().getType().equals("Camp")){
             super.incrementerRessource();
             super.incrementerRessource();
