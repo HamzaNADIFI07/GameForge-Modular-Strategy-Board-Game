@@ -1,5 +1,6 @@
 package main;
 
+import plateau.Plateau;
 
 public class Livrable2 {
 	public static void main1(String[] args) {
@@ -9,5 +10,6 @@ public class Livrable2 {
 		}
 		int largeur = Math.max(10,Integer.parseInt(args[0]));
 		int longeur = Math.max(10,Integer.parseInt(args[0]));
+		Plateau plateau = new Plateau(largeur , longeur);
 	}
 }
