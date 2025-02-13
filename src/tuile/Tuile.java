@@ -103,6 +103,14 @@ public abstract class Tuile {
     public void retirerBatiment() {
     	this.batiment = null;
     }
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
 
 
 }
