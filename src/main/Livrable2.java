@@ -62,27 +62,27 @@ public class Livrable2 {
 	                    port = new Port(tuile);
 						tuile.setBatiment(port);
 						tuile.produireRessource();
-	                    System.out.println("Port placé sur (" + tuile.getX() + ", " + tuile.getY() + ")");
+	                    System.out.println("Port placé sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (ferme == null && tuile instanceof Champ) {
 	                    ferme = new Ferme(tuile);
 						tuile.setBatiment(ferme);
 						tuile.produireRessource();
-	                    System.out.println("Ferme placée sur (" + tuile.getX() + ", " + tuile.getY() + ")");
+	                    System.out.println("Ferme placée sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (exploitation == null && tuile instanceof Paturage) {
 	                    exploitation = new Exploitation(tuile);
 						tuile.setBatiment(exploitation);
 						tuile.produireRessource();
-	                    System.out.println("Exploitation placée sur (" + tuile.getX() + ", " + tuile.getY() + ")");
+	                    System.out.println("Exploitation placée sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (armee == null && !(tuile instanceof Mer)) {
 	                	armee = new Armee(tuile, 5);
 						tuile.setBatiment(armee);
 						tuile.produireRessource();
-	                    System.out.println("Armée placée sur (" + tuile.getX() + ", " + tuile.getY() +") avec "+ tuile.getBatiment().getDimension() +" guerriers");
+	                    System.out.println("Armée placée sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() +") avec "+ tuile.getBatiment().getDimension() +" guerriers");
 	                } else if (camp == null && !(tuile instanceof Mer)) {
 	                    camp = new Camp(tuile);
 						tuile.setBatiment(camp);
 						tuile.produireRessource();
-	                    System.out.println("Camp placé sur (" + tuile.getX() + ", " + tuile.getY() + ")");
+	                    System.out.println("Camp placé sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() + ")");
 	                }
 	            }
 	        }
@@ -100,7 +100,7 @@ public class Livrable2 {
             for (Tuile[] ligne : plateau.getTuiles()) {
                 for (Tuile tuile : ligne) {
                     if (tuile.getBatiment() != null) {
-                        System.out.println("Tuile (" + tuile.getX() + ", " + tuile.getY() + ") produit : " + tuile.getQuantiteRessource());
+                        System.out.println("Tuile (" + tuile.getX() + ", " + tuile.getY() + ") produit : " + tuile.getQuantiteRessource() + " "+ tuile.getRessource());
                     }
                 }
             }}}

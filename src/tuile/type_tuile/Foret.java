@@ -8,7 +8,6 @@ import tuile.Tuile;
  */
 public class Foret extends Tuile{
 
-    private final enumRessource ressource;
     
     /**
      * Constructeur de la classe Foret.
@@ -19,8 +18,7 @@ public class Foret extends Tuile{
      * @param y la coordonnée y de la tuile
      */
 	public Foret(int x, int y) {
-	    super("Forêt", x, y);
-        this.ressource = enumRessource.Bois;
+	    super("Forêt", x, y , enumRessource.Bois);
 }
 
 

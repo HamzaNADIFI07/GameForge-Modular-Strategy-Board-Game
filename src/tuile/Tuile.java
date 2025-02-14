@@ -2,6 +2,7 @@ package tuile;
 import batiment.Batiment;
 import java.util.ArrayList;
 import java.util.List;
+import ressource.enumRessource;
 
 /**
  * La classe abstraite Tuile représente une tuile générique sur le plateau de jeu.
@@ -15,7 +16,8 @@ public abstract class Tuile {
     protected List<Tuile> adjacents;
     protected int x;
     protected int y;
-    protected int quatite_ressource;
+    protected enumRessource ressource;
+    protected int quantite_ressource;
 
     /**
      * Constructeur de la classe Tuile.
@@ -25,13 +27,15 @@ public abstract class Tuile {
      * @param x la coordonnée x de la tuile
      * @param y la coordonnée y de la tuile
      */
-    public Tuile(String type,int x,int y) {
+    public Tuile(String type,int x,int y, enumRessource ressource) {
         this.type = type;
         this.x = x;
         this.y = y;
         this.adjacents = new ArrayList<>();
-        this.quatite_ressource = 0;
+        this.quantite_ressource = 0;
+        this.ressource=ressource;
     }
+
 
     /**
      * Retourne le type de la tuile.
@@ -56,14 +60,14 @@ public abstract class Tuile {
      * @return quantité de ressource
      */
     public int getQuantiteRessource(){
-        return this.quatite_ressource;
+        return this.quantite_ressource;
     }
     /**
      * Permet d'incrémenter la quantité de ressource
      * 
      */
     public void incrementerRessource(){
-        this.quatite_ressource++;
+        this.quantite_ressource++;
     }
     /**
      * Définit la quantité de ressource.
@@ -71,7 +75,7 @@ public abstract class Tuile {
      * @param adjacents la nouvelle quantité de ressource
      */
     public void setQuantiteRessource(int quantite){
-        this.quatite_ressource=quantite;
+        this.quantite_ressource=quantite;
     }
 
     /**
@@ -115,6 +119,13 @@ public abstract class Tuile {
         return this.y;
     }
 
-
+    /**
+     * Retourne le type de la tuile.
+     * 
+     * @return le type de la tuile
+     */
+    public enumRessource getRessource() {
+        return this.ressource;
+    }
 
 }

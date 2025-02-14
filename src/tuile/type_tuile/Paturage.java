@@ -8,7 +8,6 @@ import tuile.Tuile;
  */
 public class Paturage extends Tuile{
 
-	private final enumRessource ressource;
 
 
     /**
@@ -20,8 +19,7 @@ public class Paturage extends Tuile{
      * @param y la coordonnée y de la tuile
      */
     public Paturage(int x, int y) {
-        super("Pâturage", x, y);
-        this.ressource = enumRessource.Moutons;
+        super("Pâturage", x, y,enumRessource.Moutons);
     }
 
     public int getX() {

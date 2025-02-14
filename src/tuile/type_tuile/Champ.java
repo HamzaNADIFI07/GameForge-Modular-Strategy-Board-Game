@@ -8,7 +8,6 @@ import tuile.Tuile;
  */
 public class Champ extends Tuile {
     
-	private final enumRessource ressource;
 
     /**
      * Constructeur de la classe Champ.
@@ -19,8 +18,7 @@ public class Champ extends Tuile {
      * @param y la coordonnée y de la tuile
      */
     public Champ(int x, int y) {
-        super("Champ", x, y);
-        this.ressource = enumRessource.Ble;
+        super("Champ", x, y , enumRessource.Ble);
     }
 
     public int getX() {

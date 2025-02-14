@@ -7,7 +7,6 @@ import tuile.Tuile;
  */
 public class Montagne extends Tuile {
 
-	private final enumRessource ressource;
 
     /**
      * Constructeur de la classe Montagne.
@@ -18,8 +17,7 @@ public class Montagne extends Tuile {
      * @param y la coordonnée y de la tuile
      */
     public Montagne(int x, int y) {
-        super("Montagne", x, y);
-        this.ressource = enumRessource.Minerai;
+        super("Montagne", x, y , enumRessource.Minerai);
     }
 
     public int getX() {
