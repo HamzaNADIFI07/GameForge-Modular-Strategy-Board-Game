@@ -218,6 +218,28 @@ public class Plateau {
         return false; // Aucune tuile non Mer adjacente trouvée
     }
 
+    /**
+     * Vérifie si une tuile a au moins une tuile adjacente Mer.
+     * 
+     * @param x la coordonnée en x de la tuile
+     * @param y la coordonnée en y de la tuile
+     * @return true si la tuile a une tuile adjacente Mer, sinon false
+     */
+    private boolean aUneTuileAdjacenteMer(int x, int y) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
+    
+        for (int[] d : directions) {
+            int newX = x + d[0];
+            int newY = y + d[1];
+            if (newX >= 0 && newX < this.x && newY >= 0 && newY < this.y) {
+                if ((tuile[newX][newY] instanceof Mer)) {
+                    return true; // Une tuile Mer adjacente a été trouvée
+                }
+            }
+        }
+        return false; // Aucune tuile Mer adjacente trouvée
+    }
+
     
 
     /**
