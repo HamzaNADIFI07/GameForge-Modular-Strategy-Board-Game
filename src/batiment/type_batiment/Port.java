@@ -1,17 +1,21 @@
 package batiment.type_batiment;
 
 import batiment.Batiment;
+import java.util.HashMap;
+import java.util.Map;
 import ressource.enumRessource;
 import tuile.Tuile;
 import tuile.type_tuile.Mer;
-import java.util.HashMap;
-import java.util.Map;
 public class Port extends Batiment{
+    Map<enumRessource, Integer> cout = new HashMap<>();
     /**
      * Constructeur de la classe Port.
      */
     public Port(Tuile tuile) {
         super("Port", 1, tuile);
+        cout.put(enumRessource.Bois, 1);
+        cout.put(enumRessource.Moutons, 2);
+
     }
     
 
@@ -21,10 +25,7 @@ public class Port extends Batiment{
      */
     @Override
     public Map<enumRessource, Integer> getCout() {
-        Map<enumRessource, Integer> cout = new HashMap<>();
-        cout.put(enumRessource.Bois, 1);
-        cout.put(enumRessource.Moutons, 2);
-        return cout;
+        return this.cout;
     }
 
     /**

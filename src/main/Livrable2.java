@@ -56,30 +56,32 @@ public class Livrable2 {
 
 	            // Vérifier si la tuile est libre (pas encore de bâtiment)
 	            if (tuile.getBatiment() == null) {
-	                boolean adjacenteMer = false;
+	                boolean adjacenteMer = plateau.aUneTuileAdjacenteMer(i,j);
 
-	                //  loop to check for adjacent Mer tiles
-	                for (Tuile adj : tuile.getAdjacents()) {
-	                    if (adj instanceof Mer) {
-	                        adjacenteMer = true;
-	                        break; // Stop checking if we find Mer
-	                    }
-	                }
-
-	                if (port == null && tuile instanceof Champ && adjacenteMer) {
+	                if (port == null && !(tuile instanceof Mer) && adjacenteMer) {
 	                    port = new Port(tuile);
+						tuile.setBatiment(port);
+						tuile.produireRessource();
 	                    System.out.println("Port placé sur (" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (ferme == null && tuile instanceof Champ) {
 	                    ferme = new Ferme(tuile);
+						tuile.setBatiment(ferme);
+						tuile.produireRessource();
 	                    System.out.println("Ferme placée sur (" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (exploitation == null && tuile instanceof Paturage) {
 	                    exploitation = new Exploitation(tuile);
+						tuile.setBatiment(exploitation);
+						tuile.produireRessource();
 	                    System.out.println("Exploitation placée sur (" + tuile.getX() + ", " + tuile.getY() + ")");
 	                } else if (armee == null && !(tuile instanceof Mer)) {
-	                	armee = new Armee(tuile, 3);
-	                    System.out.println("Armée placée sur (" + tuile.getX() + ", " + tuile.getY() +") avec 3 guerriers");
+	                	armee = new Armee(tuile, 5);
+						tuile.setBatiment(armee);
+						tuile.produireRessource();
+	                    System.out.println("Armée placée sur (" + tuile.getX() + ", " + tuile.getY() +") avec "+ tuile.getBatiment().getDimension() +" guerriers");
 	                } else if (camp == null && !(tuile instanceof Mer)) {
 	                    camp = new Camp(tuile);
+						tuile.setBatiment(camp);
+						tuile.produireRessource();
 	                    System.out.println("Camp placé sur (" + tuile.getX() + ", " + tuile.getY() + ")");
 	                }
 	            }

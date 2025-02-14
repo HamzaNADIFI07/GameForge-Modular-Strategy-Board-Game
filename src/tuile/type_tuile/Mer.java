@@ -27,4 +27,13 @@ public class Mer extends Tuile{
     public int getY() {
         return y;
     }
+
+    /**
+     * Implémentation de la méthode abstraite produireRessource().
+     * La mer ne produit aucune ressource.
+     */
+    @Override
+    public void produireRessource() {
+        // La mer ne produit rien, donc cette méthode reste vide
+    }
 }

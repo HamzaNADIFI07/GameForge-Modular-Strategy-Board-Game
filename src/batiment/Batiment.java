@@ -1,11 +1,8 @@
 package batiment;
 
-import tuile.Tuile;
-
-import java.util.HashMap;
 import java.util.Map;
-
 import ressource.enumRessource;
+import tuile.Tuile;
 
 public abstract class Batiment {
     protected String type;

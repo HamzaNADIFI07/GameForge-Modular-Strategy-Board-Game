@@ -94,8 +94,12 @@ public abstract class Tuile {
     
     //cette méthode ert à forcer les sous-classes à définir comment chaque type de tuile produit une ressource spécifique
     //mais il faut definir une classe abstraite Ressource
-    //public abstract Ressource produireRessource();
+    public abstract void produireRessource();
 
+
+    public void setBatiment(Batiment batiment) {
+        this.batiment = batiment;
+    }
 
     /**
      * Supprime le bâtiment associé à cette tuile.

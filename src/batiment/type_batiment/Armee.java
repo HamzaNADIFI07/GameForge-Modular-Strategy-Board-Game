@@ -8,7 +8,6 @@ import tuile.Tuile;
 
 public class Armee extends Batiment {
     
-    private int nombreGuerriers;
     
 
     /**
@@ -25,14 +24,6 @@ public class Armee extends Batiment {
             throw new IllegalArgumentException("Le nombre de guerriers dans une armée doit être compris entre 1 et 5.");
         }
 
-        this.nombreGuerriers = nombreGuerriers;
-    }
-    /**
-     * Retourne le nombre de guerriers de l'armée.
-     * @return le nombre de guerriers de l'armée
-     */
-    public int getNombreGuerriers() {
-        return nombreGuerriers;
     }
 
     /**
@@ -55,8 +46,8 @@ public class Armee extends Batiment {
     // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construireArmee()
     @Override
     public boolean peutEtreConstruit() {
-        if ((this.tuile != null) && !this.getTuile().getType().equals("Mer")) {
-            throw new IllegalArgumentException("Une Armee ne peut pas être construite sur une tuile de type Mer.");
+        if ((this.tuile != null) || !this.getTuile().getType().equals("Mer")) {
+            return false;
         }
         return true;
     }

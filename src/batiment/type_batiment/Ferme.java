@@ -1,11 +1,10 @@
 package batiment.type_batiment;
 
 import batiment.Batiment;
-import ressource.enumRessource;
-import tuile.Tuile;
-
 import java.util.HashMap;
 import java.util.Map;
+import ressource.enumRessource;
+import tuile.Tuile;
 public class Ferme extends Batiment{
 
     /**
@@ -27,8 +26,8 @@ public class Ferme extends Batiment{
      */
     @Override
     public boolean peutEtreConstruit() {
-        if (this.getTuile() != null && !(this.getTuile().getType().equals("Mer"))) {
-            throw new IllegalArgumentException("Une ferme ne peut pas être construite sur une tuile de type Mer.");
+        if (this.getTuile() != null || !(this.getTuile().getType().equals("Mer"))) {
+            return false;
         }
         return true;
     }

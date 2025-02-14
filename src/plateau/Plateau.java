@@ -203,7 +203,7 @@ public class Plateau {
      * @param y la coordonnée en y de la tuile
      * @return true si la tuile a une tuile adjacente non-Mer, sinon false
      */
-    private boolean aUneTuileAdjacenteNonMer(int x, int y) {
+    public boolean aUneTuileAdjacenteNonMer(int x, int y) {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
     
         for (int[] d : directions) {
@@ -225,7 +225,7 @@ public class Plateau {
      * @param y la coordonnée en y de la tuile
      * @return true si la tuile a une tuile adjacente Mer, sinon false
      */
-    private boolean aUneTuileAdjacenteMer(int x, int y) {
+    public boolean aUneTuileAdjacenteMer(int x, int y) {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Gauche, Droite, Bas, Haut
     
         for (int[] d : directions) {
