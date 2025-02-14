@@ -23,6 +23,7 @@ public class Livrable2 {
 		plateau.genererTuiles();
 		plateau.display();
 		placerBatiments(plateau);
+		afficherRessourcesRecoltees(plateau);
 		
 	}
 	private static void placerBatiments(Plateau plateau) {
