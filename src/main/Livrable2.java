@@ -76,7 +76,16 @@ public class Livrable2 {
         System.out.println("Exploitation: " + (exploitation != null ? exploitation.getCout() : "Non placée"));
         System.out.println("Armée: " + (armee != null ? armee.getCout() : "Non placée"));
         System.out.println("Camp: " + (camp != null ? camp.getCout() : "Non placé"));
-
-
-	}}
+	}
+        private static void afficherRessourcesRecoltees(Plateau plateau) {
+            System.out.println("\nRessources récoltées par les bâtiments placés :");
+            for (Tuile[] ligne : plateau.getTuiles()) {
+                for (Tuile tuile : ligne) {
+                    if (tuile.getBatiment() != null) {
+                        System.out.println("Tuile (" + tuile.getX() + ", " + tuile.getY() + ") produit : " + tuile.getQuantiteRessource());
+                    }
+                }
+            }}}
+        
+	
 
