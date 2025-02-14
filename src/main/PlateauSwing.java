@@ -1,6 +1,5 @@
 package main;
 
-import batiment.Batiment;
 import java.awt.*;
 import javax.swing.*;
 import plateau.Plateau;
@@ -27,7 +26,6 @@ public class PlateauSwing extends JFrame {
 
                 // Récupérer la tuile et son bâtiment
                 Tuile tuile = plateau.getTuile(j, i);
-                Batiment batiment = tuile.getBatiment();
 
                 // Définition des couleurs selon le type de tuile
                 String type = tuile.getType();
