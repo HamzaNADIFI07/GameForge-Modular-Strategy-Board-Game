@@ -19,7 +19,7 @@ public class Paturage extends Tuile{
      * @param y la coordonnée y de la tuile
      */
     public Paturage(int x, int y) {
-        super("Pâturage", x, y,enumRessource.Moutons);
+        super("Paturage", x, y,enumRessource.Moutons);
     }
 
     public int getX() {

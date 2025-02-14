@@ -38,6 +38,8 @@ public class Livrable2 {
 		plateau.display();
 		placerBatiments(plateau);
 		afficherRessourcesRecoltees(plateau);
+		// Affichage dans une fenêtre Swing
+        PlateauSwing.afficherPlateau(plateau);
 		scanner.close();
 		
 	}

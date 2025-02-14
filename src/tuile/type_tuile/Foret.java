@@ -18,7 +18,7 @@ public class Foret extends Tuile{
      * @param y la coordonnée y de la tuile
      */
 	public Foret(int x, int y) {
-	    super("Forêt", x, y , enumRessource.Bois);
+	    super("Foret", x, y , enumRessource.Bois);
 }
 
 
