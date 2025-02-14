@@ -4,6 +4,7 @@ import batiment.type_batiment.Camp;
 import batiment.type_batiment.Exploitation;
 import batiment.type_batiment.Ferme;
 import batiment.type_batiment.Port;
+import java.util.Scanner;
 import plateau.Plateau;
 import tuile.Tuile;
 import tuile.type_tuile.Champ;
@@ -12,18 +13,32 @@ import tuile.type_tuile.Paturage;
 
 public class Livrable2 {
 	public static void main(String[] args) {
-		if (args.length <2) {
-			System.out.println("Usage: java Livrable2 <largeur> <longeur>");
-			return;
+		Scanner scanner = new Scanner(System.in);
+
+        int largeur, longeur;
+        while (true) {
+            try {
+                System.out.print("Entrez la largeur du plateau: ");
+                largeur = Integer.parseInt(scanner.nextLine());
+
+                System.out.print("Entrez la hauteur du plateau: ");
+                longeur = Integer.parseInt(scanner.nextLine());
+
+                if (largeur > 10 && longeur > 10) {
+                    break;
+                } else {
+                    System.out.println("Les dimensions doivent être des entiers positifs.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Veuillez entrer des nombres valides.");
+            }
 		}
-		//test
-		int largeur = Math.max(10,Integer.parseInt(args[0]));
-		int longeur = Math.max(10,Integer.parseInt(args[1]));
 		Plateau plateau = new Plateau(largeur , longeur);
 		plateau.genererTuiles();
 		plateau.display();
 		placerBatiments(plateau);
 		afficherRessourcesRecoltees(plateau);
+		scanner.close();
 		
 	}
 	private static void placerBatiments(Plateau plateau) {

@@ -1,7 +1,7 @@
 SRC = src
 CLASS = classes
 JAR_NAME = L2S4-Projet-2025.jar
-MAIN_CLASS = Main
+MAIN_CLASS = main.Livrable2
 
 SRC_FILES = $(shell find $(SRC) -name "*.java")
 
