@@ -7,7 +7,8 @@ import ressource.enumRessource;
 import tuile.Tuile;
 
 public class Armee extends Batiment {
-    
+
+    Map<enumRessource, Integer> cout = new HashMap<>();
     
 
     /**
@@ -19,7 +20,9 @@ public class Armee extends Batiment {
      */
     public Armee(Tuile tuile, int nombreGuerriers) {
         super("Armee", nombreGuerriers, tuile); // La dimension correspond au nombre de guerriers
-
+        cout.put(enumRessource.Bois, 1);
+        cout.put(enumRessource.Moutons, 1);
+        cout.put(enumRessource.Ble, 1);
         if (nombreGuerriers < 1 || nombreGuerriers > 5) {
             throw new IllegalArgumentException("Le nombre de guerriers dans une armée doit être compris entre 1 et 5.");
         }
@@ -32,10 +35,7 @@ public class Armee extends Batiment {
      */
     @Override
     public Map<enumRessource, Integer> getCout() {
-        Map<enumRessource, Integer> cout = new HashMap<>();
-        cout.put(enumRessource.Bois, 1);
-        cout.put(enumRessource.Moutons, 1);
-        return cout;
+        return this.cout;
     }
 
     /**

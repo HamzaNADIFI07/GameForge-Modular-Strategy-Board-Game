@@ -7,18 +7,22 @@ import ressource.enumRessource;
 import tuile.Tuile;
 public class Ferme extends Batiment{
 
+    Map<enumRessource, Integer> cout = new HashMap<>();
     /**
      * Constructeur de la classe Ferme.
      */
     public Ferme(Tuile tuile) {
         super("Ferme", 1, tuile);
-    }
-    
-    public Map<enumRessource, Integer> getCout() {
-        Map<enumRessource, Integer> cout = new HashMap<>();
         cout.put(enumRessource.Bois, 1);  // Bois : 1
         cout.put(enumRessource.Minerai, 1);  // Minerai : 1
-        return cout;
+    }
+    
+    /**
+     * Retourne le coût de construction de la ferme.
+     * @return Un Map contenant les ressources nécessaires.
+     */
+    public Map<enumRessource, Integer> getCout() {
+        return this.cout;
     }
 
     /**
