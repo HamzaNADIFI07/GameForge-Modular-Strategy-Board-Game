@@ -69,6 +69,13 @@ public class Livrable2 {
 	            }
 	        }
 	    }
+	 // Affichage des coûts
+        System.out.println("\nCoût des bâtiments :");
+        System.out.println("Port: " + (port != null ? port.getCout() : "Non placé"));
+        System.out.println("Ferme: " + (ferme != null ? ferme.getCout() : "Non placée"));
+        System.out.println("Exploitation: " + (exploitation != null ? exploitation.getCout() : "Non placée"));
+        System.out.println("Armée: " + (armee != null ? armee.getCout() : "Non placée"));
+        System.out.println("Camp: " + (camp != null ? camp.getCout() : "Non placé"));
 
 
 	}}
