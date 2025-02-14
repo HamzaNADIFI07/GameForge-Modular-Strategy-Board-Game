@@ -275,6 +275,9 @@ public class Plateau {
     public Tuile getTuile(int x, int y) {
         return tuile[x][y];
     }
+    public Tuile[][] getTuiles() {
+        return this.tuile;
+    }
 
 
 
