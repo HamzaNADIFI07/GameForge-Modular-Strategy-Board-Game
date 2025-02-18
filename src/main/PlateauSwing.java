@@ -31,13 +31,26 @@ public class PlateauSwing extends JFrame {
                 String type = tuile.getType();
                 Color tuileColor;
                 switch (type) {
-                    case "Mer" -> tuileColor = new Color(51, 153, 255);
-                    case "Foret" -> tuileColor = new Color(0, 102, 51);
-                    case "Champ" -> tuileColor = new Color(222, 194, 53);
-                    case "Montagne" -> tuileColor = new Color(102, 51, 0);
-                    case "Paturage" -> tuileColor = new Color(102, 255, 178);
-                    default -> tuileColor = Color.LIGHT_GRAY;
+                    case "Mer":
+                        tuileColor = new Color(51, 153, 255);
+                        break;
+                    case "Foret":
+                        tuileColor = new Color(0, 102, 51);
+                        break;
+                    case "Champ":
+                        tuileColor = new Color(222, 194, 53);
+                        break;
+                    case "Montagne":
+                        tuileColor = new Color(102, 51, 0);
+                        break;
+                    case "Paturage":
+                        tuileColor = new Color(102, 255, 178);
+                        break;
+                    default:
+                        tuileColor = Color.LIGHT_GRAY;
+                        break;
                 }
+                
                 panel.setBackground(tuileColor);
                 String text = "" ;
                 if (tuile.getBatiment()!=null) {
