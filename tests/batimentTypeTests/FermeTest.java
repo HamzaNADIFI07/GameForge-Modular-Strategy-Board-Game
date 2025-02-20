@@ -27,5 +27,12 @@ public class FermeTest {
     	assertEquals(1, cout.get(enumRessource.Bois), "Une ferme coûte 1 bois");
     	assertEquals(1, cout.get(enumRessource.Minerai), "Une ferme coûte 1 minerai");
     }
+    @Test
+    public void testFermePeutEtreConstruit() {
+    	Tuile champTuile = new Champ(2, 2);
+    	Ferme ferme = new Ferme(champTuile);
+    	assertTrue(ferme.peutEtreConstruit(), "Une ferme peut être construite sur un champ");
+    	
+    }
 }
 
