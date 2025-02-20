@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import batiment.type_batiment.Armee;
 import batiment.type_batiment.Camp;
 import tuile.type_tuile.Foret;
 
@@ -24,5 +25,13 @@ public class CampTest {
 		Tuile foretTuile = new Foret(3, 3);
 		Camp camp = new Camp(foretTuile);
 		assertTrue(camp.peutEtreConstruit(), "Un camp ne peut pas être construit sur une tuile avec une armée");
+	}
+	@Test
+	public void testCampCannotBeBuiltOnArmy() {
+		Tuile foretTuile = new Foret(3, 3);
+		Armee armee = new Armee(foretTuile, 3);
+		foretTuile.setBatiment(armee);
+		Camp camp = new Camp(foretTuile);
+		assertFalse(camp.peutEtreConstruit(), "Un camp ne peut pas être construit sur une tuile contenant une armée");	
 	}
 }
