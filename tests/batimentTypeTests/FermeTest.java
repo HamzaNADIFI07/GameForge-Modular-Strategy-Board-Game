@@ -1,14 +1,20 @@
 package batimentTypeTests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
-class FermeTest {
+import batiment.type_batiment.Ferme;
+import tuile.type_tuile.Champ;
+import tuile.Tuile;
+import static org.junit.jupiter.api.Assertions.*;
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+public class FermeTest {
 
+    @Test
+    public void testForetCreation() {
+    	Tuile champTuile = new Champ(2, 2);
+    	Ferme ferme = new Ferme(champTuile);
+    	assertEquals("Ferme", ferme.getType());
+    	assertEquals(champTuile, ferme.getTuile());
+    }
 }
+
