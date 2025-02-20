@@ -19,4 +19,10 @@ public class CampTest {
 		assertEquals("Camp", camp.getType());
 		assertEquals(foretTuile, camp.getTuile());
 	}
+	@Test
+	public void testCampPeutEtreConstruit() {
+		Tuile foretTuile = new Foret(3, 3);
+		Camp camp = new Camp(foretTuile);
+		assertTrue(camp.peutEtreConstruit(), "Un camp ne peut pas être construit sur une tuile avec une armée");
+	}
 }
