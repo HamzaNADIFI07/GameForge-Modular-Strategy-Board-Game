@@ -9,6 +9,7 @@ import tuile.type_tuile.Champ;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 
@@ -46,5 +47,9 @@ public class BatimentTest {
 	@Test
 	void testGetTuile() {
 		assertEquals(tuile, batiment.getTuile());
+	}
+	@Test 
+	void testPeutEtreConstruit() {
+		assertTrue(batiment.peutEtreConstruit());		
 	}
 }
