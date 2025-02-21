@@ -52,4 +52,11 @@ public class BatimentTest {
 	void testPeutEtreConstruit() {
 		assertTrue(batiment.peutEtreConstruit());		
 	}
+	@Test
+	void testGetCout() {
+		Map<enumRessource, Integer> expectedCout = new HashMap<>();
+		expectedCout.put(enumRessource.Bois, 2);
+		expectedCout.put(enumRessource.Moutons, 1);
+		assertEquals(expectedCout, batiment.getCout());
+	}
 }
