@@ -1,11 +1,15 @@
 package Batiment;
 
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import batiment.Batiment;
 import ressource.enumRessource;
 import tuile.Tuile;
 import tuile.type_tuile.Champ;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 
 public class BatimentTest {
@@ -29,6 +33,10 @@ public class BatimentTest {
 				return cout;
 			}
 		};
+	}
+	@Test
+	void testGetDimension() {
+		assertEquals(3,batiment.getDimension());
 	}
 
 }
