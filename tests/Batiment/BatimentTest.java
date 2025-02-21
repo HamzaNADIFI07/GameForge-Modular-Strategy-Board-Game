@@ -43,4 +43,8 @@ public class BatimentTest {
 		batiment.setDimension(5);
 		assertEquals(5, batiment.getDimension());
 	}
+	@Test
+	void testGetTuile() {
+		assertEquals(tuile, batiment.getTuile());
+	}
 }
