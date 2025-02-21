@@ -1,5 +1,4 @@
 package plateau;
-import plateau.Plateau;
 import tuile.type_tuile.Mer;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-
 public class PlateauTest{
 	
 	private Plateau plateau;
