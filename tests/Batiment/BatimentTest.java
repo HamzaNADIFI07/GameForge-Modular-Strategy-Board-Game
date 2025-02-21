@@ -38,5 +38,9 @@ public class BatimentTest {
 	void testGetDimension() {
 		assertEquals(3,batiment.getDimension());
 	}
-
+	@Test
+	void testSetDimension() {
+		batiment.setDimension(5);
+		assertEquals(5, batiment.getDimension());
+	}
 }
