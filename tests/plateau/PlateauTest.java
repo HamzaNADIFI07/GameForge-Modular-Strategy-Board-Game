@@ -21,7 +21,8 @@ public class PlateauTest{
 		plateau.genererTuiles();
 		int nombreTuileMer = plateau.getNbTuilesMer();
 		int nbTuiles = plateau.getX() * plateau.getY();
-		assertTrue(nombreTuileMer>=2*nbTuiles/3, "Le nombre de tuiles non-Mer doit être égal à 1/3 du nombre total de tuiles.");
+		assertTrue(nombreTuileMer >= 2 * nbTuiles / 3, 
+				   "Le nombre de tuiles Mer doit être d'au moins 2/3 du nombre total de tuiles.");
 		for (int i = 0; i < plateau.getX(); i++) {
     		for (int j = 0; j < plateau.getY(); j++) {
     			if (!(plateau.getTuile(i, j) instanceof Mer)) {
