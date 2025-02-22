@@ -47,9 +47,8 @@ public class Armee extends Batiment {
      */
     // Pour l'instant dans cette  méthode, on va implémenter juste la contrainte du fait qu'une Armee ne peut pas être construite sur une tuile de type Mer.
     // Pour les containte des ressources, on l'implémentera directement dans les méthodes d'action construireArmee()
-    @Override
     public boolean peutEtreConstruit() {
-        if ((this.tuile != null) || !this.getTuile().getType().equals("Mer")) {
+        if ((this.tuile == null) || this.getTuile().getType().equals("Mer")) {
             return false;
         }
         return true;

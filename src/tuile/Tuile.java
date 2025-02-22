@@ -46,14 +46,28 @@ public abstract class Tuile {
     public String getType() {
         return type;
     }
+
     /**
      * Retourne la liste des tuiles adjacentes.
-     * 
+     * @param plateau le plateau de jeu
      * @return une liste de tuiles adjacentes
      */
-    public List<Tuile> getAdjacents(){
-    	return adjacents;
+    public List<Tuile> getAdjacents(Tuile[][] plateau) {
+        adjacents.clear();
+    
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    
+        for (int[] d : directions) {
+            int newX = x + d[0];
+            int newY = y + d[1];
+    
+            if (newX >= 0 && newX < plateau.length && newY >= 0 && newY < plateau[0].length) {
+                adjacents.add(plateau[newX][newY]);
+            }
+        }
+        return adjacents;
     }
+    
 
     /**
      * Retourne la quantité de ressource.

@@ -25,6 +25,7 @@ public abstract class Batiment {
         this.type = type;
         this.dimension = dimension;
         this.tuile = tuile;
+        tuile.setBatiment(this);
     }
 
     /**
@@ -62,13 +63,6 @@ public abstract class Batiment {
     public Tuile getTuile() {
         return tuile;
     }
-
-    /**
-     * Vérifie si le bâtiment peut être construit sur une tuile donnée.(Pour la contrainte des ports, camps, exploitation)
-     * 
-     * @return true si le bâtiment peut être construit, sinon false
-     */
-    public abstract boolean peutEtreConstruit();
 
     /**
      * Retourne le coût de construction du bâtiment.

@@ -23,19 +23,22 @@ public void testGetType() {
 }
 @Test
 public void testGetAdjacents() {
-    Tuile mer1 = new Mer(0, 0);
-    assertTrue(mer1.getAdjacents().isEmpty(), "La liste des adjacents doit être vide par défaut.");
-    Tuile mer2 = new Mer(0, 1);
-    assertTrue(mer2.getAdjacents().contains(mer1));
+    Plateau plateau = new Plateau(5, 5);
+    plateau.genererTuiles();
+
+    Tuile mer1 = plateau.getTuile(0, 0);
+    Tuile mer2 = plateau.getTuile(0, 1);
+    assertTrue(mer2.getAdjacents(plateau.getTuiles()).contains(mer1));
 }
 @Test
 public void testSetAdjacents() {
-    // Création d'une tuile principale
-    Tuile mer = new Mer(0, 0);
+    Plateau plateau = new Plateau(5, 5);
+    plateau.genererTuiles();
 
-    // Création de tuiles adjacentes
-    Tuile champ1 = new Champ(1, 0);
-    Tuile champ2 = new Champ(0, 1);
+    Tuile mer = plateau.getTuile(0, 0);
+
+    Tuile champ1 = plateau.getTuile(1, 0);
+    Tuile champ2 = plateau.getTuile(0, 1);
 
     // Ajout des tuiles adjacentes à une liste
     List<Tuile> adjacents = new ArrayList<>();
@@ -46,8 +49,8 @@ public void testSetAdjacents() {
     mer.setAdjacents(adjacents);
 
     // Vérification que les adjacents ont bien été définis
-    List<Tuile> resultatAdjacents = mer.getAdjacents();
-    assertEquals(2, resultatAdjacents.size(), "La liste des adjacents doit contenir deux éléments.");
+    List<Tuile> resultatAdjacents = mer.getAdjacents(plateau.getTuiles());
+    assertEquals(adjacents, resultatAdjacents);
     assertTrue(resultatAdjacents.contains(champ1), "La liste des adjacents doit contenir champ1.");
     assertTrue(resultatAdjacents.contains(champ2), "La liste des adjacents doit contenir champ2.");
 }

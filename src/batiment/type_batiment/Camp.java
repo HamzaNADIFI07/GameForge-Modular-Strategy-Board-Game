@@ -34,8 +34,7 @@ public class Camp extends Batiment {
         return this.cout;
     }
 
-    @Override
     public boolean peutEtreConstruit() {
-        return (this.tuile != null) && !this.getTuile().getBatiment().getType().equals("Armee");
+        return (this.tuile != null) && this.getTuile().getBatiment().getType().equals("Armee");
     }
 }

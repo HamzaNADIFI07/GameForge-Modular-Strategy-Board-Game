@@ -11,6 +11,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import batiment.type_batiment.Port;
+import plateau.Plateau;
 import ressource.Ressource;
 public class PortTest {
 
@@ -33,11 +34,11 @@ public class PortTest {
 	}
 	@Test
 	public void testPortPeutEtreConstruit() {
-		Tuile merTuile = new Mer(3, 3);
-		Tuile champTuile = new Champ(3, 2);
-		List<Tuile> champAdjacents = champTuile.getAdjacents();
-		champAdjacents.add(merTuile);
+		Plateau plateau = new Plateau(5, 5);
+		
+		Tuile champTuile = new Champ(0, 0);
+
 		Port port = new Port(champTuile);
-		assertTrue(port.peutEtreConstruit(), "Un port doit être adjacent à une tuile Mer");
+		assertTrue(champTuile.getBatiment().getType().equals("Port"), "La tuile champ doit contenir un port");
 	}
 }

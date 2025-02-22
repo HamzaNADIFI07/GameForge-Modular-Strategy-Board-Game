@@ -1,10 +1,14 @@
 SRC = src
 CLASS = classes
-JAR_NAME = L2S4-Projet-2025.jar
+JAR_NAME = Livrable2.jar
 MAIN_CLASS = main.Livrable2
 DOCS = docs
+TEST_CLASS = test_classes
+TEST_SRC = tests
+JUNIT_JAR = lib/junit-platform-console-standalone-1.10.0.jar
 
 SRC_FILES = $(shell find $(SRC) -name "*.java")
+TEST_FILES = $(shell find $(TEST_SRC) -name "*.java")
 
 all: compile jar run_jar
 
@@ -22,5 +26,14 @@ jar: compile
 run_jar:
 	java -jar $(JAR_NAME)
 
+test: compile_tests run_tests
+
+compile_tests:
+	mkdir -p $(TEST_CLASS)
+	javac -cp .:$(JUNIT_JAR):$(CLASS) -d $(TEST_CLASS) $(TEST_FILES)
+
+run_tests:
+	java -jar $(JUNIT_JAR) --class-path $(TEST_CLASS):$(CLASS) --scan-class-path
+
 clean:
-	rm -rf $(CLASS) $(JAR_NAME) $(DOCS)
+	rm -rf $(CLASS) $(JAR_NAME) $(DOCS) $(TEST_CLASS)

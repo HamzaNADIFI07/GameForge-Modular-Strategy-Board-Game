@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import batiment.type_batiment.Ferme;
 import ressource.Ressource;
-import ressource.Ressource;
 import tuile.type_tuile.Champ;
 import tuile.Tuile;
 import static org.junit.jupiter.api.Assertions.*;

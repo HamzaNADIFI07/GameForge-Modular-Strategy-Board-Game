@@ -33,9 +33,8 @@ public class Ferme extends Batiment{
     /**
      * Vérifie si le bâtiment peut être construit.
      */
-    @Override
     public boolean peutEtreConstruit() {
-        if (this.getTuile() != null || !(this.getTuile().getType().equals("Mer"))) {
+        if (this.getTuile() == null || (this.getTuile().getType().equals("Mer"))) {
             return false;
         }
         return true;

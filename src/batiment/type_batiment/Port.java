@@ -38,11 +38,10 @@ public class Port extends Batiment{
      * Un port doit être adjacent à une tuile de type Mer.
      * @return true si la construction est possible, sinon false.
      */
-    @Override
-    public boolean peutEtreConstruit() {
+    public boolean peutEtreConstruit(Tuile[][] plateau) {
         if (this.getTuile() == null) return false;
 
-        for (Tuile tuile : this.getTuile().getAdjacents()) {
+        for (Tuile tuile : this.getTuile().getAdjacents(plateau)) {
             if (tuile instanceof Mer) {
                 return true; //  Le port peut être construit car une tuile voisine est de type Mer
             }

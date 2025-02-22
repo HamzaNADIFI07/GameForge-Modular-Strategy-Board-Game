@@ -77,10 +77,31 @@ Les objectifs atteints :
 - Implémentation des tests pour les méthodes des classes Plateau et Tuile, afin de valider leur bon fonctionnement et leur conformité avec les contraintes du sujet.
 
 ### Difficultés restant à résoudre
+Pour le deuxième livrable, nous avons travaillé sur la **modélisation des batiments** 
 
 
 ## Livrable 2
 
+- Commande pour génerer la JavaDoc:
+```bash
+Make javadoc
+```
+- Commande pour creer uniquement le Jar:
+```bash
+Make jar
+```
+- Commande pour exécuter  uniquement le Jar:
+```bash
+Make run_jar
+```
+- Commandes pour compiler et exécuter via le Jar(afficher le Plateau):
+```bash
+Make
+```
+- Commandes pour supprimer les fichier compilés et le Jar et la JavaDoc:
+```bash
+Make clean
+```
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
