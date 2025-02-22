@@ -375,6 +375,9 @@ Créer les methodes de test
 ### Difficultés rencontrées
 
 ### Objectifs pour la semaine
+-créer une classe PlateauSwing
+-Réaliser les methodes de test pour le livrable 2
+-mettre à jour UML
 
 ## Semaine 7
 
