@@ -77,32 +77,198 @@ Les objectifs atteints :
 - Implémentation des tests pour les méthodes des classes Plateau et Tuile, afin de valider leur bon fonctionnement et leur conformité avec les contraintes du sujet.
 
 ### Difficultés restant à résoudre
-Pour le deuxième livrable, nous avons travaillé sur la **modélisation des batiments** 
-
 
 ## Livrable 2
 
 - Commande pour génerer la JavaDoc:
+
 ```bash
 Make javadoc
 ```
+
 - Commande pour creer uniquement le Jar:
+
 ```bash
 Make jar
 ```
+
 - Commande pour exécuter  uniquement le Jar:
+
 ```bash
 Make run_jar
 ```
+
 - Commandes pour compiler et exécuter via le Jar(afficher le Plateau):
+
 ```bash
 Make
 ```
+
+- Commandes pour compiler et exécuter les tests unitaires:
+
+```bash
+Make test
+```
+
 - Commandes pour supprimer les fichier compilés et le Jar et la JavaDoc:
+
 ```bash
 Make clean
 ```
+
 ### Atteinte des objectifs
+
+Pour le deuxième livrable, nous avons travaillé sur la **modélisation des batiments** 
+
+Les objectifs atteints :
+
+1. Modélisation des différents types de **Batiment**:
+
+    - Une classe abstraite `Batiment`, qui représente une instance du **Batiment** et regroupe plusieurs attributs comme `type`, `dimension`et `tuile` et plusieurs méthodes comme `getType()`, `getDimension()` , et `getCout()`.
+
+    - Une classe `Port`, `Ferme`, `Exploitation`, `Camp`, `Armee` , qui héritent de la class `Batiment` et qui contient un attribut `cout`, et une méthode `peutEtreConstruit`, et qui permet de vérifier si la tuile où on veut construire ce batiment respecte les conditions nécessaires.
+
+2. Un programme principal (nommé `Livrable2.java`):
+
+    - Ce programme principal permet de:
+        - Créer un plateau aléatoire dont la taille **(largeur x hauteur)** est fournie en argument sur la ligne de commande et affiche sa représentation avec une condition du fait que le plateau sera de largueur minimale **10** et de hauteur minimale **10**.
+        - Créer 5 batiments (`Port`,`Ferme`,`Exploitation`,`Camp`,`Armee`), tout en respectant les conditions de construction de chaque type de batiment.
+        - Afficher le plateau de jeu dans le terminale grace à la méthode `display`
+        - Afficher l'emplacement de chaque batiment installé.
+        - Afficher le coût de construction de chaque batiment.
+        - Afficher les ressources récoltées pour l'ensemble des tuiles possédant un bâtiment.
+        - Afficher le plateau de jeu dans une fenêtre Swing.
+
+3. Une class `PlateauSwing`:
+
+    - Cette class nous a permet de :
+        - Afficher le plateau de jeu sous forme graphique, en représentant chaque tuile par une couleur spécifique selon son type.
+        - Afficher la première lettre du bâtiment placé sur chaque tuile contenant un batiment.
+
+4. Tests unitaires:
+
+    - Implémentation des tests pour les méthodes des classes `Batiment`, `Port`, `Ferme`, `Exploitation`, `Camp`, `Armee`, afin de valider leur bon fonctionnement et leur conformité avec les contraintes du sujet.
+
+Résultats obtenus après éxecution de la commande `make test`:
+```bash
+╷
+├─ JUnit Jupiter ✔
+│  ├─ FermeTest ✔
+│  │  ├─ testFermeCout() ✔
+│  │  ├─ testForetCreation() ✔
+│  │  └─ testFermePeutEtreConstruit() ✔
+│  ├─ ArmeeTest ✔
+│  │  ├─ testArmeeCout() ✔
+│  │  └─ testArmeeCreation() ✔
+│  ├─ PaturageTest ✔
+│  │  └─ testPaturageConstructor() ✔
+│  ├─ ChampTest ✔
+│  │  └─ testChampConstructor() ✔
+│  ├─ MerTest ✔
+│  │  └─ testMerConstructor() ✔
+│  ├─ CampTest ✔
+│  │  ├─ testCampPeutEtreConstruit() ✔
+│  │  └─ testCampCreation() ✔
+│  ├─ PlateauTest ✔
+│  │  ├─ testGenererTuiles() ✔
+│  │  └─ testPlateauInitialiseAvecMer() ✔
+│  ├─ TuileTest ✔
+│  │  ├─ testGetAdjacents() ✔
+│  │  ├─ testGetType() ✔
+│  │  └─ testSetAdjacents() ✔
+│  ├─ ExploitationTest ✔
+│  │  ├─ testExploitationCout() ✔
+│  │  └─ testExploitationCreation() ✔
+│  ├─ BatimentTest ✔
+│  │  ├─ testGetTuile() ✔
+│  │  ├─ testGetCout() ✔
+│  │  ├─ testGetDimension() ✔
+│  │  └─ testSetDimension() ✔
+│  ├─ MontagneTest ✔
+│  │  └─ testMontagneConstructor() ✔
+│  ├─ PortTest ✔
+│  │  ├─ testPortCreation() ✔
+│  │  ├─ testPortPeutEtreConstruit() ✔
+│  │  └─ testPortCout() ✔
+│  └─ ForetTest ✔
+│     └─ testForetConstructor() ✔
+├─ JUnit Vintage ✔
+└─ JUnit Platform Suite ✔
+
+Test run finished after 45 ms
+[        16 containers found      ]
+[         0 containers skipped    ]
+[        16 containers started    ]
+[         0 containers aborted    ]
+[        16 containers successful ]
+[         0 containers failed     ]
+[        26 tests found           ]
+[         0 tests skipped         ]
+[        26 tests started         ]
+[         0 tests aborted         ]
+[        26 tests successful      ]
+[         0 tests failed          ]
+```
+5. Organisation et structure du projet :
+
+- Organisation des fichiers sources dans des packages distincts (`batiment`, `type_batiment`).
+- Modification du Makefile pour la compilation et l'éxcution des tests, la géneration de la `javaDoc` et la génération d'un fichier `Livrable2.jar` exécutable.
+
+Résultats obtenus après éxecution de la commande `make`:
+
+```bash
+hamzanadifi@MacBook-Pro-de-Hamza l2s4-projet-2025 % make
+mkdir -p classes
+javac -d classes src/plateau/Plateau.java src/ressource/Ressource.java src/batiment/type_batiment/Exploitation.java src/batiment/type_batiment/Port.java src/batiment/type_batiment/Camp.java src/batiment/type_batiment/Armee.java src/batiment/type_batiment/Ferme.java src/batiment/Batiment.java src/tuile/type_tuile/Montagne.java src/tuile/type_tuile/Champ.java src/tuile/type_tuile/Mer.java src/tuile/type_tuile/Paturage.java src/tuile/type_tuile/Foret.java src/tuile/Tuile.java src/main/PlateauSwing.java src/main/Main.java src/main/Livrable2.java
+jar cfe Livrable2.jar main.Livrable2 -C classes .
+java -jar Livrable2.jar
+Entrez la largeur du plateau: 10
+Entrez la hauteur du plateau: 10
+      0     1     2     3     4     5     6     7     8     9  
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 0 | Me  | Me  | Me  | Me  | Me  |  F  |  F  |  C  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 1 | Mo  | Me  | Me  | Me  | Me  | Mo  | Me  |  C  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 2 |  C  | Me  | Me  | Me  | Me  |  F  |  P  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 3 | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 4 | Me  | Me  | Me  | Me  |  F  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 5 | Me  | Me  | Me  | Me  | Me  | Me  |  F  |  F  |  F  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 6 |  F  | Me  | Me  | Me  | Me  | Me  |  C  |  F  |  P  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 7 | Mo  | Me  | Me  | Me  | Me  | Me  | Me  |  F  |  F  |  C  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 8 | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  P  |  P  |  P  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 9 | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  C  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+Port placé sur M(0, 1)
+Ferme placée sur C(0, 2)
+Armée placée sur F(0, 6) avec 5 guerriers
+Camp placé sur M(0, 7)
+Exploitation placée sur P(6, 2)
+
+Coût des bâtiments :
+Port: {Moutons=2, Bois=1}
+Ferme: {Bois=1, Minerai=1}
+Exploitation: {Moutons=1, Bois=2, Ble=1}
+Armée: {Moutons=1, Bois=1, Ble=1}
+Camp: {Bois=2, Minerai=3}
+
+Ressources récoltées par les bâtiments placés :
+Tuile (0, 1) produit : 1 Minerai
+Tuile (0, 2) produit : 1 Ble
+Tuile (0, 6) produit : 1 Bois
+Tuile (0, 7) produit : 2 Minerai
+Tuile (6, 2) produit : 2 Moutons
+```
+Fenêtre Swing affichée:
+
+![fenêtreSwing10x10](./images/fenêtreSwing10x10.png)
 
 ### Difficultés restant à résoudre
 
