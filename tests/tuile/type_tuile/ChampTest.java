@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 import tuile.type_tuile.Champ;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +28,7 @@ public class ChampTest {
 		assertEquals(y, champ.getY());
 
 		// Verifie si la ressource est correctement initialisée à enumRessource.Ble
-		assertEquals(enumRessource.Ble, champ.getRessource());
+		assertEquals(Ressource.Ble, champ.getRessource());
 	}
 
 }

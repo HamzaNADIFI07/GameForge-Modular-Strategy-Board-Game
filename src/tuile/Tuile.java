@@ -2,7 +2,7 @@ package tuile;
 import batiment.Batiment;
 import java.util.ArrayList;
 import java.util.List;
-import ressource.enumRessource;
+import ressource.Ressource;
 
 /**
  * La classe abstraite Tuile représente une tuile générique sur le plateau de jeu.
@@ -11,13 +11,13 @@ import ressource.enumRessource;
  */
 public abstract class Tuile {
 
-    protected String type;
-    protected Batiment batiment;
-    protected List<Tuile> adjacents;
-    protected int x;
-    protected int y;
-    protected enumRessource ressource;
-    protected int quantite_ressource;
+    protected String type; // le type de la tuile
+    protected Batiment batiment; // le bâtiment construit sur la tuile
+    protected List<Tuile> adjacents; // les tuiles adjacentes
+    protected int x; // la coordonnée x de la tuile
+    protected int y; // la coordonnée y de la tuile
+    protected Ressource ressource; // la ressource produite par la tuile
+    protected int quantite_ressource; // la quantité de ressource produite par la tuile
 
     /**
      * Constructeur de la classe Tuile.
@@ -26,8 +26,9 @@ public abstract class Tuile {
      * @param type le type de la tuile
      * @param x la coordonnée x de la tuile
      * @param y la coordonnée y de la tuile
+     * @param ressource la ressource produite par la tuile
      */
-    public Tuile(String type,int x,int y, enumRessource ressource) {
+    public Tuile(String type,int x,int y, Ressource ressource) {
         this.type = type;
         this.x = x;
         this.y = y;
@@ -72,7 +73,7 @@ public abstract class Tuile {
     /**
      * Définit la quantité de ressource.
      * 
-     * @param adjacents la nouvelle quantité de ressource
+     * @param quantite la nouvelle quantité de ressource
      */
     public void setQuantiteRessource(int quantite){
         this.quantite_ressource=quantite;
@@ -98,9 +99,16 @@ public abstract class Tuile {
     
     //cette méthode ert à forcer les sous-classes à définir comment chaque type de tuile produit une ressource spécifique
     //mais il faut definir une classe abstraite Ressource
+    /**
+     * Produit une ressource spécifique à chaque type de tuile.
+     */
     public abstract void produireRessource();
 
-
+    /**
+     * Définit le bâtiment construit dans cette tuile.
+     * 
+     * @param batiment le bâtiment construit dans la tuile
+     */
     public void setBatiment(Batiment batiment) {
         this.batiment = batiment;
     }
@@ -111,10 +119,19 @@ public abstract class Tuile {
     public void retirerBatiment() {
     	this.batiment = null;
     }
+    /**
+     * Retourne la coordonnée x de la tuile.
+     * 
+     * @return la coordonnée x de la tuile
+     */
     public int getX() {
         return this.x;
     }
-
+    /**
+     * Retourne la coordonnée y de la tuile.
+     * 
+     * @return la coordonnée y de la tuile
+     */
     public int getY() {
         return this.y;
     }
@@ -124,7 +141,7 @@ public abstract class Tuile {
      * 
      * @return le type de la tuile
      */
-    public enumRessource getRessource() {
+    public Ressource getRessource() {
         return this.ressource;
     }
 

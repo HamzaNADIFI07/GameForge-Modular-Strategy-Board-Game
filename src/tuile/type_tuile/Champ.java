@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
 /**
@@ -18,7 +18,7 @@ public class Champ extends Tuile {
      * @param y la coordonnée y de la tuile
      */
     public Champ(int x, int y) {
-        super("Champ", x, y , enumRessource.Ble);
+        super("Champ", x, y , Ressource.Ble);
     }
 
     public int getX() {
@@ -33,7 +33,7 @@ public class Champ extends Tuile {
      * 
      * @return la ressource produite par la tuile (enumRessource.Ble)
      */
-    public enumRessource getRessource() {
+    public Ressource getRessource() {
         return ressource;
     }
 

@@ -287,16 +287,31 @@ public class Plateau {
             System.out.println("+");
         }
     }
+    /**
+     * Retourne la largeur du plateau.
+     */
     public int getX() {
         return this.x;
     }
-
+    /**
+     * Retourne la hauteur du plateau.
+     */
     public int getY() {
         return this.y;
     }
+    /**
+     * Retourne la tuile à la position (x, y).
+     * 
+     * @param x la coordonnée en x de la tuile
+     * @param y la coordonnée en y de la tuile
+     * @return la tuile à la position (x, y)
+     */
     public Tuile getTuile(int x, int y) {
         return tuile[x][y];
     }
+    /**
+     * Retourne toutes les tuiles du plateau.
+     */
     public Tuile[][] getTuiles() {
         return this.tuile;
     }

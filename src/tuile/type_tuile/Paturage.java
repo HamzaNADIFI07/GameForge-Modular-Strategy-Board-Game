@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
 /**
@@ -19,7 +19,7 @@ public class Paturage extends Tuile{
      * @param y la coordonnée y de la tuile
      */
     public Paturage(int x, int y) {
-        super("Paturage", x, y,enumRessource.Moutons);
+        super("Paturage", x, y,Ressource.Moutons);
     }
 
     public int getX() {
@@ -34,7 +34,7 @@ public class Paturage extends Tuile{
      * 
      * @return la ressource produite par la tuile (enumRessource.Moutons)
      */
-    public enumRessource getRessource() {
+    public Ressource getRessource() {
         return this.ressource;
     }
     /**

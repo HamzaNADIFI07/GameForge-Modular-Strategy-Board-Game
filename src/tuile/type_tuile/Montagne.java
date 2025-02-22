@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 /**
  * La classe Montagne représente une tuile de type montagne dans le jeu.
@@ -17,7 +17,7 @@ public class Montagne extends Tuile {
      * @param y la coordonnée y de la tuile
      */
     public Montagne(int x, int y) {
-        super("Montagne", x, y , enumRessource.Minerai);
+        super("Montagne", x, y , Ressource.Minerai);
     }
 
     public int getX() {
@@ -32,7 +32,7 @@ public class Montagne extends Tuile {
      * 
      * @return la ressource produite par la tuile (enumRessource.Minerai)
      */
-    public enumRessource getRessource() {
+    public Ressource getRessource() {
         return ressource;
     }
 

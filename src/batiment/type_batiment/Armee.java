@@ -3,12 +3,15 @@ package batiment.type_batiment;
 import batiment.Batiment;
 import java.util.HashMap;
 import java.util.Map;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
+/**
+ * La classe Armee représente un type de bâtiment.
+ */
 public class Armee extends Batiment {
 
-    Map<enumRessource, Integer> cout = new HashMap<>();
+    Map<Ressource, Integer> cout = new HashMap<>();
     
 
     /**
@@ -20,9 +23,9 @@ public class Armee extends Batiment {
      */
     public Armee(Tuile tuile, int nombreGuerriers) {
         super("Armee", nombreGuerriers, tuile); // La dimension correspond au nombre de guerriers
-        cout.put(enumRessource.Bois, 1);
-        cout.put(enumRessource.Moutons, 1);
-        cout.put(enumRessource.Ble, 1);
+        cout.put(Ressource.Bois, 1);
+        cout.put(Ressource.Moutons, 1);
+        cout.put(Ressource.Ble, 1);
         if (nombreGuerriers < 1 || nombreGuerriers > 5) {
             throw new IllegalArgumentException("Le nombre de guerriers dans une armée doit être compris entre 1 et 5.");
         }
@@ -34,7 +37,7 @@ public class Armee extends Batiment {
      * @return Un Map contenant les ressources nécessaires.
      */
     @Override
-    public Map<enumRessource, Integer> getCout() {
+    public Map<Ressource, Integer> getCout() {
         return this.cout;
     }
 

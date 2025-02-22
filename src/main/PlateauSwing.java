@@ -5,12 +5,18 @@ import javax.swing.*;
 import plateau.Plateau;
 import tuile.Tuile;
 
+/**
+ * Classe PlateauSwing qui affiche le plateau de jeu dans une fenêtre Swing.
+ */
 public class PlateauSwing extends JFrame {
     private static final int TILE_SIZE = 60; // Taille d'une tuile
-    private Plateau plateau;
 
+    /**
+     * Constructeur de la classe PlateauSwing.
+     * 
+     * @param plateau Le plateau de jeu à afficher.
+     */
     public PlateauSwing(Plateau plateau) {
-        this.plateau = plateau;
 
         setTitle("Plateau de Jeu");
         setSize(plateau.getX() * TILE_SIZE, plateau.getY() * TILE_SIZE);
@@ -68,6 +74,11 @@ public class PlateauSwing extends JFrame {
         }
     }
 
+    /**
+     * Affiche le plateau de jeu dans une fenêtre Swing.
+     * 
+     * @param plateau Le plateau de jeu à afficher.
+     */
     public static void afficherPlateau(Plateau plateau) {
         SwingUtilities.invokeLater(() -> {
             new PlateauSwing(plateau).setVisible(true);

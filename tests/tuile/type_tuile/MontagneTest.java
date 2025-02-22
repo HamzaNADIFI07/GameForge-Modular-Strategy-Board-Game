@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 import tuile.type_tuile.Montagne;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
 import static org.junit.Assert.assertEquals;
@@ -29,6 +29,6 @@ class MontagneTest {
 
 
 		//Verifie si la ressource est bien Minerai
-		assertEquals(enumRessource.Minerai, montagne.getRessource());
+		assertEquals(Ressource.Minerai, montagne.getRessource());
 	}
 }	
