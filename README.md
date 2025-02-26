@@ -382,9 +382,12 @@ Créer les methodes de test
 ## Semaine 7
 
 ### Ce qui a été réalisé
-
+- Reflexions des deux approches differentes
+- choix de l'une de nos approche en tenant compte de `Listchooser`
+- Reflexion sur les differentes classes abstraites
+- Reflexion sur des classes qui vont heriter de la classe abstraite Action
 ### Difficultés rencontrées
-
+- choix d'une approche, car deux jeux differents
 ### Objectifs pour la semaine
 - Création de la classe abstraite `Game`.
 - Création de la classe `Ares`.
