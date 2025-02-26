@@ -383,7 +383,15 @@ Créer les methodes de test
 ### Difficultés rencontrées
 
 ### Objectifs pour la semaine
-
+- Création de la classe abstraite `Game`.
+- Création de la classe `Ares`.
+- Création de la classe `Demeter`.
+- Création de la classe abstraite `Action`.
+- Création des differentes classes représentant les actions des deux jeux et qui héritent de `Action`.
+- Création de la classe `Player`.
+- Réflexion sur l'implémentation des `Listchooser`.
+- Réflexion sur l'adaptation des `Listechooser` avec les reste des classes des action (Limiter l'accès de chaque action dans le jeu associé).
+- Mise à jour UMl
 ## Semaine 8
 
 ### Ce qui a été réalisé
