@@ -11,5 +11,17 @@ public class Player {
     public void updateScore(int points) {
         score += points;
     }
+    public String getName() {
+    	return name;
+    }
+    public void setName(String name) {
+    	this.name = name;
+    }
+    public int getScore() {
+    	return score;
+    }
+    public void setScore(int score) {
+    	this.score = score;
+    }
+    }
 
-}
