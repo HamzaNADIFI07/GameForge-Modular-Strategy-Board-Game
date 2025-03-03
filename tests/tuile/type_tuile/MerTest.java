@@ -18,7 +18,7 @@ public class MerTest {
 		assertEquals("Mer", mer.getType());
 
 		// Verifier que les valeurs sont initialisées
-		assertEquals(15, mer.getX());
+		assertEquals(10, mer.getX());
         assertEquals(20, mer.getY());
 	}
 

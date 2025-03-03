@@ -1,62 +1,57 @@
-package Batiment;
+package batimentTypeTests;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import batiment.Batiment;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 import tuile.type_tuile.Champ;
+
 import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.HashMap;
 
 public class BatimentTest {
-	private Batiment batiment;
-	private Tuile tuile;
-	/** Initialise un objet Batiment de test et l'associe à une Tuile.
-	 * */
-	@BeforeEach
-	void setUp() {
-		tuile = new Champ(0, 0); // Création d'une tuile de type Champ
-		batiment = new Batiment("TestBatiment", 3, tuile) {
-			@Override
-			public boolean peutEtreConstruit() {
-				return true;
-			}
-			@Override
-			public Map<enumRessource, Integer> getCout() {
-				Map<enumRessource, Integer> cout = new HashMap<>();
-				cout.put(enumRessource.Bois, 2); // Coût en bois
-				cout.put(enumRessource.Moutons, 1); // Coût en mouton
-				return cout;
-			}
-		};
-	}
-	@Test
-	void testGetDimension() {
-		assertEquals(3,batiment.getDimension());
-	}
-	@Test
-	void testSetDimension() {
-		batiment.setDimension(5);
-		assertEquals(5, batiment.getDimension());
-	}
-	@Test
-	void testGetTuile() {
-		assertEquals(tuile, batiment.getTuile());
-	}
-	@Test 
-	void testPeutEtreConstruit() {
-		assertTrue(batiment.peutEtreConstruit());		
-	}
-	@Test
-	void testGetCout() {
-		Map<enumRessource, Integer> expectedCout = new HashMap<>();
-		expectedCout.put(enumRessource.Bois, 2);
-		expectedCout.put(enumRessource.Moutons, 1);
-		assertEquals(expectedCout, batiment.getCout());
-	}
+    private Batiment batiment;
+    private Tuile tuile;
+
+    @BeforeEach
+    public void setUp() {
+        tuile = new Champ(0, 0);
+
+        batiment = new Batiment("TestBatiment", 3, tuile) {
+            @Override
+            public Map<Ressource, Integer> getCout() {
+                Map<Ressource, Integer> cout = new HashMap<>();
+                cout.put(Ressource.Bois, 2);
+                cout.put(Ressource.Moutons, 1);
+                return cout;
+            }
+        };
+    }
+
+    @Test
+    public void testGetDimension() {
+        assertEquals(3, batiment.getDimension());
+    }
+
+    @Test
+    public void testSetDimension() {
+        batiment.setDimension(5);
+        assertEquals(5, batiment.getDimension());
+    }
+
+    @Test
+    public void testGetTuile() {
+        assertEquals(tuile, batiment.getTuile());
+    }
+
+    @Test
+    public void testGetCout() {
+        Map<Ressource, Integer> expectedCout = new HashMap<>();
+        expectedCout.put(Ressource.Bois, 2);
+        expectedCout.put(Ressource.Moutons, 1);
+        assertEquals(expectedCout, batiment.getCout());
+    }
 }

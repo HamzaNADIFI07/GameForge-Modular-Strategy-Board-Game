@@ -1,7 +1,7 @@
 package batimentTypeTests;
 
 import batiment.type_batiment.Armee;
-import ressource.enumRessource;
+import ressource.Ressource;
 
 import org.junit.jupiter.api.Test;
 import tuile.Tuile;
@@ -29,10 +29,10 @@ class ArmeeTest {
     public void testArmeeCout() {
     	Tuile tuile = new Paturage(1,1);
     	Armee armee = new Armee(tuile,3);
-    	Map<enumRessource, Integer> cout = armee.getCout();
-    	assertEquals(1, cout.get(enumRessource.Bois));
-    	assertEquals(1, cout.get(enumRessource.Moutons));
-    	assertEquals(1, cout.get(enumRessource.Ble));
+    	Map<Ressource, Integer> cout = armee.getCout();
+    	assertEquals(1, cout.get(Ressource.Bois));
+    	assertEquals(1, cout.get(Ressource.Moutons));
+    	assertEquals(1, cout.get(Ressource.Ble));
     }
    
 

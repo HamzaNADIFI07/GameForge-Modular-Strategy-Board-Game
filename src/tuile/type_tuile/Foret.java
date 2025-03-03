@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
 /**
@@ -18,7 +18,7 @@ public class Foret extends Tuile{
      * @param y la coordonnée y de la tuile
      */
 	public Foret(int x, int y) {
-	    super("Foret", x, y , enumRessource.Bois);
+	    super("Foret", x, y , Ressource.Bois);
 }
 
 
@@ -34,7 +34,7 @@ public class Foret extends Tuile{
      * 
      * @return la ressource produite par la tuile (enumRessource.Bois)
      */
-    public enumRessource getRessource() {
+    public Ressource getRessource() {
         return ressource;
     }
 

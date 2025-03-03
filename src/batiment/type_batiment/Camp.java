@@ -2,17 +2,26 @@ package batiment.type_batiment;
 import batiment.Batiment;
 import java.util.HashMap;
 import java.util.Map;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 
+/**
+ * La classe Camp représente un type de bâtiment.
+ */
 public class Camp extends Batiment {
 
-    Map<enumRessource, Integer> cout = new HashMap<>();
+    Map<Ressource, Integer> cout = new HashMap<>();
 
+    /**
+     * Constructeur de la classe Camp.
+     * 
+     * @param tuile la tuile sur laquelle le camp est construit
+     */
+    
     public Camp(Tuile tuile) {
         super("Camp", 3, tuile);
-        cout.put(enumRessource.Bois, 2);
-        cout.put(enumRessource.Minerai, 3);  
+        cout.put(Ressource.Bois, 2);
+        cout.put(Ressource.Minerai, 3);  
     }
     //j'ai utilisé  HashMap car elle permet d’associer chaque type de ressource à sa quantité
     
@@ -21,12 +30,11 @@ public class Camp extends Batiment {
      * @return Un Map contenant les ressources nécessaires.
      */
     @Override
-    public Map<enumRessource, Integer> getCout() {
+    public Map<Ressource, Integer> getCout() {
         return this.cout;
     }
 
-    @Override
     public boolean peutEtreConstruit() {
-        return (this.tuile != null) && !this.getTuile().getBatiment().getType().equals("Armee");
+        return (this.tuile != null) && this.getTuile().getBatiment().getType().equals("Armee");
     }
 }

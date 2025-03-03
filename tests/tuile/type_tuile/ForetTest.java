@@ -1,6 +1,6 @@
 package tuile.type_tuile;
 import tuile.type_tuile.Foret;
-import ressource.enumRessource; 
+import ressource.Ressource;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +25,7 @@ public class ForetTest {
 
 
 		// Verifie si la ressource est correctement initialisée à enumRessource.Bois
-		assertEquals(enumRessource.Bois, foret.getRessource());
+		assertEquals(Ressource.Bois, foret.getRessource());
 
 	}
 

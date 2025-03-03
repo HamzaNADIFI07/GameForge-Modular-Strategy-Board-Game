@@ -3,18 +3,23 @@ package batiment.type_batiment;
 import batiment.Batiment;
 import java.util.HashMap;
 import java.util.Map;
-import ressource.enumRessource;
+import ressource.Ressource;
 import tuile.Tuile;
 import tuile.type_tuile.Mer;
+
+/**
+ * La classe Port représente un type de bâtiment.
+ */
 public class Port extends Batiment{
-    Map<enumRessource, Integer> cout = new HashMap<>();
+    Map<Ressource, Integer> cout = new HashMap<>();
     /**
      * Constructeur de la classe Port.
+     * @param tuile La tuile sur laquelle le port est construit.
      */
     public Port(Tuile tuile) {
         super("Port", 1, tuile);
-        cout.put(enumRessource.Bois, 1);
-        cout.put(enumRessource.Moutons, 2);
+        cout.put(Ressource.Bois, 1);
+        cout.put(Ressource.Moutons, 2);
 
     }
     
@@ -24,7 +29,7 @@ public class Port extends Batiment{
      * @return Un Map contenant les ressources nécessaires.
      */
     @Override
-    public Map<enumRessource, Integer> getCout() {
+    public Map<Ressource, Integer> getCout() {
         return this.cout;
     }
 
@@ -33,11 +38,10 @@ public class Port extends Batiment{
      * Un port doit être adjacent à une tuile de type Mer.
      * @return true si la construction est possible, sinon false.
      */
-    @Override
-    public boolean peutEtreConstruit() {
+    public boolean peutEtreConstruit(Tuile[][] plateau) {
         if (this.getTuile() == null) return false;
 
-        for (Tuile tuile : this.getTuile().getAdjacents()) {
+        for (Tuile tuile : this.getTuile().getAdjacents(plateau)) {
             if (tuile instanceof Mer) {
                 return true; //  Le port peut être construit car une tuile voisine est de type Mer
             }

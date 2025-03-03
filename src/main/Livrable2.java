@@ -11,7 +11,14 @@ import tuile.type_tuile.Champ;
 import tuile.type_tuile.Mer;
 import tuile.type_tuile.Paturage;
 
+/**
+ * Classe principale du livrable 2.
+ */
 public class Livrable2 {
+	/**
+	 * Méthode principale du livrable 2.
+	 * @param args Les arguments passés en ligne de commande.
+	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 

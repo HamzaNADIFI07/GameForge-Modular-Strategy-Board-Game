@@ -1,8 +1,15 @@
 package main;
-import plateau.Plateau;
 import java.util.Scanner;
+import plateau.Plateau;
 
+/**
+ * Classe principale du programme.
+ */
 public class Main {
+    /**
+     * Méthode principale du programme.
+     * @param args Les arguments passés en ligne de commande.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
