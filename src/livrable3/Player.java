@@ -8,5 +8,8 @@ public class Player {
         this.name = name;
         this.score = 0;
     }
+    public void updateScore(int points) {
+        score += points;
+    }
 
 }
