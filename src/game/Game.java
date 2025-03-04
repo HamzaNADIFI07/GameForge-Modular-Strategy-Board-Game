@@ -14,9 +14,9 @@ public abstract class Game {
 	     * Constructor for Game class.
 	     * Initializes the game plateau and player list.
 	     */
-	    public Game(List<Player> players, Plateau plateau) {
+	    public Game(List<Player> players,int x,int y ) {
 	        this.players = new ArrayList<>(); // while waiting for the creation of player
-	        this.plateau = new Plateau(10, 10);  // Assuming default size,
+	        this.plateau = new Plateau(x, y);  // Assuming default size,
 	        this.isGameActive = false;
 	    }
 	    //pour obliger les classes dérivées (comme Ares et Demeter) à implémenter

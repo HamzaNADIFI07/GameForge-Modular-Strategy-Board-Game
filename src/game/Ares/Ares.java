@@ -14,8 +14,8 @@ import game.Player;
 **/
 public abstract class Ares extends Game {
 	protected Map<Player, Integer> warriorsStock; // Stock de guerriers pour chaque joueur
-	public Ares(List<Player> players, Plateau plateau) {
-		super(players, plateau);
+	public Ares(List<Player> players,int x,int y) {
+		super(players,x,y);
 		warriorsStock = new HashMap<>();
 		for (Player player : players) {
 			warriorsStock.put(player, 30);

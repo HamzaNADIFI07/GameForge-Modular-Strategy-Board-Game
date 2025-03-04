@@ -11,8 +11,8 @@ import plateau.Plateau;
 public abstract class Demeter extends Game {
 	protected Map<Player, Integer> resourceStock;
 	
-	public Demeter(List<Player> players, Plateau plateau) {
-		super(players, plateau);
+	public Demeter(List<Player> players,int x,int y ) {
+		super(players, x,y);
 		resourceStock = new HashMap<>();
 	}
 
