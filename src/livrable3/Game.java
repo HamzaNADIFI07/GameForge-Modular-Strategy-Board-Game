@@ -14,7 +14,7 @@ public abstract class Game {
 	     * Constructor for Game class.
 	     * Initializes the game plateau and player list.
 	     */
-	    public Game() {
+	    public Game(List<Player> players, Plateau plateau) {
 	        this.players = new ArrayList<>(); // while waiting for the creation of player
 	        this.plateau = new Plateau(10, 10);  // Assuming default size,
 	        this.isGameActive = false;
