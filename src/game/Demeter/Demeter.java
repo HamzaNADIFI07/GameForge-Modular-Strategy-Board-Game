@@ -1,4 +1,4 @@
-package livrable3.Demeter;
+package game.Demeter;
 
 public class Demeter {
 

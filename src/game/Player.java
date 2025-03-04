@@ -1,4 +1,4 @@
-package livrable3;
+package game;
 
 public class Player {
 	private String name;

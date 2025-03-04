@@ -1,11 +1,12 @@
-package livrable3.Ares;
-import livrable3.Game;
-import livrable3.Player;
+package game.Ares;
 import plateau.Plateau;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import game.Game;
+import game.Player;
 
 /**The `Ares` constructor initializes the game environment 
  and sets each player's warrior stock to 30, essential for
