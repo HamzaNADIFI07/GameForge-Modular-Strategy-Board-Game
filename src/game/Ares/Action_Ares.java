@@ -18,7 +18,7 @@ public class Action_Ares {
         this.player = player;
     }
 
-    /*des propositions*/
+    /*des propositions sont possibles*/
     public boolean construireArmee() {
         if (player.hasResources("bois", 1) && player.hasResources("mouton", 1) && player.hasResources("ble", 1) && player.hasWarriorInStock()) {
             player.useResources("bois", 1);
