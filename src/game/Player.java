@@ -116,6 +116,7 @@ public class Player {
     		System.out.println("Achat impossible : ressources insuffisantes.");
     	}
     }
+    
 
     }
 
