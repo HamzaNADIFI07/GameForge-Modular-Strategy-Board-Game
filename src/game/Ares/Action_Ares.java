@@ -23,18 +23,15 @@ public class Action_Ares {
 
     /*des propositions sont possibles*/
     public boolean construireArmee(Tuile t) {
-        if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1) 
-        	&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
-        	player.useResources(Ressource.Bois, 1);
-        	player.useResources(Ressource.Moutons, 1);
-        	player.useResources(Ressource.Ble, 1);
+    	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1)
+    		&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
         	player.buildArmy(t);
         	return true;
         }
         return false;
     }
 
-    public boolean construirePort() {
+    public boolean construirePort(Tuile t) {
         if (player.hasResources("bois", 1) && player.hasResources("mouton", 2)) {
             player.useResources("bois", 1);
             player.useResources("mouton", 2);
