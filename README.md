@@ -401,10 +401,16 @@ Créer les methodes de test
 ## Semaine 8
 
 ### Ce qui a été réalisé
+- Création des classes livrable3ares, livrable3demeter et actionAres
+- 
 
 ### Difficultés rencontrées
 
 ### Objectifs pour la semaine
+- Mise à jour de l'UML
+- Codage des classes livrable3ares, livrable3demeter et actionsdemeter
+- Creation des classes de test
+
 
 ## Semaine 9
 
