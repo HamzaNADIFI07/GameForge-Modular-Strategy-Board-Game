@@ -5,6 +5,7 @@ import plateau.Plateau;
 import ressource.Ressource;
 import tuile.Tuile;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,15 +51,15 @@ public class Action_Ares {
         }
         return false;
     }
-
+/**
+ * en attendant la creation de la classe Listchooser pour 
+ * implimenter cette méthode
     public boolean positionnerGuerriers(String type, int quantity) {
-        if (player.hasWarriorsInStock(quantity)) {
-            player.positionWarriors(type, quantity);
-            return true;
-        }
-        return false;
+    	List<String> options = Arrays.asList("Armee", "Camp");
+    	String choix = listChooser.choose("Sélectionnez où positionner les guerriers:", options);
+    	return player.positionWarriors(choix, 5);
     }
-
+    */
     public boolean ajouterGuerriersAuStock() {
         if (player.hasResources("ble", 2) && player.hasResources("mouton", 2) && player.hasResources("minerai", 1)) {
             player.useResources("ble", 2);
