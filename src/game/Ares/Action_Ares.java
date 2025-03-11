@@ -70,7 +70,7 @@ public class Action_Ares {
         }
         return false;
     }
-
+// reste le méthode attackNeighbor à creer dans player
     public boolean attaquerVoisin(Player voisin) {
         return player.attackNeighbor(voisin);
     }
