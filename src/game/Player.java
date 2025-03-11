@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import batiment.Batiment;
+import batiment.type_batiment.Armee;
 import ressource.Ressource;
 import tuile.Tuile;
 
@@ -88,6 +89,19 @@ public class Player {
     	}
     	this.ressources.put(resource, this.ressources.get(resource) - amount);
     	return true;
+    }
+    public void buildArmy(Tuile t) {
+    	if (hasResources(Ressource.Bois, 1) && hasResources(Ressource.Moutons, 1) && hasResources(Ressource.Ble, 1) && hasWarriorsInStock(1)) {
+    		useResources(Ressource.Bois, 1);
+    		useResources(Ressource.Moutons, 1);
+    		useResources(Ressource.Ble, 1);
+    		warriors--;
+    		Armee armee = new Armee(t, 1);
+    		t.setBatiment(armee);
+    		System.out.println(name + " a construit une armée sur " + t);
+    	} else {
+    		System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
+    	}
     }
     }
 
