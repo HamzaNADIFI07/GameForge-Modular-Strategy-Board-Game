@@ -41,11 +41,11 @@ public class Action_Ares {
         return false;
     }
 
-    public boolean remplacerArmeeParCamp() {
-        if (player.hasResources("bois", 2) && player.hasResources("minerai", 3)) {
-            player.useResources("bois", 2);
-            player.useResources("minerai", 3);
-            player.replaceArmyWithCamp();
+    public boolean remplacerArmeeParCamp(Tuile t) {
+    	if (player.hasResources(Ressource.Bois, 2) && player.hasResources(Ressource.Minerai, 3)) {
+    		player.useResources(Ressource.Bois, 2);
+    		player.useResources(Ressource.Minerai, 3);
+    		player.construireBatiment(new batiment.type_batiment.Camp(t), t);
             return true;
         }
         return false;
