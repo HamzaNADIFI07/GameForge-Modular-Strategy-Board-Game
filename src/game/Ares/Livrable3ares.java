@@ -2,8 +2,10 @@ package game.Ares;
 
 import java.util.Scanner;
 
+import batiment.type_batiment.Armee;
 import game.Player;
 import plateau.Plateau;
+import tuile.Tuile;
 
 public class Livrable3ares {
     public static void main(String[] args) {
@@ -33,6 +35,22 @@ public class Livrable3ares {
 
         System.out.println("Plateau généré pour Ares:");
         plateau.display();
+     // Sélectionner une tuile valide pour l'armée
+        Tuile tuileArmee = null;
+        for (Tuile[] row : plateau.getTuiles()) {
+        	for (Tuile t : row) {
+        		 if (t.getBatiment() == null && !t.getType().equals("Mer")) {
+        			 tuileArmee = t;
+        			 break;
+        		 }
+        	}
+        	if (tuileArmee != null) break;
+        }
+        if (tuileArmee != null) {
+        	Armee armee = new Armee(tuileArmee, 1);
+        	player.construireBatiment(armee, tuileArmee);
+        	player.afficherRessources();
+        }
 
     }
 }
