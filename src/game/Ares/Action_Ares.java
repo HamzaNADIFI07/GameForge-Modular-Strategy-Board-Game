@@ -61,11 +61,11 @@ public class Action_Ares {
     }
     */
     public boolean ajouterGuerriersAuStock() {
-        if (player.hasResources("ble", 2) && player.hasResources("mouton", 2) && player.hasResources("minerai", 1)) {
-            player.useResources("ble", 2);
-            player.useResources("mouton", 2);
-            player.useResources("minerai", 1);
-            player.addWarriorsToStock(5);
+    	if (player.hasResources(Ressource.Ble, 2) && player.hasResources(Ressource.Moutons, 2) && player.hasResources(Ressource.Minerai, 1)) {
+    		player.useResources(Ressource.Ble, 2);
+    		player.useResources(Ressource.Moutons, 2);
+    		player.useResources(Ressource.Minerai, 1);
+    		player.addWarriors(5);
             return true;
         }
         return false;
