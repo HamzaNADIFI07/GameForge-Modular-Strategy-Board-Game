@@ -78,5 +78,8 @@ public class Player {
     public boolean hasResources(Ressource resource, int amount) {
     	return this.ressources.getOrDefault(resource, 0) >= amount;
     }
+    public boolean hasWarriorsInStock(int amount) {
+    	return this.warriors >= amount;
+    }
     }
 
