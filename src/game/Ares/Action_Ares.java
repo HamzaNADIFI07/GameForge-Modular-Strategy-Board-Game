@@ -76,9 +76,9 @@ public class Action_Ares {
     }
 
     public boolean acheterArmeSecrete() {
-        if (player.hasResources("minerai", 1) && player.hasResources("bois", 1)) {
-            player.useResources("minerai", 1);
-            player.useResources("bois", 1);
+    	if (player.hasResources(Ressource.Minerai, 1) && player.hasResources(Ressource.Bois, 1)) {
+    		player.useResources(Ressource.Minerai, 1);
+    		player.useResources(Ressource.Bois, 1);
             player.buySecretWeapon();
             return true;
         }
