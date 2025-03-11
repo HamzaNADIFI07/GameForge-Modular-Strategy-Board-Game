@@ -81,5 +81,13 @@ public class Player {
     public boolean hasWarriorsInStock(int amount) {
     	return this.warriors >= amount;
     }
+    public boolean useResources(Ressource resource, int amount) {
+    	if (!hasResources(resource, amount)) {
+    		System.out.println("Ressources insuffisantes pour " + resource);
+    		return false;
+    	}
+    	this.ressources.put(resource, this.ressources.get(resource) - amount);
+    	return true;
+    }
     }
 
