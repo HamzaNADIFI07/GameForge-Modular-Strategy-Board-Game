@@ -32,10 +32,10 @@ public class Action_Ares {
     }
 
     public boolean construirePort(Tuile t) {
-        if (player.hasResources("bois", 1) && player.hasResources("mouton", 2)) {
-            player.useResources("bois", 1);
-            player.useResources("mouton", 2);
-            player.buildPort();
+    	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 2)) {
+    		player.useResources(Ressource.Bois, 1);
+    		player.useResources(Ressource.Moutons, 2);
+    		player.construireBatiment(new batiment.type_batiment.Port(t), t);
             return true;
         }
         return false;
