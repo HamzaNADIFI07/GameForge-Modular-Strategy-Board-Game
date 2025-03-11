@@ -106,5 +106,16 @@ public class Player {
     public void addWarriors(int amount) {
     	this.warriors += amount;
     }
+    public void buySecretWeapon() {
+    	if (hasResources(Ressource.Minerai, 1) && hasResources(Ressource.Bois, 1)) {
+    		useResources(Ressource.Minerai, 1);
+    		useResources(Ressource.Bois, 1);
+    		this.hasSecretWeapon = true;
+    		System.out.println(name + " a acheté une arme secrète!");
+    	} else {
+    		System.out.println("Achat impossible : ressources insuffisantes.");
+    	}
+    }
+
     }
 
