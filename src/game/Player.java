@@ -103,5 +103,8 @@ public class Player {
     		System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
     	}
     }
+    public void addWarriors(int amount) {
+    	this.warriors += amount;
+    }
     }
 
