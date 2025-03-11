@@ -75,5 +75,8 @@ public class Player {
     public void afficherRessources() {
         System.out.println(name + ": " + this.ressources);
     }
+    public boolean hasResources(Ressource resource, int amount) {
+    	return this.ressources.getOrDefault(resource, 0) >= amount;
+    }
     }
 
