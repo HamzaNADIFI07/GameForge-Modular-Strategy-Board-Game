@@ -82,7 +82,8 @@ public class Action_Ares {
         }
         return false;
     }
-
+    /** a terminer 
+     *  
     public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
         int ratio = viaPort ? 2 : 3;
        //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
@@ -95,6 +96,6 @@ public class Action_Ares {
                     System.out.println("Échange impossible : ressources insuffisantes.");
                     return;
             }
-        }}
+        }} */
         
         
