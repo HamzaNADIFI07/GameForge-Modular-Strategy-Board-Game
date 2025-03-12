@@ -116,6 +116,10 @@ public class Player {
     		System.out.println("Achat impossible : ressources insuffisantes.");
     	}
     }
+    public boolean attackNeighbor(Player voisin) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'attackNeighbor'");
+    }
     
 
     }
