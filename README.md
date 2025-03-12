@@ -414,9 +414,14 @@ Créer les methodes de test
 
 ## Semaine 9
 
+
 ### Ce qui a été réalisé
+- Création de la classe listchooser et implementation
+- Reflexion sur livrable3ares
+- avancement dans le code de livrable3ares et player
 
 ### Difficultés rencontrées
+- comment implementer listchooser
 
 ### Objectifs pour la semaine
 
