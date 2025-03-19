@@ -20,7 +20,7 @@ public class Action_Ares {
         this.player = player;
     }
 
-    /*des propositions sont possibles*/
+    /*construction d'une ar*/
     public boolean construireArmee(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1)
     		&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
@@ -29,7 +29,7 @@ public class Action_Ares {
         }
         return false;
     }
-
+    /*construction d'un port */
     public boolean construirePort(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 2)) {
     		player.useResources(Ressource.Bois, 1);
@@ -82,6 +82,7 @@ public class Action_Ares {
         }
         return false;
     }
+}
     /** a terminer 
      *  
     public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
