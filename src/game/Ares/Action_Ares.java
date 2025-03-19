@@ -20,7 +20,7 @@ public class Action_Ares {
         this.player = player;
     }
 
-    /*construction d'une ar*/
+    /*construction d'une armée*/
     public boolean construireArmee(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1)
     		&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
@@ -40,6 +40,7 @@ public class Action_Ares {
         return false;
     }
 
+    /*remplacer armée par le camp */
     public boolean remplacerArmeeParCamp(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 2) && player.hasResources(Ressource.Minerai, 3)) {
     		player.useResources(Ressource.Bois, 2);
@@ -82,13 +83,16 @@ public class Action_Ares {
         }
         return false;
     }
-}
-    /** a terminer 
-     *  
+
+    
+
     public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
         int ratio = viaPort ? 2 : 3;
+
+
        //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
-           boolean hasPort = batimentsPossedes.stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
+
+           boolean hasPort = player.get.batimentsPossedes.stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
            if (viaPort && !hasPort) {
             System.out.println("Échange impossible : vous n'avez pas de port.");
             return;
@@ -97,6 +101,9 @@ public class Action_Ares {
                     System.out.println("Échange impossible : ressources insuffisantes.");
                     return;
             }
-        }} */
+        if (nbDonnes < ratio) {
+        System.out.println("Échange impossible : vous devez donner au moins " + ratio + " ressources.");
+        return;}
         
-        
+    }
+}
