@@ -428,10 +428,14 @@ Créer les methodes de test
 ## Semaine 10
 
 ### Ce qui a été réalisé
+- Avancement dans la methode echangeresources dans la classe actionares
+- Distinction des deux approches d'échange( avec ou sans port)
 
 ### Difficultés rencontrées
+- Implementation de la methode attachNeighbours
 
 ### Objectifs pour la semaine
+- Finir le livrable3
 
 ## Semaine 11
 

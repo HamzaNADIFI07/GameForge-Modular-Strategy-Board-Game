@@ -122,7 +122,11 @@ public class Player {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'attackNeighbor'");
     }
+    public List<Batiment> getBatimentsPossedes() {
+		return batimentsPossedes;
+	}
 
+	
 
 }
 

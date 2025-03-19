@@ -84,26 +84,33 @@ public class Action_Ares {
         return false;
     }
 
+     public  void echangerRessourcesIdentique(Ressource rDonne, Ressource rVoulue) {
+        if(player.hasResources(rDonne, 3)){
+            player.useResources(rDonne, 3);
+            player.ressources.put(rVoulue, player.ressources.getOrDefault(rVoulue, 0) + 1);
+        }
+
+     }
     
 
-    public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
-        int ratio = viaPort ? 2 : 3;
+    // public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
+    //     int ratio = viaPort ? 2 : 3;
 
 
-       //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
+    //    //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
 
-           boolean hasPort = player.get.batimentsPossedes.stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
-           if (viaPort && !hasPort) {
-            System.out.println("Échange impossible : vous n'avez pas de port.");
-            return;
-        }
-        if (!hasResources( rDonnee, amount)) {
-                    System.out.println("Échange impossible : ressources insuffisantes.");
-                    return;
-            }
-        if (nbDonnes < ratio) {
-        System.out.println("Échange impossible : vous devez donner au moins " + ratio + " ressources.");
-        return;}
+    //     boolean hasPort = player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
+    //     if (viaPort && !hasPort) {
+    //         System.out.println("Échange impossible : vous n'avez pas de port.");
+    //         return;
+    //     }
+    //     if (!hasResources( rDonnee, amount)) {
+    //                 System.out.println("Échange impossible : ressources insuffisantes.");
+    //                 return;
+    //         }
+    //     if (nbDonnes < ratio) {
+    //     System.out.println("Échange impossible : vous devez donner au moins " + ratio + " ressources.");
+    //     return;}
         
-    }
+    // }
 }
