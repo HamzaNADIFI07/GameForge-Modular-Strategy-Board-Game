@@ -14,11 +14,9 @@ import game.Player;
 
 public class Action_Ares {
 
-    private Game game;
     private Player player;
 
     public Action_Ares(Game game, Player player) {
-        this.game = game;
         this.player = player;
     }
 
@@ -70,7 +68,7 @@ public class Action_Ares {
         }
         return false;
     }
-// reste le méthode attackNeighbor à creer dans player
+// reste la méthode attackNeighbor à creer dans player
     public boolean attaquerVoisin(Player voisin) {
         return player.attackNeighbor(voisin);
     }
@@ -84,15 +82,20 @@ public class Action_Ares {
         }
         return false;
     }
-
-    public boolean echangerRessources(String resourceToGive, String resourceToReceive) {
-        if (player.hasResources(resourceToGive, 3)) {
-            player.useResources(resourceToGive, 3);
-            player.addResources(resourceToReceive, 1);
-            return true;
+    /** a terminer 
+     *  
+    public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
+        int ratio = viaPort ? 2 : 3;
+       //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
+           boolean hasPort = batimentsPossedes.stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
+           if (viaPort && !hasPort) {
+            System.out.println("Échange impossible : vous n'avez pas de port.");
+            return;
         }
-        return false;
-    }
-}
-
-
+        if (!hasResources( rDonnee, amount)) {
+                    System.out.println("Échange impossible : ressources insuffisantes.");
+                    return;
+            }
+        }} */
+        
+        

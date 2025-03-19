@@ -1,8 +1,9 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.List;
 import batiment.Batiment;
 import batiment.type_batiment.Armee;
 import ressource.Ressource;
@@ -13,6 +14,7 @@ public class Player {
 	private Map<Ressource, Integer> ressources;
 	private int warriors;
 	private boolean hasSecretWeapon;
+	private List<Batiment> batimentsPossedes = new ArrayList<>();
     
 	//Ce constructeur initialise un joueur avec un nom, 
 	//lui donne 10 unités de chaque ressource, définit 
@@ -115,6 +117,10 @@ public class Player {
     	} else {
     		System.out.println("Achat impossible : ressources insuffisantes.");
     	}
+    }
+    public boolean attackNeighbor(Player voisin) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'attackNeighbor'");
     }
     
 
