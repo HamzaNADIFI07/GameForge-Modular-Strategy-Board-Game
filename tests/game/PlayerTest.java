@@ -7,8 +7,11 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+import batiment.type_batiment.Armee;
 import batiment.type_batiment.Port;
+import plateau.Plateau;
 import ressource.Ressource;
+import tuile.Tuile;
 
 class PlayerTest {
 	private Player player ;
