@@ -48,6 +48,16 @@ class PlayerTest {
 		player.addWarriors(5);
 		assertTrue(player.hasWarriorsInStock(5));
 	}
+	/*
+	 * Tests if the player can buy a secret weapon
+	 */
+	@Test 
+	void testBuySecretWeapon() {
+		 player.useResources(Ressource.Minerai, 1);
+		 player.useResources(Ressource.Bois, 1);
+		 player.buySecretWeapon();
+	}
+	
 	 
 	
 	 
