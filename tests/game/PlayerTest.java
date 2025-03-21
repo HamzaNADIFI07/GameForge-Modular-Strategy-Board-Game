@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+import batiment.type_batiment.Port;
 import ressource.Ressource;
 
 class PlayerTest {
@@ -56,6 +57,15 @@ class PlayerTest {
 		 player.useResources(Ressource.Minerai, 1);
 		 player.useResources(Ressource.Bois, 1);
 		 player.buySecretWeapon();
+	}
+	/*
+	 * Tests if the player has a port in their buildings
+	 */
+	@Test 
+	void testHasPort() {
+		assertFalse(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Port));
+		player.getBatimentsPossedes().add(new Port(null));
+		 assertTrue(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Port));
 	}
 	
 	 
