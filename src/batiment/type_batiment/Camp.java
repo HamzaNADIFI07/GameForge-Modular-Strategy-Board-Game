@@ -33,8 +33,4 @@ public class Camp extends Batiment {
     public Map<Ressource, Integer> getCout() {
         return this.cout;
     }
-
-    public boolean peutEtreConstruit() {
-        return (this.tuile != null) && this.getTuile().getBatiment().getType().equals("Armee");
-    }
 }

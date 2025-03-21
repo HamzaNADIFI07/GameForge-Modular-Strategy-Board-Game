@@ -30,14 +30,5 @@ public class Ferme extends Batiment{
         return this.cout;
     }
 
-    /**
-     * Vérifie si le bâtiment peut être construit.
-     */
-    public boolean peutEtreConstruit() {
-        if (this.getTuile() == null || (this.getTuile().getType().equals("Mer"))) {
-            return false;
-        }
-        return true;
-    }
 
 }

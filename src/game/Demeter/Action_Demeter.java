@@ -20,16 +20,17 @@ public class Action_Demeter {
             this.game.getCurrentPlayer().getBatimentsPossedes().add(ferme);
             this.game.getCurrentPlayer().useResources(Ressource.Bois, 1);
             this.game.getCurrentPlayer().useResources(Ressource.Minerai, 1);
-            System.out.println(this.game.getCurrentPlayer().getName() + " a construit une ferme sur "+ t.display());
+            System.out.println(this.game.getCurrentPlayer().getName() + this.game.getCurrentPlayer().getRessources() + " a construit une ferme sur "+ t.display());
         }
     }
 
     public void construirePort(Tuile t){
         if(this.game.getCurrentPlayer().possedeTuile(t) && this.game.getCurrentPlayer().hasResources(Ressource.Bois, 1) && this.game.getCurrentPlayer().hasResources(Ressource.Moutons, 2) && this.game.batimentPeutEtreConstruit("Port",t)){
-            Port Port = new Port(t);
+            Port port = new Port(t);
+            this.game.getCurrentPlayer().getBatimentsPossedes().add(port);
             this.game.getCurrentPlayer().useResources(Ressource.Bois, 1);
             this.game.getCurrentPlayer().useResources(Ressource.Moutons, 2);
-            System.out.println(this.game.getCurrentPlayer().getName() + " a construit un port sur "+ t.display());
+            System.out.println(this.game.getCurrentPlayer().getName() + this.game.getCurrentPlayer().getRessources() + " a construit un port sur "+ t.display());
         }
     }
 

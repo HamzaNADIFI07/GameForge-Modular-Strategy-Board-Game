@@ -50,7 +50,7 @@ public abstract class Game {
 				if (b.equalsIgnoreCase("port")) {
 					for (Tuile adjacente : t.getAdjacents(plateau.getTuiles())) {
 						if (adjacente instanceof Mer) {
-							return true; // Valide car au moins une tuile adjacente est une mer
+							return true;
 						}
 					}
 				}
