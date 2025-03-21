@@ -1,8 +1,7 @@
 package game.Demeter;
 
-import java.util.Scanner;
-
 import game.Player;
+import java.util.Scanner;
 import plateau.Plateau;
 
 public class Livrable3demeter {

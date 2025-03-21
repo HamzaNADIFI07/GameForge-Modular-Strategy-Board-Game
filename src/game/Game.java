@@ -1,7 +1,6 @@
 package game;
 import java.util.ArrayList;
 import java.util.List;
-
 import plateau.Plateau;
 
 public abstract class Game {
@@ -23,7 +22,15 @@ public abstract class Game {
 	    //leur propre logique de mise en place initiale du jeu, qui varie selon les 
 	    //règles spécifiques de chaque version du jeu.
 	    protected abstract void initializeGame();
-	    
+		
+		public boolean isGameActive() {
+			return isGameActive;
+		}
+		public void setGameActive(boolean isGameActive) {
+			this.isGameActive = isGameActive;
+		}
+		
+		
 	    
 
 }

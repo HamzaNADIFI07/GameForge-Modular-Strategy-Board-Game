@@ -1,7 +1,7 @@
 SRC = src
 CLASS = classes
 JAR_NAME = Livrable2.jar
-MAIN_CLASS = main.Livrable2
+MAIN_CLASS = game.Demeter.Livrable3demeter
 DOCS = docs
 TEST_CLASS = test_classes
 TEST_SRC = tests
