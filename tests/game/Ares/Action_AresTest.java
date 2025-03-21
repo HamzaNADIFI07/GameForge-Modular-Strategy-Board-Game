@@ -38,5 +38,14 @@ class Action_AresTest {
 		}
 		return null;
 	}
+	/*
+	 * Tests if an army can be built on a valid tile
+	 */
+	@Test
+	void testConstruireArmee() {
+		Tuile t = getFirstNonMerTile();
+		assertNotNull(t, "No valid tile found for army.");
+		assertTrue(actionAres.construireArmee(t));
+	}
 
 }
