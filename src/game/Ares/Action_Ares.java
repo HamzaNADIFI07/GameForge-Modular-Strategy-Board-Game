@@ -1,16 +1,10 @@
 
 package game.Ares;
 
-import plateau.Plateau;
-import ressource.Ressource;
-import tuile.Tuile;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import game.Game;
 import game.Player;
+import ressource.Ressource;
+import tuile.Tuile;
 
 public class Action_Ares {
 
@@ -87,7 +81,7 @@ public class Action_Ares {
      public  void echangerRessourcesIdentique(Ressource rDonne, Ressource rVoulue) {
         if(player.hasResources(rDonne, 3)){
             player.useResources(rDonne, 3);
-            player.ressources.put(rVoulue, player.ressources.getOrDefault(rVoulue, 0) + 1);
+            player.getRessources().put(rVoulue, player.getRessources().getOrDefault(rVoulue, 0) + 1);
         }
 
      }
