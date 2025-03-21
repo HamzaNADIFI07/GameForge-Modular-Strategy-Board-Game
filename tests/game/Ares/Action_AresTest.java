@@ -2,13 +2,26 @@ package game.Ares;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class Action_AresTest {
+import game.Game;
+import game.Player;
+import plateau.Plateau;
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
+class Action_AresTest {
+	private Action_Ares actionAres;
+	private Player player;
+	private Plateau plateau;
+	private Game game;
+	@BeforeEach
+	void setUp() {
+		plateau = new Plateau(10, 10);
+		player = new Player("Leon");
+		actionAres = new Action_Ares(null, player);
 	}
 
 }
