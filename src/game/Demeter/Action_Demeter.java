@@ -61,12 +61,18 @@ public class Action_Demeter {
         }
     }
 
-    public void echangerRessourcesViaPort(Ressource r1, Ressource r2, int quantite){
+    public void echangerRessources(Ressource r1, Ressource r2, int quantite){
         if(this.game.getCurrentPlayer().hasPort()){
             this.game.getCurrentPlayer().useResources(r1, quantite);
             this.game.getCurrentPlayer().addRessource(r2, quantite);
             System.out.println(this.game.getCurrentPlayer().getName() + this.game.getCurrentPlayer().getRessources() + " a échangé "+ quantite + " " + r1 + " contre " + quantite + " " + r2);
         }
-
+        else{
+            this.game.getCurrentPlayer().useResources(r1, 3*quantite);
+            this.game.getCurrentPlayer().addRessource(r2, quantite);
+            System.out.println(this.game.getCurrentPlayer().getName() + this.game.getCurrentPlayer().getRessources() + " a échangé "+ quantite + " " + r1 + " contre " + 3*quantite + " " + r2);
+        }
     }
+
+    
 }
