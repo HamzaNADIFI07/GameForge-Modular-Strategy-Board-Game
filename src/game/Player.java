@@ -15,6 +15,7 @@ public class Player {
 	private int warriors;
 	private boolean hasSecretWeapon;
 	private List<Batiment> batimentsPossedes = new ArrayList<>();
+	private List<Tuile> tuilesPossedes = new ArrayList<>();
     
 	//Ce constructeur initialise un joueur avec un nom, 
 	//lui donne 10 unités de chaque ressource, définit 
@@ -29,7 +30,13 @@ public class Player {
         this.hasSecretWeapon = false;
         
     }
-    /**
+    public List<Tuile> getTuilesPossedes() {
+		return tuilesPossedes;
+	}
+	public void setTuilesPossedes(List<Tuile> tuilesPossedes) {
+		this.tuilesPossedes = tuilesPossedes;
+	}
+	/**
      * Permet au joueur de construire un bâtiment sur une tuile donnée,
      * en vérifiant si les ressources nécessaires sont disponibles.
      * 

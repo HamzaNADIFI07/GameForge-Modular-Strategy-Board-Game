@@ -29,6 +29,12 @@ public abstract class Game {
 		public void setGameActive(boolean isGameActive) {
 			this.isGameActive = isGameActive;
 		}
+		public Player getCurrentPlayer() {
+			return currentPlayer;
+		}
+		public void setCurrentPlayer(Player currentPlayer) {
+			this.currentPlayer = currentPlayer;
+		}
 		
 		
 	    
