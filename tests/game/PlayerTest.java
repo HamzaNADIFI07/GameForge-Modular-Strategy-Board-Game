@@ -32,6 +32,14 @@ class PlayerTest {
 		assertTrue(player.hasResources(Ressource.Bois, 5));
 		assertFalse(player.hasResources(Ressource.Minerai, 20));
 	}
+	/*
+	 * Tests the useResources() method to verify that resources are correctly deducted.
+	 */
+	@Test 
+	void testUseResources() {
+		assertTrue(player.useResources(Ressource.Bois, 3));
+		assertFalse(player.useResources(Ressource.Bois, 20));
+	}
 	
 	 
 
