@@ -17,6 +17,7 @@ public class Player {
 	private List<Batiment> batimentsPossedes = new ArrayList<>();
 	private List<Tuile> tuilesPossedes = new ArrayList<>();
 	private boolean hasPort;
+	private boolean hasVoleur;
     
 	//Ce constructeur initialise un joueur avec un nom, 
 	//lui donne 10 unités de chaque ressource, définit 
@@ -30,6 +31,7 @@ public class Player {
         this.warriors = 0;
         this.hasSecretWeapon = false;
         this.hasPort = false;
+		this.hasVoleur = false;
     }
     public boolean hasPort() {
 		return hasPort;
@@ -159,7 +161,17 @@ public class Player {
         	return;
     	}
     	ressources.put(resource, ressources.getOrDefault(resource, 0) + quantite);
-}
+	}
+	public boolean hasVoleur() {
+		return hasVoleur;
+	}
+	public void setHasVoleur() {
+		if (hasVoleur) {
+			hasVoleur = false;
+		}else {
+			hasVoleur = true;
+		}
+	}
 
 }
 

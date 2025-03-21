@@ -76,6 +76,12 @@ public abstract class Game {
 
 			return false;
 		}
+		public List<Player> getPlayers() {
+			return players;
+		}
+		public void setPlayers(List<Player> players) {
+			this.players = players;
+		}
 	    
 
 }

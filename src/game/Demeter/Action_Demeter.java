@@ -3,6 +3,7 @@ package game.Demeter;
 import batiment.Batiment;
 import batiment.type_batiment.*;
 import game.Game;
+import game.Player;
 import ressource.Ressource;
 import tuile.Tuile;
 
@@ -73,6 +74,30 @@ public class Action_Demeter {
             System.out.println(this.game.getCurrentPlayer().getName() + this.game.getCurrentPlayer().getRessources() + " a échangé "+ 3*quantite + " " + r1 + " contre " + quantite + " " + r2);
         }
     }
+
+    public void jouerVoleur(Ressource ressource) {
+        Player currentPlayer = game.getCurrentPlayer();
+
+        if (currentPlayer.hasVoleur()) {
+            game.getPlayers().forEach(player -> {
+                if (!player.equals(currentPlayer)) {
+                    int quantiteVolee = player.getRessources().getOrDefault(ressource, 0);
+                    if (quantiteVolee > 0) {
+                        player.useResources(ressource, quantiteVolee);
+                        currentPlayer.addRessource(ressource, quantiteVolee);
+                        System.out.println(currentPlayer.getName() + " a volé " + quantiteVolee + " " + ressource + " à " + player.getName());
+                    } else {
+                        System.out.println(player.getName() + " n'avait aucune ressource (" + ressource + ") à voler.");
+                    }
+                }
+            });
+
+            currentPlayer.setHasVoleur();
+        } else {
+            System.out.println("Vous n'avez pas de voleur disponible !");
+        }
+    }
+
 
 
 }
