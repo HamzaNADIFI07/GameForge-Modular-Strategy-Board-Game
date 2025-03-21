@@ -40,6 +40,15 @@ class PlayerTest {
 		assertTrue(player.useResources(Ressource.Bois, 3));
 		assertFalse(player.useResources(Ressource.Bois, 20));
 	}
+	/*
+	 * Tests if warriors can be added to the player's stock.
+     */
+	@Test 
+	void testAddWarriors() {
+		player.addWarriors(5);
+		assertTrue(player.hasWarriorsInStock(5));
+	}
+	 
 	
 	 
 
