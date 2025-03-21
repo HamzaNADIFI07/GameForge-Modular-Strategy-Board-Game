@@ -1,11 +1,11 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import batiment.Batiment;
 import batiment.type_batiment.Armee;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import ressource.Ressource;
 import tuile.Tuile;
 
@@ -124,6 +124,10 @@ public class Player {
     }
     public List<Batiment> getBatimentsPossedes() {
 		return batimentsPossedes;
+	}
+	
+	public Map<Ressource, Integer> getRessources() {
+		return ressources;
 	}
 
 	
