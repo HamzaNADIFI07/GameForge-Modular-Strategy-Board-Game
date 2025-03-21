@@ -36,6 +36,8 @@ public class Plateau {
         this.y = y;
         this.tuile = new Tuile[x][y];
         initialiserPlateau();
+        genererTuiles();
+        display();
     
     }
 
@@ -315,7 +317,6 @@ public class Plateau {
     public Tuile[][] getTuiles() {
         return this.tuile;
     }
-
 
 
 

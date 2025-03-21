@@ -15,7 +15,8 @@ public class Action_Demeter {
         this.game = game;
     }
 
-    public void construireFerme(Tuile t) {
+    public void construireFerme(int x, int y){ {
+        Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
         if(currentPlayer.possedeTuile(t) && 
             currentPlayer.hasResources(Ressource.Bois, 1) && 
@@ -29,8 +30,10 @@ public class Action_Demeter {
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une ferme sur "+ t.display());
         }
     }
+}
 
-    public void construirePort(Tuile t){
+    public void construirePort(int x, int y){
+        Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
         if(currentPlayer.possedeTuile(t) && 
             currentPlayer.hasResources(Ressource.Bois, 1) && 
@@ -45,7 +48,8 @@ public class Action_Demeter {
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit un port sur "+ t.display());
         }
     }
-    public void construireExploitation(Tuile t){
+    public void construireExploitation(int x, int y){
+        Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
         if(currentPlayer.possedeTuile(t) && 
             currentPlayer.hasResources(Ressource.Bois, 2) && 

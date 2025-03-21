@@ -31,7 +31,7 @@ public class Player {
         this.warriors = 0;
         this.hasSecretWeapon = false;
         this.port = 0;
-		this.Voleur = 0;
+		this.voleur = 0;
     }
     public int getPort() {
 		return port;

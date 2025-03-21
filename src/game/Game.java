@@ -38,6 +38,9 @@ public abstract class Game {
 			this.currentPlayer = currentPlayer;
 		}
 		
+		public Plateau getPlateau() {
+			return plateau;
+		}
 		public boolean batimentPeutEtreConstruit(String b, Tuile t) {
 			if (t != null && !(t.getType().equals("Mer")) && t.getBatiment() == null) {
 				
