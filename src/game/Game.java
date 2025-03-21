@@ -2,6 +2,8 @@ package game;
 import java.util.ArrayList;
 import java.util.List;
 import plateau.Plateau;
+import tuile.Tuile;
+import tuile.type_tuile.Mer;
 
 public abstract class Game {
 		protected Player currentPlayer;
@@ -36,7 +38,44 @@ public abstract class Game {
 			this.currentPlayer = currentPlayer;
 		}
 		
-		
+		public boolean batimentPeutEtreConstruit(String b, Tuile t) {
+			if (t != null && !(t.getType().equals("Mer")) && t.getBatiment() == null) {
+				
+				// Cas pour la ferme
+				if (b.equalsIgnoreCase("ferme")) {
+					return true;	
+				}
+
+				// Cas pour le port
+				if (b.equalsIgnoreCase("port")) {
+					for (Tuile adjacente : t.getAdjacents(plateau.getTuiles())) {
+						if (adjacente instanceof Mer) {
+							return true; // Valide car au moins une tuile adjacente est une mer
+						}
+					}
+				}
+				// Cas pour la Armee
+				if (b.equalsIgnoreCase("Armee")) {
+					return true;
+				}
+			}
+			if (t != null && !(t.getType().equals("Mer"))){
+				// Cas pour la Exploitation
+				if (b.equalsIgnoreCase("Exploitation")) {
+					if (t.getBatiment().getType().equals("Ferme")) {
+						return true;
+					}
+				}
+				// Cas pour le camp
+				if (b.equalsIgnoreCase("camp")) {
+					if (t.getBatiment().getType().equals("Armee")) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
 	    
 
 }

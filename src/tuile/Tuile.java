@@ -159,4 +159,7 @@ public abstract class Tuile {
         return this.ressource;
     }
 
+    public String display() {
+        return this.type.charAt(0) + "( %d , %d )".formatted(this.x, this.y);
+    }
 }

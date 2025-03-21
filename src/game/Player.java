@@ -36,6 +36,9 @@ public class Player {
 	public void setTuilesPossedes(List<Tuile> tuilesPossedes) {
 		this.tuilesPossedes = tuilesPossedes;
 	}
+	public boolean possedeTuile(Tuile tuile) {
+		return tuilesPossedes.contains(tuile);
+	}
 	/**
      * Permet au joueur de construire un bâtiment sur une tuile donnée,
      * en vérifiant si les ressources nécessaires sont disponibles.
