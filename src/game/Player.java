@@ -16,6 +16,7 @@ public class Player {
 	private boolean hasSecretWeapon;
 	private List<Batiment> batimentsPossedes = new ArrayList<>();
 	private List<Tuile> tuilesPossedes = new ArrayList<>();
+	private boolean hasPort;
     
 	//Ce constructeur initialise un joueur avec un nom, 
 	//lui donne 10 unités de chaque ressource, définit 
@@ -28,9 +29,21 @@ public class Player {
         }
         this.warriors = 0;
         this.hasSecretWeapon = false;
-        
+        this.hasPort = false;
     }
-    public List<Tuile> getTuilesPossedes() {
+    public boolean hasPort() {
+		return hasPort;
+	}
+
+	public void setHasPort() {
+		if (hasPort) {
+			hasPort = false;
+		}else {
+			hasPort = true;
+		}
+	}
+
+	public List<Tuile> getTuilesPossedes() {
 		return tuilesPossedes;
 	}
 	public void setTuilesPossedes(List<Tuile> tuilesPossedes) {
@@ -140,7 +153,13 @@ public class Player {
 		return ressources;
 	}
 
-	
+	public void addRessource(Ressource resource, int quantite) {
+    	if (quantite <= 0) {
+        	System.out.println("La quantité à ajouter doit être positive.");
+        	return;
+    	}
+    	ressources.put(resource, ressources.getOrDefault(resource, 0) + quantite);
+}
 
 }
 
