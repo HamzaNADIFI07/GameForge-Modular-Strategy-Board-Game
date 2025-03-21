@@ -18,10 +18,21 @@ class PlayerTest {
 	/*
 	 * Tests if the player starts with enough resources*
 	 */
+	@Test
 	 void testInitialResources() {
 		 for (Ressource r : Ressource.values()) {
 			 assertTrue(player.hasResources(r, 10), "Player should start with 10 of " + r);
 		 }
 	 }
+	 /*
+	  * Tests if the player correctly verifies resource availability.
+	  */
+	@Test
+	 void testHasResources() {
+		assertTrue(player.hasResources(Ressource.Bois, 5));
+		assertFalse(player.hasResources(Ressource.Minerai, 20));
+	}
+	
+	 
 
 }
