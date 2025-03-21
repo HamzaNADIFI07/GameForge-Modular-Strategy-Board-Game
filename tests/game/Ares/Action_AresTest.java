@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import game.Game;
 import game.Player;
 import plateau.Plateau;
+import tuile.Tuile;
 
 class Action_AresTest {
 	private Action_Ares actionAres;
@@ -22,6 +23,20 @@ class Action_AresTest {
 		plateau = new Plateau(10, 10);
 		player = new Player("Leon");
 		actionAres = new Action_Ares(null, player);
+	}
+	/*
+	 * Finds the first non-Mer tile on the board
+	 */
+	private Tuile getFirstNonMerTile() {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				Tuile t = plateau.getTuile(i, j);
+				if (!(t instanceof tuile.type_tuile.Mer)) {
+					return t;
+				}
+			}
+		}
+		return null;
 	}
 
 }
