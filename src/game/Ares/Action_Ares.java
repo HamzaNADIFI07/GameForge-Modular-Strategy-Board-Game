@@ -78,14 +78,25 @@ public class Action_Ares {
         return false;
     }
 
-     public  void echangerRessourcesIdentique(Ressource rDonne, Ressource rVoulue) {
-        if(player.hasResources(rDonne, 3)){
-            player.useResources(rDonne, 3);
-            player.getRessources().put(rVoulue, player.getRessources().getOrDefault(rVoulue, 0) + 1);
+    public void echangerRessourcesIdentiques(int nbDonnes, Ressource rDonnee, Ressource rVoulue) {
+        if (nbDonnes % 3 != 0) {
+            System.out.println("Échange impossible : le nombre de ressources données doit être un multiple de 3.");
+            return;
         }
-
-     }
+        int setsOfThree = nbDonnes / 3;
+        if (!player.hasResources(rDonnee, nbDonnes)) {
+            System.out.println("Échange impossible : ressources insuffisantes.");
+            return;
+        }
+        player.useResources(rDonnee, nbDonnes);
+        player.getRessources().put(rVoulue, player.getRessources().getOrDefault(rVoulue, 0) + setsOfThree);
+    }
     
+    
+    
+
+    
+
 
     // public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
     //     int ratio = viaPort ? 2 : 3;
