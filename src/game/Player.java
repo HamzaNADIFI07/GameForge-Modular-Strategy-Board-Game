@@ -50,6 +50,9 @@ public class Player {
 	public boolean possedeTuile(Tuile tuile) {
 		return tuilesPossedes.contains(tuile);
 	}
+	public void addTuile(Tuile tuile) {
+		tuilesPossedes.add(tuile);
+	}
 	/**
      * Permet au joueur de construire un bâtiment sur une tuile donnée,
      * en vérifiant si les ressources nécessaires sont disponibles.
@@ -145,6 +148,19 @@ public class Player {
     }
     public List<Batiment> getBatimentsPossedes() {
 		return batimentsPossedes;
+	}
+
+	public List<String> getBatimentsParType(String type) {
+		List<String> batimentsFiltres = new ArrayList<>();
+		int i = 1;
+		for (Batiment b : batimentsPossedes) {
+			if (b.getType().equalsIgnoreCase(type)) {
+				batimentsFiltres.add(i + " " + b.getType()+" sur "+b.getTuile().display());
+				i++;
+			}
+		}
+	
+		return batimentsFiltres;
 	}
 	
 	public Map<Ressource, Integer> getRessources() {

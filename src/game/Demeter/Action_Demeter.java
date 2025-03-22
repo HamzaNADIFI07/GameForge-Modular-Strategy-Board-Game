@@ -18,8 +18,8 @@ public class Action_Demeter {
     public void construireFerme(int x, int y){ {
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
-        if(currentPlayer.possedeTuile(t) && 
-            currentPlayer.hasResources(Ressource.Bois, 1) && 
+
+        if( currentPlayer.hasResources(Ressource.Bois, 1) && 
             currentPlayer.hasResources(Ressource.Minerai, 1) && 
             this.game.batimentPeutEtreConstruit( "Ferme",  t)){
 
@@ -27,7 +27,10 @@ public class Action_Demeter {
             currentPlayer.useResources(Ressource.Minerai, 1);
             Ferme ferme = new Ferme(t);
             currentPlayer.getBatimentsPossedes().add(ferme);
+            currentPlayer.addTuile(t);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une ferme sur "+ t.display());
+        }else{
+            System.out.println("Vous ne pouvez pas construire une ferme sur cette tuile");
         }
     }
 }
@@ -35,8 +38,8 @@ public class Action_Demeter {
     public void construirePort(int x, int y){
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
-        if(currentPlayer.possedeTuile(t) && 
-            currentPlayer.hasResources(Ressource.Bois, 1) && 
+
+        if(currentPlayer.hasResources(Ressource.Bois, 1) && 
             currentPlayer.hasResources(Ressource.Moutons, 2) && 
             this.game.batimentPeutEtreConstruit("Port",t)){
 
@@ -45,14 +48,17 @@ public class Action_Demeter {
             Port port = new Port(t);
             currentPlayer.getBatimentsPossedes().add(port);
             currentPlayer.setPort(1);
+            currentPlayer.addTuile(t);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit un port sur "+ t.display());
+        }else{
+            System.out.println("Vous ne pouvez pas construire un port sur cette tuile");
         }
     }
     public void construireExploitation(int x, int y){
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
-        if(currentPlayer.possedeTuile(t) && 
-            currentPlayer.hasResources(Ressource.Bois, 2) && 
+
+        if(currentPlayer.hasResources(Ressource.Bois, 2) && 
             currentPlayer.hasResources(Ressource.Ble, 1) && 
             currentPlayer.hasResources(Ressource.Moutons, 1) &&
             this.game.batimentPeutEtreConstruit("Exploitation",t)){
@@ -65,6 +71,8 @@ public class Action_Demeter {
             Batiment ferme = t.getBatiment();
             currentPlayer.getBatimentsPossedes().remove(ferme);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une exploitation sur "+ t.display());
+        }else{
+            System.out.println("Vous ne pouvez pas construire une exploitation sur cette tuile");
         }
     }
 
@@ -75,10 +83,13 @@ public class Action_Demeter {
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 2*quantite + " " + r1 + " contre " + quantite + " " + r2);
         }
-        else{
+        if(currentPlayer.getPort()==0){
             currentPlayer.useResources(r1, 3*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 3*quantite + " " + r1 + " contre " + quantite + " " + r2);
+        }
+        else{
+            System.out.println("Vous ne pouvez pas échanger de ressources");
         }
     }
 
@@ -93,6 +104,9 @@ public class Action_Demeter {
             currentPlayer.useResources(Ressource.Ble, 1);
             currentPlayer.setVoleur(1);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a acheté un voleur");
+        }
+        else{
+            System.out.println("Vous ne pouvez pas acheter de voleur");
         }
     }
 
