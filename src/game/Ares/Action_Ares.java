@@ -15,6 +15,7 @@ public class Action_Ares {
     }
 
     /*construction d'une armée*/
+
     public boolean construireArmee(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1)
     		&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
@@ -24,6 +25,7 @@ public class Action_Ares {
         return false;
     }
     /*construction d'un port */
+
     public boolean construirePort(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 2)) {
     		player.useResources(Ressource.Bois, 1);
@@ -35,6 +37,7 @@ public class Action_Ares {
     }
 
     /*remplacer armée par le camp */
+
     public boolean remplacerArmeeParCamp(Tuile t) {
     	if (player.hasResources(Ressource.Bois, 2) && player.hasResources(Ressource.Minerai, 3)) {
     		player.useResources(Ressource.Bois, 2);
@@ -53,6 +56,9 @@ public class Action_Ares {
     	return player.positionWarriors(choix, 5);
     }
     */
+
+    /*ajouter des guerriers au stock*/
+
     public boolean ajouterGuerriersAuStock() {
     	if (player.hasResources(Ressource.Ble, 2) && player.hasResources(Ressource.Moutons, 2) && player.hasResources(Ressource.Minerai, 1)) {
     		player.useResources(Ressource.Ble, 2);
@@ -63,10 +69,18 @@ public class Action_Ares {
         }
         return false;
     }
-// reste la méthode attackNeighbor à creer dans player
-    public boolean attaquerVoisin(Player voisin) {
+
+/* attaquer son voisin*/
+
+public boolean attaquerVoisin(Player voisin) {
+    if (player.hasWarriorsInStock(1)) {
+        player.useWarriors(1);
         return player.attackNeighbor(voisin);
     }
+    return false;
+}
+
+/* acheter une arme secrete*/
 
     public boolean acheterArmeSecrete() {
     	if (player.hasResources(Ressource.Minerai, 1) && player.hasResources(Ressource.Bois, 1)) {
@@ -78,14 +92,16 @@ public class Action_Ares {
         return false;
     }
 
+// echanger trois ressouces identiques contre une autre ressource
+
     public void echangerRessourcesIdentiques(int nbDonnes, Ressource rDonnee, Ressource rVoulue) {
         if (nbDonnes % 3 != 0) {
-            System.out.println("Échange impossible : le nombre de ressources données doit être un multiple de 3.");
+            System.out.println("Échange impossible : le nombre de ressources données doit être un multiple de 3");
             return;
         }
         int setsOfThree = nbDonnes / 3;
         if (!player.hasResources(rDonnee, nbDonnes)) {
-            System.out.println("Échange impossible : ressources insuffisantes.");
+            System.out.println("Échange impossible : ressources insuffisantes");
             return;
         }
         player.useResources(rDonnee, nbDonnes);
@@ -95,8 +111,7 @@ public class Action_Ares {
     
     
 
-    
-
+   
 
     // public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
     //     int ratio = viaPort ? 2 : 3;

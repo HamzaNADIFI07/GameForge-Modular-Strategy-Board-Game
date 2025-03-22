@@ -164,6 +164,10 @@ public class Player {
 	public void setVoleur(int voleur) {
 		this.voleur = voleur;
 	}
+	public void useWarriors(int i) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'useWarriors'");
+	}
 
 }
 
