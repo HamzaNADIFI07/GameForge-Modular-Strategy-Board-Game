@@ -28,6 +28,9 @@ public class Livrable3demeter {
                 System.out.print("Entrez la largeur du plateau: ");
                 largeur = Integer.parseInt(scanner.nextLine());
 
+				System.out.println();
+				System.out.println();
+
                 System.out.print("Entrez la hauteur du plateau: ");
                 longeur = Integer.parseInt(scanner.nextLine());
 
@@ -44,6 +47,9 @@ public class Livrable3demeter {
 		System.out.println("----- DEMETER -----");
 		System.out.println(" -----------------");
 
+		System.out.println();
+		System.out.println();
+
 		Player player1 = new Player("Leon");
 		List<Player> players = new ArrayList<>();
 		players.add(player1);
@@ -53,67 +59,122 @@ public class Livrable3demeter {
 		demeter.setCurrentPlayer(player1);
 
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut construire une ferme.");
-		
+
+		System.out.println();
+
 		System.out.println("Où installer une ferme ?");
 		
+		System.out.println();
+
 		System.out.print("Entrez la coordonnée X: ");
 		int coordonneeX = Integer.parseInt(scanner.nextLine());
 		
+		System.out.println();
+
 		System.out.print("Entrez la la coordonnée Y: ");
 		int coordonneeY = Integer.parseInt(scanner.nextLine());
 		
-		
+		System.out.println();
+
 		demeter.getAction().construireFerme(coordonneeX,coordonneeY);
 
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut remplacer une ferme par une exploitation.");
 
+		System.out.println();
+
 		List<String> displayFermes = player1.getDisplayBatimentsParType("Ferme");
+
 		System.out.println("quelle ferme transformer en exploitation ?");
+
+		System.out.println();
+
 		System.out.println(displayFermes.size() + ": " + displayFermes);
+
+		System.out.println();
+
 		System.out.print("Quelle ferme transformer en exploitation ? ");
+		
 		int indiceFerme = Integer.parseInt(scanner.nextLine());
 		
+		System.out.println();
+
 		if (indiceFerme < 1 || indiceFerme > displayFermes.size()) {
 			System.out.println("Indice invalide.");
 			System.exit(1);
 		}
 		List<Batiment> fermes = player1.getBatimentsParType("Ferme");
+
+		System.out.println();
+
 		demeter.getAction().construireExploitation(fermes.get(indiceFerme-1).getTuile().getX(), fermes.get(indiceFerme-1).getTuile().getY());
+
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut construire un port.");
 		
+		System.out.println();
+
 		System.out.println("Où installer le port ?");
 		
+		System.out.println();
+
 		System.out.print("Entrez la coordonnée X: ");
 		int portX = Integer.parseInt(scanner.nextLine());
 		
+		System.out.println();
+
 		System.out.print("Entrez la la coordonnée Y: ");
 		int portY = Integer.parseInt(scanner.nextLine());
 		
+		System.out.println();
+
 		demeter.getAction().construirePort(portX, portY);
+		
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut échanger des ressources sans se servir du port.");
 
+		System.out.println();
+
 		System.out.println("Ressources disponibles: " + player1.getRessources());
+
+		System.out.println();
 
 		System.out.print("Choisit une ressource à échanger: ");
 		System.out.println("1: Moutons");
 		System.out.println("2: Minerai");
 		System.out.println("3: Blé");
 		System.out.println("4: Bois");
+
+		System.out.println();
 
 		System.out.println("Ressource à échanger: ");
 		int ressourceEchangee = Integer.parseInt(scanner.nextLine());
+
+		System.out.println();
+
 		System.out.print("Ressource à acquérir: ");
 		int ressourceAcquie = Integer.parseInt(scanner.nextLine());
 
+		System.out.println();
+
 		demeter.getAction().echangerRessources(1, Ressource.Ble, Ressource.Minerai, false);
 
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut échanger des ressources grâce à son port.");
 
+		System.out.println();
+
 		System.out.println("Ressources disponibles: " + player1.getRessources());
+
+		System.out.println();
 
 		System.out.print("Choisit une ressource à échanger: ");
 		System.out.println("1: Moutons");
@@ -121,18 +182,34 @@ public class Livrable3demeter {
 		System.out.println("3: Blé");
 		System.out.println("4: Bois");
 
+		System.out.println();
+
 		System.out.println("Ressource à échanger: ");
 		int ressourceEchangeeViaPort = Integer.parseInt(scanner.nextLine());
+
+		System.out.println();
+
 		System.out.print("Ressource à acquérir: ");
 		int ressourceAcquieViaPort = Integer.parseInt(scanner.nextLine());
 
+		System.out.println();
+
 		demeter.getAction().echangerRessources(1, Ressource.Bois, Ressource.Bois, true);
 
-		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ].");
+		System.out.println();
+		System.out.println();
+
+		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ].");		
 		System.out.println(player1.getRessources());
+
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> liste des bâtiments en sa possession");
 		System.out.println(player1.getDisplayBatiments());
+
+		System.out.println();
+		System.out.println();
 
 		System.out.println("----> liste des tuiles occupées");
 		System.out.println(player1.getDisplayTuilesPossedes());
