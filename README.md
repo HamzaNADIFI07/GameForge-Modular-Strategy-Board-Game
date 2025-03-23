@@ -368,7 +368,8 @@ Leon{Moutons=7, Minerai=9, Ble=9, Bois=6} a construit un port sur F( 7 , 15 )
 
 Ressources disponibles: {Moutons=7, Minerai=9, Ble=9, Bois=6}
 
-Choisit une ressource à échanger: 1: Moutons
+Choisit une ressource à échanger: 
+1: Moutons
 2: Minerai
 3: Blé
 4: Bois
@@ -381,7 +382,8 @@ Leon{Moutons=7, Minerai=10, Ble=6, Bois=6} a échangé 3 Ble contre 1 Minerai
 
 Ressources disponibles: {Moutons=7, Minerai=10, Ble=6, Bois=6}
 
-Choisit une ressource à échanger: 1: Moutons
+Choisit une ressource à échanger: 
+1: Moutons
 2: Minerai
 3: Blé
 4: Bois

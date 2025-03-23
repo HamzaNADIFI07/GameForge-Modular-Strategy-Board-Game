@@ -7,15 +7,35 @@ import game.Player;
 import ressource.Ressource;
 import tuile.Tuile;
 
+
+/**
+ * Classe Action_Demeter.
+ *
+ * Cette classe permet d'effectuer diverses actions spécifiques au jeu Demeter, telles que la construction de bâtiments,
+ * l'échange de ressources et l'utilisation d'un voleur
+ *
+ */
+
 public class Action_Demeter {
 
     private Game game;
 
+    /**
+     * Constructeur d'Action_Demeter.
+     *
+     * @param game Instance courante du jeu Demeter
+     */
     public Action_Demeter(Game game) {
         this.game = game;
     }
 
-    public void construireFerme(int x, int y){ {
+    /**
+     * Construit une ferme sur la tuile aux coordonnées données si les ressources sont suffisantes.
+     *
+     * @param x Coordonnée x de la tuile
+     * @param y Coordonnée y de la tuile
+     */
+    public void construireFerme(int x, int y){ 
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
 
@@ -33,8 +53,13 @@ public class Action_Demeter {
             System.out.println("Vous ne pouvez pas construire une ferme sur cette tuile");
         }
     }
-}
 
+    /**
+     * Construit un port sur la tuile aux coordonnées données si les ressources sont suffisantes.
+     *
+     * @param x Coordonnée x de la tuile
+     * @param y Coordonnée y de la tuile
+     */
     public void construirePort(int x, int y){
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
@@ -54,6 +79,13 @@ public class Action_Demeter {
             System.out.println("Vous ne pouvez pas construire un port sur cette tuile");
         }
     }
+
+    /**
+     * Remplace une ferme existante par une exploitation sur la tuile aux coordonnées données si les ressources sont suffisantes.
+     *
+     * @param x Coordonnée x de la tuile
+     * @param y Coordonnée y de la tuile
+     */
     public void construireExploitation(int x, int y){
         Tuile t = game.getPlateau().getTuile(x, y);
         Player currentPlayer = game.getCurrentPlayer();
@@ -76,6 +108,14 @@ public class Action_Demeter {
         }
     }
 
+    /**
+     * Échange des ressources pour le joueur courant.
+     *
+     * @param quantite Quantité de ressources à échanger
+     * @param r1 Ressource donnée par le joueur
+     * @param r2 Ressource reçue par le joueur
+     * @param port Indique si l'échange se fait via un port
+     */
     public void echangerRessources(int quantite , Ressource r1, Ressource r2, boolean port){
         Player currentPlayer = game.getCurrentPlayer();
         if(currentPlayer.getPort()>0 && port){
@@ -93,6 +133,9 @@ public class Action_Demeter {
         }
     }
 
+    /**
+     * Achète un voleur pour le joueur courant si les ressources sont suffisantes.
+     */
     public void acheterVoleur(){
         Player currentPlayer = game.getCurrentPlayer(); // Faudra rajouter la condition de il en reste assez dans le jeu
         if(currentPlayer.hasResources(Ressource.Minerai, 1) && 
@@ -111,6 +154,11 @@ public class Action_Demeter {
         }
     }
 
+    /**
+     * Utilise un voleur pour voler une ressource choisie à tous les autres joueurs.
+     *
+     * @param ressource La ressource à voler
+     */
     public void jouerVoleur(Ressource ressource) {
         Player currentPlayer = game.getCurrentPlayer();
 

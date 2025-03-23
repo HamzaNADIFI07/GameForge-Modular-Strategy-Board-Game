@@ -135,7 +135,7 @@ public class Livrable3demeter {
 
 		System.out.println();
 
-		System.out.print("Choisit une ressource à échanger: ");
+		System.out.print("Choisit une ressource à échanger: \n");
 		System.out.println("1: Moutons");
 		System.out.println("2: Minerai");
 		System.out.println("3: Blé");
@@ -166,7 +166,7 @@ public class Livrable3demeter {
 
 		System.out.println();
 
-		System.out.print("Choisit une ressource à échanger: ");
+		System.out.print("Choisit une ressource à échanger: \n");
 		System.out.println("1: Moutons");
 		System.out.println("2: Minerai");
 		System.out.println("3: Blé");
