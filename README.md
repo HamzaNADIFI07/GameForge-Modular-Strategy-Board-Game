@@ -276,6 +276,134 @@ Fenêtre Swing affichée:
 
 ### Atteinte des objectifs
 
+Résultats obtenus après éxecution de la commande `make`:
+
+```bash
+hamzanadifi@MacBook-Pro-de-Hamza l2s4-projet-2025 % make
+mkdir -p classes
+javac -d classes src/plateau/Plateau.java src/game/Ares/Action_Ares.java src/game/Ares/Livrable3ares.java src/game/Ares/Ares.java src/game/Demeter/Action_Demeter.java src/game/Demeter/Livrable3demeter.java src/game/Demeter/Demeter.java src/game/Player.java src/game/Game.java src/ressource/Ressource.java src/batiment/type_batiment/Exploitation.java src/batiment/type_batiment/Port.java src/batiment/type_batiment/Camp.java src/batiment/type_batiment/Armee.java src/batiment/type_batiment/Ferme.java src/batiment/Batiment.java src/tuile/type_tuile/Montagne.java src/tuile/type_tuile/Champ.java src/tuile/type_tuile/Mer.java src/tuile/type_tuile/Paturage.java src/tuile/type_tuile/Foret.java src/tuile/Tuile.java src/main/PlateauSwing.java src/main/Main.java src/main/Livrable2.java src/listchooser/InteractiveListChooser.java
+jar cfe Livrable2.jar game.Demeter.Livrable3demeter -C classes .
+java -jar Livrable2.jar
+
+
+
+
+Entrez la largeur du plateau: 17
+
+
+Entrez la hauteur du plateau: 17
+ -----------------
+----- DEMETER -----
+ -----------------
+
+
+      0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16  
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 0 | Me  | Me  | Mo  |  C  | Me  | Mo  | Me  |  F  |  C  | Me  | Me  | Me  |  F  |  F  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 1 | Me  | Me  | Me  |  C  | Me  |  F  | Me  | Me  | Mo  | Me  | Me  |  F  |  P  |  C  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 2 | Me  | Mo  |  F  | Me  | Mo  | Me  | Me  | Me  | Me  |  F  |  C  |  F  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 3 | Me  |  P  | Me  |  P  |  F  | Me  |  P  |  C  |  C  | Me  |  F  | Me  | Me  |  P  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 4 | Me  | Me  | Me  |  C  | Mo  | Me  | Me  | Me  |  C  | Me  | Me  | Me  |  F  |  F  | Mo  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 5 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  P  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 6 | Me  | Me  | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 7 | Me  | Me  | Me  | Me  | Me  | Me  |  C  | Me  | Me  | Me  | Me  | Me  |  P  | Mo  |  P  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 8 | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Mo  | Me  | Me  |  C  |  F  | Me  | Me  |  F  | Mo  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 9 | Me  | Me  | Me  | Me  | Mo  | Me  | Me  |  C  | Me  | Me  |  F  | Me  | Me  | Me  | Me  | Mo  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+10 |  F  |  F  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  F  | Me  | Me  | Me  |  F  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+11 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Mo  |  P  | Me  | Me  | Me  |  C  |  F  | Me  |  F  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+12 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  F  | Me  | Me  |  F  | Mo  | Me  | Me  | Mo  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+13 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+14 | Me  | Me  | Me  | Me  | Me  |  F  |  P  | Mo  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+15 | Mo  |  C  | Me  | Me  | Me  |  P  | Me  |  F  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+16 |  C  | Me  | Me  | Me  |  F  |  F  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+----> Leon [ {Moutons=10, Minerai=10, Ble=10, Bois=10} ] veut construire une ferme.
+
+Où installer une ferme ?
+Entrez la coordonnée X: 9
+
+Entrez la la coordonnée Y: 13
+Leon{Moutons=10, Minerai=9, Ble=10, Bois=9} a construit une ferme sur C( 9 , 13 )
+
+
+----> Leon [ {Moutons=10, Minerai=9, Ble=10, Bois=9} ] veut remplacer une ferme par une exploitation.
+
+quelle ferme transformer en exploitation ?
+
+1: [1: Ferme sur C( 9 , 13 )]
+
+Quelle ferme transformer en exploitation ? 1
+Leon{Moutons=9, Minerai=9, Ble=9, Bois=7} a construit une exploitation sur C( 9 , 13 )
+
+
+----> Leon [ {Moutons=9, Minerai=9, Ble=9, Bois=7} ] veut construire un port.
+
+Où installer le port ?
+
+Entrez la coordonnée X: 7
+
+Entrez la la coordonnée Y: 15
+
+Vous ne pouvez pas construire une ferme sur cette tuile
+Leon{Moutons=7, Minerai=9, Ble=9, Bois=6} a construit un port sur F( 7 , 15 )
+
+
+----> Leon [ {Moutons=7, Minerai=9, Ble=9, Bois=6} ] veut échanger des ressources sans se servir du port.
+
+Ressources disponibles: {Moutons=7, Minerai=9, Ble=9, Bois=6}
+
+Choisit une ressource à échanger: 1: Moutons
+2: Minerai
+3: Blé
+4: Bois
+
+
+Leon{Moutons=7, Minerai=10, Ble=6, Bois=6} a échangé 3 Ble contre 1 Minerai
+
+
+----> Leon [ {Moutons=7, Minerai=10, Ble=6, Bois=6} ] veut échanger des ressources grâce à son port.
+
+Ressources disponibles: {Moutons=7, Minerai=10, Ble=6, Bois=6}
+
+Choisit une ressource à échanger: 1: Moutons
+2: Minerai
+3: Blé
+4: Bois
+
+Leon{Moutons=7, Minerai=10, Ble=6, Bois=5} a échangé 2 Bois contre 1 Bois
+Vous ne pouvez pas échanger de ressources
+
+
+----> Leon [ {Moutons=7, Minerai=10, Ble=6, Bois=5} ].
+{Moutons=7, Minerai=10, Ble=6, Bois=5}
+
+
+----> liste des bâtiments en sa possession
+[1: Ferme sur C( 9 , 13 ), 2: Port sur F( 7 , 15 )]
+
+
+----> liste des tuiles occupées
+[C( 9 , 13 ), F( 7 , 15 )]
+```
+
+![fenêtreSwing17x17](./images/fenêtreSwing17x17.png)
+
 ### Difficultés restant à résoudre
 
 ## Livrable 4
