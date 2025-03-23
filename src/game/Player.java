@@ -44,6 +44,15 @@ public class Player {
 	public List<Tuile> getTuilesPossedes() {
 		return tuilesPossedes;
 	}
+
+	public List<String> getDisplayTuilesPossedes() {
+		List<String> tuilesFiltres = new ArrayList<>();
+		for (Tuile t : tuilesPossedes) {
+			tuilesFiltres.add(t.display());
+		}
+		return tuilesFiltres;
+	}
+	
 	public void setTuilesPossedes(List<Tuile> tuilesPossedes) {
 		this.tuilesPossedes = tuilesPossedes;
 	}
@@ -149,15 +158,37 @@ public class Player {
     public List<Batiment> getBatimentsPossedes() {
 		return batimentsPossedes;
 	}
-
-	public List<String> getBatimentsParType(String type) {
+	
+	public List<String> getDisplayBatimentsParType(String type) {
 		List<String> batimentsFiltres = new ArrayList<>();
 		int i = 1;
 		for (Batiment b : batimentsPossedes) {
 			if (b.getType().equalsIgnoreCase(type)) {
-				batimentsFiltres.add(i + " " + b.getType()+" sur "+b.getTuile().display());
+				batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
 				i++;
 			}
+		}
+	
+		return batimentsFiltres;
+	}
+
+	public List<Batiment> getBatimentsParType(String type) {
+		List<Batiment> batimentsFiltres = new ArrayList<>();
+		for (Batiment b : batimentsPossedes) {
+			if (b.getType().equalsIgnoreCase(type)) {
+				batimentsFiltres.add(b);
+			}
+		}
+	
+		return batimentsFiltres;
+	}
+
+	public List<String> getDisplayBatiments() {
+		List<String> batimentsFiltres = new ArrayList<>();
+		int i = 1;
+		for (Batiment b : batimentsPossedes) {
+				batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
+				i++;
 		}
 	
 		return batimentsFiltres;
@@ -183,6 +214,13 @@ public class Player {
 	public void useWarriors(int i) {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'useWarriors'");
+	}
+
+	public boolean isHasSecretWeapon() {
+		return hasSecretWeapon;
+	}
+	public void setHasSecretWeapon(boolean hasSecretWeapon) {
+		this.hasSecretWeapon = hasSecretWeapon;
 	}
 
 }

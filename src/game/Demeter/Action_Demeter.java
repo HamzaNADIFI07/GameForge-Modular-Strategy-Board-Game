@@ -76,14 +76,14 @@ public class Action_Demeter {
         }
     }
 
-    public void echangerRessources(Ressource r1, Ressource r2, int quantite){
+    public void echangerRessources(int quantite , Ressource r1, Ressource r2, boolean port){
         Player currentPlayer = game.getCurrentPlayer();
-        if(currentPlayer.getPort()>0){
+        if(currentPlayer.getPort()>0 && port){
             currentPlayer.useResources(r1, 2*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 2*quantite + " " + r1 + " contre " + quantite + " " + r2);
         }
-        if(currentPlayer.getPort()==0){
+        if(currentPlayer.getPort()==0 || !port){
             currentPlayer.useResources(r1, 3*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 3*quantite + " " + r1 + " contre " + quantite + " " + r2);
@@ -103,7 +103,8 @@ public class Action_Demeter {
             currentPlayer.useResources(Ressource.Bois, 1);
             currentPlayer.useResources(Ressource.Ble, 1);
             currentPlayer.setVoleur(1);
-            System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a acheté un voleur");
+            currentPlayer.setHasSecretWeapon(true);
+            System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " dispose maintenant d'une arme secrète.");
         }
         else{
             System.out.println("Vous ne pouvez pas acheter de voleur");
