@@ -62,6 +62,20 @@ class Action_DemeterTest {
 				.stream()
 				.anyMatch(b -> b.getClass().getSimpleName().equals("Ferme")));
 	}
-	
+	@Test
+	void testConstruireExploitation() {
+		player.addRessource(Ressource.Bois, 5);
+		player.addRessource(Ressource.Minerai, 3);
+		player.addRessource(Ressource.Ble, 3);
+		player.addRessource(Ressource.Moutons, 3);
+		
+		int x = tuile.getX();
+		int y = tuile.getY();
+		actionDemeter.construireFerme(x, y);
+		actionDemeter.construireExploitation(x, y);
+		assertTrue(player.getBatimentsPossedes()
+				.stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Exploitation")));
+	}
 
 }
