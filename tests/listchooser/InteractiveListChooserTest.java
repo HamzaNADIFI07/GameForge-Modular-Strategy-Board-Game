@@ -20,6 +20,15 @@ class InteractiveListChooserTest {
 		String result = chooser.choose("Choose a fruit:", options);
 		assertEquals("banana", result);
 	}
+	@Test
+	void testEmptyInputReturnsRandom() {
+		String simulatedInput = "\n";
+		System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+		InteractiveListChooser chooser = new InteractiveListChooser();
+		String result = chooser.choose("Choose a fruit:", options);
+		assertTrue(options.contains(result));
+	}
+
 	
 
 }
