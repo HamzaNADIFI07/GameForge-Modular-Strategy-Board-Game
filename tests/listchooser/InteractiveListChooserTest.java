@@ -28,6 +28,14 @@ class InteractiveListChooserTest {
 		String result = chooser.choose("Choose a fruit:", options);
 		assertTrue(options.contains(result));
 	}
+	@Test
+	void testEmptyListThrowsException() {
+		InteractiveListChooser chooser = new InteractiveListChooser();
+		List<String> empty = List.of();
+		assertThrows(IllegalArgumentException.class, () -> {
+			chooser.choose("Choose from empty list:", empty);
+		});
+	}
 
 	
 
