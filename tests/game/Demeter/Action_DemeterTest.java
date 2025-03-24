@@ -77,5 +77,16 @@ class Action_DemeterTest {
 				.stream()
 				.anyMatch(b -> b.getClass().getSimpleName().equals("Exploitation")));
 	}
+	@Test
+	void testConstruirePort() {
+		player.addRessource(Ressource.Bois, 5);
+		player.addRessource(Ressource.Moutons, 5);
+		int x = tuile.getX();
+		int y = tuile.getY();
+		actionDemeter.construirePort(x, y);
+		assertTrue(player.getBatimentsPossedes()
+				.stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Port")));
+	}
 
 }
