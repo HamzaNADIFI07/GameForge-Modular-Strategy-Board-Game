@@ -16,7 +16,7 @@ import tuile.Tuile;
 class Action_DemeterTest {
 	private Plateau plateau;
 	private Player player;
-	private Game fakeGame;
+	private Demeter game;
 	private Action_Demeter actionDemeter;
 	private Tuile tuile;
 	
@@ -27,19 +27,11 @@ class Action_DemeterTest {
 		
 		List<Player> players = new ArrayList<>();
 		players.add(player);
-		fakeGame = new Game(players, 10, 10) {
-			@Override
-			 public Player getCurrentPlayer() {
-				 return player;
-			 }
-			@Override
-			public void initializeGame() {
-				// rien à faire ici pour le test
-			}
-		};
-		actionDemeter = new Action_Demeter(fakeGame);
+		game = new Demeter(players, 10, 10);
+		actionDemeter = game.getAction();
 		tuile = getFirstNonMerTile();
 		assertNotNull(tuile, "Aucune tuile construisible trouvée.");
+		
 
 
 	}
