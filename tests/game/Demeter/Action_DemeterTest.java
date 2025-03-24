@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import game.Game;
 import game.Player;
 import plateau.Plateau;
+import ressource.Ressource;
 import tuile.Tuile;
 
 class Action_DemeterTest {
@@ -50,5 +51,17 @@ class Action_DemeterTest {
 		}
 		return null;
 	}
+	@Test
+	void testConstruireFerme() {
+		player.addRessource(Ressource.Bois, 5);
+		player.addRessource(Ressource.Minerai, 5);
+		int x = tuile.getX();
+		int y = tuile.getY();
+		actionDemeter.construireFerme(x, y);
+		assertTrue(player.getBatimentsPossedes()
+				.stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Ferme")));
+	}
+	
 
 }
