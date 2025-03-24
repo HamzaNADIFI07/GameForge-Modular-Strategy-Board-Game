@@ -30,10 +30,10 @@ test: compile_tests run_tests
 
 compile_tests:
 	mkdir -p $(TEST_CLASS)
-	javac -cp .:$(JUNIT_JAR):$(CLASS) -d $(TEST_CLASS) $(TEST_FILES)
+	javac -cp "$(CLASS):$(JUNIT_JAR)" -d $(TEST_CLASS) $(TEST_FILES)
 
 run_tests:
-	java -jar $(JUNIT_JAR) --class-path $(TEST_CLASS):$(CLASS) --scan-class-path
+	java -jar $(JUNIT_JAR) --class-path "$(TEST_CLASS):$(CLASS)" --scan-classpath
 
 clean:
 	rm -rf $(CLASS) $(JAR_NAME) $(DOCS) $(TEST_CLASS)
