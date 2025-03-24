@@ -36,5 +36,37 @@ class Livrable3demeterTest {
 			player.addRessource(r, 20);
 		}
 	}
+	@Test
+	void testDemeterMainSequence() {
+		// 1. Construire une ferme
+		game.getAction().construireFerme(fermeX, fermeY);
+		assertTrue(player.getBatimentsPossedes().stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Ferme")));
+		
+		// 2. Transformer la ferme en exploitation
+		game.getAction().construireExploitation(fermeX, fermeY);
+		assertTrue(player.getBatimentsPossedes().stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Exploitation")));
+		// 3. Construire un port
+		game.getAction().construirePort(portX, portY);
+		assertTrue(player.getBatimentsPossedes().stream()
+				.anyMatch(b -> b.getClass().getSimpleName().equals("Port")));
+		
+		// 4. Échange 3 ressources contre 1 sans port
+		game.getAction().echangerRessources(1, Ressource.Ble, Ressource.Minerai, false);
+		
+		// 5. Échange 2 ressources contre 1 via port
+		game.getAction().echangerRessources(1, Ressource.Bois, Ressource.Bois, true);
+		
+		// 6. Vérifier les bâtiments
+		assertEquals(2, player.getBatimentsPossedes().size(), "Le joueur devrait avoir 2 bâtiments");
+		
+		// 7. Vérifier les tuiles occupées
+		assertEquals(2, player.getDisplayTuilesPossedes().size(), "Le joueur devrait occuper 2 tuiles");
+		
+		// 8. Vérifier les ressources présentes
+		assertNotNull(player.getRessources());
+		assertFalse(player.getRessources().isEmpty());
+	}
 
 }
