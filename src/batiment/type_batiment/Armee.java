@@ -10,6 +10,7 @@ import tuile.Tuile;
  * La classe Armee représente un type de bâtiment.
  */
 public class Armee extends Batiment {
+	private int nbGuerriers;
 
     Map<Ressource, Integer> cout = new HashMap<>();
     
@@ -26,6 +27,7 @@ public class Armee extends Batiment {
         cout.put(Ressource.Bois, 1);
         cout.put(Ressource.Moutons, 1);
         cout.put(Ressource.Ble, 1);
+        this.nbGuerriers = nombreGuerriers;
         if (nombreGuerriers < 1 || nombreGuerriers > 5) {
             throw new IllegalArgumentException("Le nombre de guerriers dans une armée doit être compris entre 1 et 5.");
         }
@@ -40,6 +42,17 @@ public class Armee extends Batiment {
     public Map<Ressource, Integer> getCout() {
         return this.cout;
     }
+    public int getNbGuerriers() {
+        return this.nbGuerriers;
+    }
+    public void addGuerriers(int n) {
+        if (nbGuerriers + n > 5) {
+            throw new IllegalArgumentException("Une armée ne peut pas dépasser 5 guerriers.");
+        }
+        this.nbGuerriers += n;
+    }
+
+
 
 
 }
