@@ -1,11 +1,14 @@
 package game.Ares;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import batiment.type_batiment.Armee;
 import game.Player;
 import plateau.Plateau;
 import tuile.Tuile;
+import game.Ares.Ares;
 
 public class Livrable3ares {
     public static void main(String[] args) {
@@ -32,25 +35,29 @@ public class Livrable3ares {
         scanner.close();  
         Plateau plateau = new Plateau(width, height);
         Player player = new Player("Leon");
-
-        System.out.println("Plateau généré pour Ares:");
-        plateau.display();
-     // Sélectionner une tuile valide pour l'armée
-        Tuile tuileArmee = null;
-        for (Tuile[] row : plateau.getTuiles()) {
-        	for (Tuile t : row) {
-        		 if (t.getBatiment() == null && !t.getType().equals("Mer")) {
-        			 tuileArmee = t;
-        			 break;
-        		 }
+        List<Player> players = new ArrayList<>();
+        players.add(player);
+        
+        Ares ares = new Ares(players, width, height) {
+        	private final Action_Ares action = new Action_Ares(this, player);
+        	public Action_Ares getAction() {
+        		return action;
         	}
-        	if (tuileArmee != null) break;
-        }
-        if (tuileArmee != null) {
-        	Armee armee = new Armee(tuileArmee, 1);
-        	player.construireBatiment(armee, tuileArmee);
-        	player.afficherRessources();
-        }
+        	@Override
+        	public void initializeGame() {
+        		
+        	}
+        };
+        ares.setCurrentPlayer(player);
+        Action_Ares action = ares.getAction();
+        System.out.println("\n-----------------");
+        System.out.println("-----   ARES  -----");
+        System.out.println("-----------------\n");
+        
+     // Étape 1 : construire une armée avec 1 guerrier
+        Tuile tuileArmee = ares.trouverTuileConstruisible("Armee");
+        System.out.println("----> " + player.getName() + ": " + player.getRessources() + " (" + player.getWarriorsStock() + " warriors) veut construire une armée");
+        action.construireArmee(tuileArmee);
 
     }
 }
