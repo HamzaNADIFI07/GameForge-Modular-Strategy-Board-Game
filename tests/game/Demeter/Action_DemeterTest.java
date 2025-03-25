@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import batiment.type_batiment.Exploitation;
 import batiment.type_batiment.Ferme;
 import game.Game;
 import game.Player;
@@ -58,6 +59,7 @@ class Action_DemeterTest {
 		assertTrue(player.getRessources().get(Ressource.Ble)==10);
 		assertTrue(player.getRessources().get(Ressource.Minerai)==10);
 		assertTrue(player.getRessources().get(Ressource.Moutons)==10);
+		
 		int x = tuile.getX();
 		int y = tuile.getY();
 		actionDemeter.construireFerme(x, y);
@@ -71,9 +73,8 @@ class Action_DemeterTest {
 		int y = tuile.getY();
 		actionDemeter.construireFerme(x, y);
 		actionDemeter.construireExploitation(x, y);
-		assertTrue(player.getBatimentsPossedes()
-				.stream()
-				.anyMatch(b -> b.getClass().getSimpleName().equals("Exploitation")));
+		assertTrue(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Exploitation));
+		assertTrue(tuile.getBatiment() instanceof Exploitation);
 	}
 	@Test
 	void testConstruirePort() {
@@ -82,9 +83,8 @@ class Action_DemeterTest {
 		int x = tuile.getX();
 		int y = tuile.getY();
 		actionDemeter.construirePort(x, y);
-		assertTrue(player.getBatimentsPossedes()
-				.stream()
-				.anyMatch(b -> b.getClass().getSimpleName().equals("Port")));
+		assertTrue(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Exploitation));
+		assertTrue(tuile.getBatiment() instanceof Exploitation);
 	}
 
 }
