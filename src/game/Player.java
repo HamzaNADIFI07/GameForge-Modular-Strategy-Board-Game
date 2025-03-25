@@ -257,8 +257,15 @@ public class Player {
      * @return true si l'attaque réussit, sinon false.
      */
     public boolean attackNeighbor(Player voisin) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'attackNeighbor'");
+		if (hasWarriorsInStock(1)) {			
+			warriors--;
+			System.out.println(name + " a attaqué " + voisin.getName() + "!");
+			return true;
+		} else {
+			System.out.println("Attaque impossible : guerriers insuffisants.");
+			return false;
+		}
+		/* */
     }
     public List<Batiment> getBatimentsPossedes() {
 		return batimentsPossedes;

@@ -108,29 +108,4 @@ public boolean attaquerVoisin(Player voisin) {
         player.getRessources().put(rVoulue, player.getRessources().getOrDefault(rVoulue, 0) + setsOfThree);
     }
     
-    
-    
-
-   
-
-    // public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort){
-    //     int ratio = viaPort ? 2 : 3;
-
-
-    //    //Vérifier si le joueur possède un port avant d'autoriser un échange à 2:1 
-
-    //     boolean hasPort = player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof batiment.type_batiment.Port);
-    //     if (viaPort && !hasPort) {
-    //         System.out.println("Échange impossible : vous n'avez pas de port.");
-    //         return;
-    //     }
-    //     if (!hasResources( rDonnee, amount)) {
-    //                 System.out.println("Échange impossible : ressources insuffisantes.");
-    //                 return;
-    //         }
-    //     if (nbDonnes < ratio) {
-    //     System.out.println("Échange impossible : vous devez donner au moins " + ratio + " ressources.");
-    //     return;}
-        
-    // }
 }
