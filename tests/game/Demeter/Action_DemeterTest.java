@@ -1,5 +1,6 @@
 package game.Demeter;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import batiment.type_batiment.Ferme;
 import game.Game;
 import game.Player;
 import plateau.Plateau;
@@ -23,7 +25,6 @@ class Action_DemeterTest {
 	
 	@BeforeEach
 	void setUp() {
-		plateau = new Plateau(10, 10);
 		player = new Player("leon");
 		
 		List<Player> players = new ArrayList<>();
@@ -53,21 +54,18 @@ class Action_DemeterTest {
 	}
 	@Test
 	void testConstruireFerme() {
-		player.addRessource(Ressource.Bois, 5);
-		player.addRessource(Ressource.Minerai, 5);
+		assertTrue(player.getRessources().get(Ressource.Bois)==10);
+		assertTrue(player.getRessources().get(Ressource.Ble)==10);
+		assertTrue(player.getRessources().get(Ressource.Minerai)==10);
+		assertTrue(player.getRessources().get(Ressource.Moutons)==10);
 		int x = tuile.getX();
 		int y = tuile.getY();
 		actionDemeter.construireFerme(x, y);
-		assertTrue(player.getBatimentsPossedes()
-				.stream()
-				.anyMatch(b -> b.getClass().getSimpleName().equals("Ferme")));
+		assertTrue(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Ferme));
+		assertTrue(tuile.getBatiment() instanceof Ferme);
 	}
 	@Test
 	void testConstruireExploitation() {
-		player.addRessource(Ressource.Bois, 5);
-		player.addRessource(Ressource.Minerai, 3);
-		player.addRessource(Ressource.Ble, 3);
-		player.addRessource(Ressource.Moutons, 3);
 		
 		int x = tuile.getX();
 		int y = tuile.getY();

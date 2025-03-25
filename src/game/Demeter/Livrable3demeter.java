@@ -189,6 +189,13 @@ public class Livrable3demeter {
 		System.out.println();
 		System.out.println();
 
+		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut acheter un voleur.");
+		System.out.println();
+		demeter.getAction().acheterVoleur();
+
+		System.out.println();
+		System.out.println();
+
 		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ].");		
 		System.out.println(player1.getRessources());
 

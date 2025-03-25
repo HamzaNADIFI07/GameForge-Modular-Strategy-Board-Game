@@ -37,7 +37,7 @@ public abstract class Game {
  	* @param y Hauteur du plateau de jeu.
 	*/
     public Game(List<Player> players,int x,int y ) {
-        this.players = new ArrayList<>(); // while waiting for the creation of player
+        this.players = players; // while waiting for the creation of player
         this.plateau = new Plateau(x, y);  // Assuming default size,
         this.isGameActive = false;
     }
@@ -166,6 +166,10 @@ public abstract class Game {
      */
 	public void setPlayers(List<Player> players) {
 		this.players = players;
+	}
+
+	public void addPlayer(Player player){
+		this.players.add(player);
 	}
 	    
 
