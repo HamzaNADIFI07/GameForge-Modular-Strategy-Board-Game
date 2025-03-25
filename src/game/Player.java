@@ -360,6 +360,15 @@ public class Player {
 	public void setHasSecretWeapon(boolean hasSecretWeapon) {
 		this.hasSecretWeapon = hasSecretWeapon;
 	}
+	/**
+	 * Renvoie le nombre de guerriers actuellement en stock.
+	 *
+	 * @return nombre de guerriers
+	 */
+	public int getWarriorsStock() {
+	    return this.warriors;
+	}
+
 
 }
 
