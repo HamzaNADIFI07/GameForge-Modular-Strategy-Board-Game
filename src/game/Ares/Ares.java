@@ -1,5 +1,6 @@
 package game.Ares;
 import plateau.Plateau;
+import tuile.Tuile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,5 +24,14 @@ public abstract class Ares extends Game {
 		
 	}
 	public abstract Action_Ares getAction();
-
+	public Tuile trouverTuileConstruisible(String typeBatiment) {
+		for (Tuile[] ligne : plateau.getTuiles()) {
+			for (Tuile t : ligne) {
+				if (t.getBatiment() == null && !t.getType().equals("Mer")) {
+					return t;
+				}
+			}
+		}
+		return null;
+	}
 }
