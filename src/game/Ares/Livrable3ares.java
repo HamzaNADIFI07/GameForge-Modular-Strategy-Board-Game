@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import batiment.Batiment;
 import batiment.type_batiment.Armee;
 import game.Player;
 import plateau.Plateau;
+import ressource.Ressource;
 import tuile.Tuile;
 import game.Ares.Ares;
 
@@ -58,6 +60,37 @@ public class Livrable3ares {
         Tuile tuileArmee = ares.trouverTuileConstruisible("Armee");
         System.out.println("----> " + player.getName() + ": " + player.getRessources() + " (" + player.getWarriorsStock() + " warriors) veut construire une armée");
         action.construireArmee(tuileArmee);
+     // 2. Ajouter des guerriers jusqu’à 5
+        System.out.println("----> " + player.getName() + " ajoute des guerriers à son armée pour arriver à 5");
+        List<Batiment> armees = player.getBatimentsParType("Armee");
+        if (!armees.isEmpty()) {
+        	Armee armee = (Armee) armees.get(0);
+        	armee.addGuerriers(1);
+        	armee.addGuerriers(1);
+        }
+     // 3. Transformer en camp
+        System.out.println("----> " + player.getName() + " veut transformer son armée en camp");
+        action.remplacerArmeeParCamp(tuileArmee);
+        
+     // 4. Acheter 5 guerriers
+        System.out.println("----> " + player.getName() + " achète 5 guerriers");
+        action.ajouterGuerriersAuStock();
+        
+     // 5. Construire un port
+        System.out.println("----> " + player.getName() + " veut construire un port");
+        Tuile tuilePort = ares.trouverTuileConstruisible("Port");
+        action.construirePort(tuilePort);
+        
+     // 6. Échange 3 ressources contre 1
+        System.out.println("----> " + player.getName() + " échange des ressources");
+        player.echangerRessources(3, Ressource.Bois, Ressource.Minerai, false);
+
+     // 7. Acheter une arme secrète
+        System.out.println("----> " + player.getName() + " achète une arme secrète");
+        player.buySecretWeapon();
+
+        
+        
 
     }
 }
