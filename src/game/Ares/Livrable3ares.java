@@ -89,8 +89,16 @@ public class Livrable3ares {
         System.out.println("----> " + player.getName() + " achète une arme secrète");
         player.buySecretWeapon();
 
+     // Affichage final
+        System.out.println("----> État final des ressources :");
+        System.out.println(player.getRessources());
         
+        System.out.println("----> Liste des bâtiments en sa possession");
+        System.out.println(player.getDisplayBatiments());
         
+        System.out.println("----> Liste des tuiles occupées");
+        System.out.println(player.getDisplayTuilesPossedes());
+        scanner.close();
 
     }
 }
