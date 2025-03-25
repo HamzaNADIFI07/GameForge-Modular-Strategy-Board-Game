@@ -20,5 +20,8 @@ public abstract class Ares extends Game {
 		for (Player player : players) {
 			warriorsStock.put(player, 30);
 		}
+		
 	}
+	public abstract Action_Ares getAction();
+
 }
