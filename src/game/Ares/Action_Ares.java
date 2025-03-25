@@ -47,15 +47,24 @@ public class Action_Ares {
         }
         return false;
     }
-/**
- * en attendant la creation de la classe Listchooser pour 
- * implimenter cette méthode
+
+
+    /** Positionner des gueriers dans une armée ou dans un camp */
     public boolean positionnerGuerriers(String type, int quantity) {
-    	List<String> options = Arrays.asList("Armee", "Camp");
-    	String choix = listChooser.choose("Sélectionnez où positionner les guerriers:", options);
-    	return player.positionWarriors(choix, 5);
+        if (!player.hasWarriorsInStock(quantity)) {
+            System.out.println("Positionnement impossible : guerriers insuffisants dans le stock");
+            return false;
+        }
+        if (type.equals("Armee")) {
+            player.positionWarriorsInArmy(quantity);
+        } else if (type.equals("Camp")) {
+            player.positionWarriorsInCamp(quantity);
+        } else {
+            System.out.println("Type de positionnement inconnu");
+            return false;
+        }
+        return true;
     }
-    */
 
     /*ajouter des guerriers au stock*/
 

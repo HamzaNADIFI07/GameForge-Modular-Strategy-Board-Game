@@ -346,7 +346,8 @@ public class Player {
 		this.voleur = voleur;
 	}
 	public void useWarriors(int i) {
-		// TODO Auto-generated method stub
+
+	
 		throw new UnsupportedOperationException("Unimplemented method 'useWarriors'");
 	}
 
@@ -367,6 +368,16 @@ public class Player {
 	public void setHasSecretWeapon(boolean hasSecretWeapon) {
 		this.hasSecretWeapon = hasSecretWeapon;
 	}
+
+    public void positionWarriorsInArmy(int quantity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'positionWarriorsInArmy'");
+    }
+
+    public void positionWarriorsInCamp(int quantity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'positionWarriorsInCamp'");
+    }
 
 }
 
