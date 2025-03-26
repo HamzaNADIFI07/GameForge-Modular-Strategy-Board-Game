@@ -208,24 +208,6 @@ public class Player {
     	this.ressources.put(resource, this.ressources.get(resource) - amount);
     	return true;
     }
-
-	/**
-     * Construit une armée sur une tuile donnée.
-     *
-     * @param t Tuile sur laquelle construire l'armée.
-     */
-    public void buildArmy(Tuile t) {
-    	if (hasResources(Ressource.Bois, 1) && hasResources(Ressource.Moutons, 1) && hasResources(Ressource.Ble, 1) && hasWarriorsInStock(1)) {
-    		useResources(Ressource.Bois, 1);
-    		useResources(Ressource.Moutons, 1);
-    		useResources(Ressource.Ble, 1);
-    		warriors--;
-    		Armee armee = new Armee(t, 1);
-    		t.setBatiment(armee);
-    	} else {
-    		System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
-    	}
-    }
 	/**
      * Ajoute une quantité de guerriers au stock du joueur.
      *
@@ -377,7 +359,7 @@ public class Player {
 	}
 
 	public void setWarriors(int warriors) {
-		this.warriors = warriors;
+		this.warriors += warriors;
 	}
 
 

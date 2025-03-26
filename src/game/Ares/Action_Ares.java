@@ -1,6 +1,7 @@
 
 package game.Ares;
 
+import batiment.type_batiment.Armee;
 import game.Game;
 import game.Player;
 import ressource.Ressource;
@@ -17,15 +18,22 @@ public class Action_Ares {
 
     /*construction d'une armée*/
 
-    public boolean construireArmee(Tuile t) {
+    public void construireArmee(Tuile t, int nb) {
         Player currentPlayer = game.getCurrentPlayer();
-    	if (currentPlayer.hasResources(Ressource.Bois, 1) && currentPlayer.hasResources(Ressource.Moutons, 1)
-    		&& currentPlayer.hasResources(Ressource.Ble, 1) && currentPlayer.hasWarriorsInStock(1)) {
-                currentPlayer.buildArmy(t);
-                System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une armée sur "+ t.display());
-        	return true;
-        }
-        return false;
+        if (nb>=1) {
+			if (currentPlayer.hasResources(Ressource.Bois, 1) && currentPlayer.hasResources(Ressource.Moutons, 1) && currentPlayer.hasResources(Ressource.Ble, 1) && currentPlayer.hasWarriorsInStock(nb)) {
+				currentPlayer.useResources(Ressource.Bois, 1);
+				currentPlayer.useResources(Ressource.Moutons, 1);
+				currentPlayer.useResources(Ressource.Ble, 1);
+				currentPlayer.setWarriors(nb);
+				Armee armee = new Armee(t, nb);
+				t.setBatiment(armee);
+			} else {
+				System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
+			}
+		}else{
+			System.out.println("Vous devrez au moins déployer un guerriers pour construire une armée");
+		}
     }
     /*construction d'un port */
 
