@@ -70,9 +70,6 @@ class PlayerTest {
 		player.getBatimentsPossedes().add(new Port(null));
 		 assertTrue(player.getBatimentsPossedes().stream().anyMatch(b -> b instanceof Port));
 	}
-	
-	 
-	
 	 
 
 }
