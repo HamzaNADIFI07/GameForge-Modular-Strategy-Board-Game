@@ -37,10 +37,10 @@ public class Livrable3AresTest {
         List<Player> players = new ArrayList<>();
         players.add(player);
 
-        Plateau plateau = new Plateau(10, 10);
-        Action_Ares action = new Action_Ares(null, player);
+        Ares ares = new Ares(players,10,10);
+        Action_Ares action = new Action_Ares(ares);
 
-        Tuile tuileArmee = findValidTuile(plateau);
+        Tuile tuileArmee = findValidTuile(ares.getPlateau());
         assertNotNull(tuileArmee, "Aucune tuile valide trouvée pour l'armée.");
         player.addTuile(tuileArmee);
 
@@ -69,7 +69,7 @@ public class Livrable3AresTest {
         assertTrue(player.hasWarriorsInStock(5));
 
         // Étape 5 : construire un port
-        Tuile tuilePort = findValidTuile(plateau);
+        Tuile tuilePort = findValidTuile(ares.getPlateau());
         assertNotNull(tuilePort);
         player.addTuile(tuilePort);
         assertTrue(action.construirePort(tuilePort));

@@ -22,7 +22,7 @@ class Action_AresTest {
 	void setUp() {
 		plateau = new Plateau(10, 10);
 		player = new Player("Leon");
-		actionAres = new Action_Ares(null, player);
+		actionAres = new Action_Ares(game);
 	}
 	/*
 	 * Finds the first non-Mer tile on the board
