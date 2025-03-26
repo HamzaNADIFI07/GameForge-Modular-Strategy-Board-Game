@@ -406,7 +406,11 @@ Vous ne pouvez pas échanger de ressources
 
 ![fenêtreSwing17x17](./images/fenêtreSwing17x17.png)
 
+discription de choix de modelisation :
+Pour ce livrable, nous avons ajouté les classes Action_Demeter et Action_Ares afin de gérer les actions propres à chaque mode de jeu. On a choisi de séparer les logiques dans des classes différentes pour plus de clarté et pour respecter le principe de responsabilité unique. Le joueur interagit maintenant avec ces actions via des programmes principaux (Livrable3demeter et Livrable3ares) qui exécutent automatiquement une série d’actions demandées dans le sujet. Le code a été organisé en plusieurs packages (tuile, batiment, game...) pour faciliter la navigation. Le développement est bien avancé : toutes les fonctionnalités de base sont en place et les actions demandées dans le scénario sont fonctionnelles. On a aussi écrit des classes de tests pour valider certaines méthodes importantes
+
 ### Difficultés restant à résoudre
+il y a encore des tests qui sont pas réussi 
 
 ## Livrable 4
 
