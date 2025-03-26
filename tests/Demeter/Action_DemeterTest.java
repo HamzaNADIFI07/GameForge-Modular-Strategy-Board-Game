@@ -1,4 +1,4 @@
-package game.Demeter;
+package Demeter;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,10 +13,12 @@ import batiment.type_batiment.Exploitation;
 import batiment.type_batiment.Ferme;
 import game.Game;
 import game.Player;
+import game.Demeter.Action_Demeter;
+import game.Demeter.Demeter;
 import plateau.Plateau;
 import ressource.Ressource;
 import tuile.Tuile;
-
+import org.junit.jupiter.api.Test;
 class Action_DemeterTest {
 	private Plateau plateau;
 	private Player player;
