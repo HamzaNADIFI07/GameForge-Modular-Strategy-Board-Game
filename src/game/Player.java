@@ -263,7 +263,7 @@ public class Player {
 			return true;
 		} else {
 			System.out.println("Attaque impossible : guerriers insuffisants.");
-			return false;
+			return false; 
 		}
 		/* */
     }
