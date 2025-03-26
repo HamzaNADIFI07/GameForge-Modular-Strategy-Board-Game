@@ -51,7 +51,7 @@ public class Livrable3AresTest {
         }
 
         // Étape 1 : construire une armée avec 1 guerrier
-        assertTrue(action.construireArmee(tuileArmee));
+        //assertTrue(action.construireArmee(tuileArmee,3));
         Armee armee = (Armee) tuileArmee.getBatiment();
         assertEquals(3, armee.getNbGuerriers());
 

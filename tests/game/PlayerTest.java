@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.text.DateFormat.Field;
 import java.util.Map;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import batiment.type_batiment.Armee;
@@ -15,7 +16,8 @@ import tuile.Tuile;
 
 class PlayerTest {
 	private Player player ;
-	@Test
+	
+	@BeforeEach
 	void setUp() {
 		player = new Player("Leon");
 	}
@@ -33,7 +35,7 @@ class PlayerTest {
 	  */
 	@Test
 	 void testHasResources() {
-		assertTrue(player.hasResources(Ressource.Bois, 5));
+		assertTrue(player.hasResources(Ressource.Bois, 10));
 		assertFalse(player.hasResources(Ressource.Minerai, 20));
 	}
 	/*

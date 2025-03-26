@@ -48,8 +48,9 @@ public class Livrable3ares {
       System.out.println("----> " + player.getName() + ": " + player.getRessources() + " (" + player.getWarriorsStock() + " warriors) veut construire une armée");
       System.out.println();
       System.out.println("Où installer une armée ?");
-      int coordonneeX;
+        int coordonneeX;
 		int coordonneeY;
+        int nbGuerriers;
 		while (true) {
 			try {
 				System.out.print("Entrez la coordonnée X: ");
@@ -57,11 +58,13 @@ public class Livrable3ares {
 				System.out.println();
 				System.out.print("Entrez la la coordonnée Y: ");
 				coordonneeY = Integer.parseInt(scanner.nextLine());
+                System.out.print("Entrez le nombre de guerriers que vous voulez déployer ");
+				nbGuerriers = Integer.parseInt(scanner.nextLine());
 
-				if (coordonneeX <= width && coordonneeY <= height) {
+				if (coordonneeX <= width && coordonneeY <= height && nbGuerriers>=1) {
 					break;
 				} else {
-					System.out.println("La coordonnée X doit être inférieur ou égale à " + width + " et la coordonnée Y doit être inférieur ou égale à " + height +".");
+					System.out.println("La coordonnée X doit être inférieur ou égale à " + width + " et la coordonnée Y doit être inférieur ou égale à " + height +", et le nombre de guerriers doit etre supérieure ou égale à 1.");
 				}
 			} catch (NumberFormatException e) {
 				System.out.println("Veuillez entrer des nombres valides.");
@@ -69,7 +72,7 @@ public class Livrable3ares {
 		}
       Tuile tuileArmee = ares.getPlateau().getTuile(coordonneeX, coordonneeY);
 
-      action.construireArmee(tuileArmee);
+      action.construireArmee(tuileArmee,nbGuerriers);
 
       System.out.println();
       System.out.println();
