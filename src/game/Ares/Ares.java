@@ -21,6 +21,7 @@ public class Ares extends Game {
 		warriorsStock = new HashMap<>();
 		for (Player player : players) {
 			warriorsStock.put(player, 30);
+			player.setWarriors(30);
 		}
 		this.action = new Action_Ares(this);
 		

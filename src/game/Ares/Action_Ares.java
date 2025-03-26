@@ -21,6 +21,7 @@ public class Action_Ares {
     	if (currentPlayer.hasResources(Ressource.Bois, 1) && currentPlayer.hasResources(Ressource.Moutons, 1)
     		&& currentPlayer.hasResources(Ressource.Ble, 1) && currentPlayer.hasWarriorsInStock(1)) {
                 currentPlayer.buildArmy(t);
+                System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une armée sur "+ t.display());
         	return true;
         }
         return false;
