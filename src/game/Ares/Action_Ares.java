@@ -9,6 +9,7 @@ import tuile.Tuile;
 public class Action_Ares {
 
     private Game game;
+    private Player player;
 
     public Action_Ares(Game game) {
         this.game = game;
