@@ -26,6 +26,7 @@ public class Action_Ares {
 				currentPlayer.useResources(Ressource.Ble, 1);
 				currentPlayer.setWarriors(-nb);
 				Armee armee = new Armee(t, nb);
+                currentPlayer.getBatimentsPossedes().add(armee);
 				t.setBatiment(armee);
                 System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a construit une armée sur "+ t.display() + " en déployant " + nb + " guérriers.");
 			} else {
@@ -63,21 +64,16 @@ public class Action_Ares {
 
 
     /** Positionner des gueriers dans une armée ou dans un camp */
-    public boolean positionnerGuerriers(String type, int quantity) {
+    public void positionnerGuerriers(Tuile tuile , int nb) {
         Player currentPlayer = game.getCurrentPlayer();
-        if (!currentPlayer.hasWarriorsInStock(quantity)) {
+        if (!currentPlayer.hasWarriorsInStock(nb)) {
             System.out.println("Positionnement impossible : guerriers insuffisants dans le stock");
-            return false;
         }
-        if (type.equals("Armee")) {
-            currentPlayer.positionWarriorsInArmy(quantity);
-        } else if (type.equals("Camp")) {
-            currentPlayer.positionWarriorsInCamp(quantity);
-        } else {
-            System.out.println("Type de positionnement inconnu");
-            return false;
+        else if (tuile.getType().equalsIgnoreCase("Armee")||tuile.getType().equalsIgnoreCase("Camp")) {
+            tuile.getBatiment().setDimension(nb);
+            currentPlayer.setWarriors(-nb);
+            System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a déployé " + nb + " guérriers dans l'armée " + tuile.display());
         }
-        return true;
     }
 
     /*ajouter des guerriers au stock*/

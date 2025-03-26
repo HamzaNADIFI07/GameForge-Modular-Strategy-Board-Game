@@ -257,12 +257,20 @@ public class Player {
 		int i = 1;
 		for (Batiment b : batimentsPossedes) {
 			if (b.getType().equalsIgnoreCase(type)) {
-				if (b.getType().equalsIgnoreCase("Armee")|| b.getType().equalsIgnoreCase("Camp")) {
-					batimentsFiltres.add(i + ": " + b.getType()+ " ("+this.warriors +") sur "+b.getTuile().display());
-				}
-				else{
-					batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
-				}
+				batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
+				i++;
+			}
+		}
+	
+		return batimentsFiltres;
+	}
+
+	public List<String> getDisplayBatimentsParType(String type, Tuile tuile) {
+		List<String> batimentsFiltres = new ArrayList<>();
+		int i = 1;
+		for (Batiment b : batimentsPossedes) {
+			if (b.getType().equalsIgnoreCase(type)) {
+				batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
 				i++;
 			}
 		}
@@ -368,26 +376,7 @@ public class Player {
 	}
 
 
-    public void positionWarriorsInArmy(int quantity) { 
-		if (quantity <= 0) {
-			System.out.println("La quantité doit être positive.");
-			return;
-		}
-		if (quantity > this.warriors) {
-			System.out.println("Quantité insuffisante de guerriers en stock.");
-			return;
-		}
-		this.warriors -= quantity;
-		System.out.println(quantity + " guerriers ont été positionnés dans l'armée.");
-        
-    }
-		
-
-    public void positionWarriorsInCamp(int quantity) {}
-
-
-}
-		
+}		
 		
 
 

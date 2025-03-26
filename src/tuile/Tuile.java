@@ -160,7 +160,13 @@ public abstract class Tuile {
     }
 
     public String display() {
-        return String.format("%c( %d , %d )", this.type.charAt(0), this.x, this.y);
+        if (batiment.getType().equalsIgnoreCase("Armee")||batiment.getType().equalsIgnoreCase("Camp")) {
+            return String.format("%c( %d , %d ) (%d warriors)", this.type.charAt(0), this.x, this.y , batiment.getDimension());
+        }
+        else{
+            return String.format("%c( %d , %d )", this.type.charAt(0), this.x, this.y);
+        }
+        
 
     }
 }
