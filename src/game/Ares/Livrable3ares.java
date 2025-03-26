@@ -1,16 +1,13 @@
 package game.Ares;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 import batiment.Batiment;
 import batiment.type_batiment.Armee;
 import game.Player;
-import plateau.Plateau;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import ressource.Ressource;
 import tuile.Tuile;
-import game.Ares.Ares;
 
 public class Livrable3ares {
     public static void main(String[] args) {
@@ -35,21 +32,12 @@ public class Livrable3ares {
         }
 
         scanner.close();  
-        Plateau plateau = new Plateau(width, height);
         Player player = new Player("Leon");
         List<Player> players = new ArrayList<>();
         players.add(player);
         
-        Ares ares = new Ares(players, width, height) {
-        	private final Action_Ares action = new Action_Ares(this, player);
-        	public Action_Ares getAction() {
-        		return action;
-        	}
-        	@Override
-        	public void initializeGame() {
-        		
-        	}
-        };
+        Ares ares = new Ares(players, width, height);
+
         ares.setCurrentPlayer(player);
         Action_Ares action = ares.getAction();
         System.out.println("\n-----------------");

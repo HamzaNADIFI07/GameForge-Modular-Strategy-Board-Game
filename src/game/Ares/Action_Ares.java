@@ -8,18 +8,19 @@ import tuile.Tuile;
 
 public class Action_Ares {
 
-    private Player player;
+    private Game game;
 
-    public Action_Ares(Game game, Player player) {
-        this.player = player;
+    public Action_Ares(Game game) {
+        this.game = game;
     }
 
     /*construction d'une armée*/
 
     public boolean construireArmee(Tuile t) {
-    	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 1)
-    		&& player.hasResources(Ressource.Ble, 1) && player.hasWarriorsInStock(1)) {
-        	player.buildArmy(t);
+        Player currentPlayer = game.getCurrentPlayer();
+    	if (currentPlayer.hasResources(Ressource.Bois, 1) && currentPlayer.hasResources(Ressource.Moutons, 1)
+    		&& currentPlayer.hasResources(Ressource.Ble, 1) && currentPlayer.hasWarriorsInStock(1)) {
+                currentPlayer.buildArmy(t);
         	return true;
         }
         return false;
@@ -27,10 +28,11 @@ public class Action_Ares {
     /*construction d'un port */
 
     public boolean construirePort(Tuile t) {
-    	if (player.hasResources(Ressource.Bois, 1) && player.hasResources(Ressource.Moutons, 2)) {
-    		player.useResources(Ressource.Bois, 1);
-    		player.useResources(Ressource.Moutons, 2);
-    		player.construireBatiment(new batiment.type_batiment.Port(t), t);
+        Player currentPlayer = game.getCurrentPlayer();
+    	if (currentPlayer.hasResources(Ressource.Bois, 1) && currentPlayer.hasResources(Ressource.Moutons, 2)) {
+    		currentPlayer.useResources(Ressource.Bois, 1);
+    		currentPlayer.useResources(Ressource.Moutons, 2);
+    		currentPlayer.construireBatiment(new batiment.type_batiment.Port(t), t);
             return true;
         }
         return false;
@@ -39,10 +41,11 @@ public class Action_Ares {
     /*remplacer armée par le camp */
 
     public boolean remplacerArmeeParCamp(Tuile t) {
-    	if (player.hasResources(Ressource.Bois, 2) && player.hasResources(Ressource.Minerai, 3)) {
-    		player.useResources(Ressource.Bois, 2);
-    		player.useResources(Ressource.Minerai, 3);
-    		player.construireBatiment(new batiment.type_batiment.Camp(t), t);
+        Player currentPlayer = game.getCurrentPlayer();
+    	if (currentPlayer.hasResources(Ressource.Bois, 2) && currentPlayer.hasResources(Ressource.Minerai, 3)) {
+    		currentPlayer.useResources(Ressource.Bois, 2);
+    		currentPlayer.useResources(Ressource.Minerai, 3);
+    		currentPlayer.construireBatiment(new batiment.type_batiment.Camp(t), t);
             return true;
         }
         return false;
@@ -60,11 +63,12 @@ public class Action_Ares {
     /*ajouter des guerriers au stock*/
 
     public boolean ajouterGuerriersAuStock() {
-    	if (player.hasResources(Ressource.Ble, 2) && player.hasResources(Ressource.Moutons, 2) && player.hasResources(Ressource.Minerai, 1)) {
-    		player.useResources(Ressource.Ble, 2);
-    		player.useResources(Ressource.Moutons, 2);
-    		player.useResources(Ressource.Minerai, 1);
-    		player.addWarriors(5);
+        Player currentPlayer = game.getCurrentPlayer();
+    	if (currentPlayer.hasResources(Ressource.Ble, 2) && currentPlayer.hasResources(Ressource.Moutons, 2) && currentPlayer.hasResources(Ressource.Minerai, 1)) {
+    		currentPlayer.useResources(Ressource.Ble, 2);
+    		currentPlayer.useResources(Ressource.Moutons, 2);
+    		currentPlayer.useResources(Ressource.Minerai, 1);
+    		currentPlayer.addWarriors(5);
             return true;
         }
         return false;
@@ -73,9 +77,10 @@ public class Action_Ares {
 /* attaquer son voisin*/
 
 public boolean attaquerVoisin(Player voisin) {
-    if (player.hasWarriorsInStock(1)) {
-        player.useWarriors(1);
-        return player.attackNeighbor(voisin);
+    Player currentPlayer = game.getCurrentPlayer();
+    if (currentPlayer.hasWarriorsInStock(1)) {
+        currentPlayer.useWarriors(1);
+        return currentPlayer.attackNeighbor(voisin);
     }
     return false;
 }
@@ -83,10 +88,11 @@ public boolean attaquerVoisin(Player voisin) {
 /* acheter une arme secrete*/
 
     public boolean acheterArmeSecrete() {
-    	if (player.hasResources(Ressource.Minerai, 1) && player.hasResources(Ressource.Bois, 1)) {
-    		player.useResources(Ressource.Minerai, 1);
-    		player.useResources(Ressource.Bois, 1);
-            player.buySecretWeapon();
+        Player currentPlayer = game.getCurrentPlayer();
+    	if (currentPlayer.hasResources(Ressource.Minerai, 1) && currentPlayer.hasResources(Ressource.Bois, 1)) {
+    		currentPlayer.useResources(Ressource.Minerai, 1);
+    		currentPlayer.useResources(Ressource.Bois, 1);
+            currentPlayer.buySecretWeapon();
             return true;
         }
         return false;
@@ -95,17 +101,18 @@ public boolean attaquerVoisin(Player voisin) {
 // echanger trois ressouces identiques contre une autre ressource
 
     public void echangerRessourcesIdentiques(int nbDonnes, Ressource rDonnee, Ressource rVoulue) {
+        Player currentPlayer = game.getCurrentPlayer();
         if (nbDonnes % 3 != 0) {
             System.out.println("Échange impossible : le nombre de ressources données doit être un multiple de 3");
             return;
         }
         int setsOfThree = nbDonnes / 3;
-        if (!player.hasResources(rDonnee, nbDonnes)) {
+        if (!currentPlayer.hasResources(rDonnee, nbDonnes)) {
             System.out.println("Échange impossible : ressources insuffisantes");
             return;
         }
-        player.useResources(rDonnee, nbDonnes);
-        player.getRessources().put(rVoulue, player.getRessources().getOrDefault(rVoulue, 0) + setsOfThree);
+        currentPlayer.useResources(rDonnee, nbDonnes);
+        currentPlayer.getRessources().put(rVoulue, currentPlayer.getRessources().getOrDefault(rVoulue, 0) + setsOfThree);
     }
     
     
