@@ -78,7 +78,29 @@ public class Livrable3ares {
       System.out.println();
       
       // 2. Ajouter des guerriers jusqu’à 5
-      System.out.println("----> " + player.getName() + " ajoute des guerriers à son armée pour arriver à 5");
+      System.out.println("----> " + player.getName() + ": " + player.getRessources() + " (" + player.getWarriorsStock() + " warriors) ajoute des guerriers à son armée pour arriver à 5");
+      int i=0;
+      while (i<2) {
+        System.out.println("où déployer un guerrier ?");
+        List<String> displayArmee = player.getDisplayBatimentsParType("Armee");
+        System.out.println(displayArmee.size() + ": " + displayArmee);
+        int indiceArmee;
+		while (true) {
+			try {
+				System.out.print(" Indice de l'armée ");
+				indiceArmee = Integer.parseInt(scanner.nextLine());
+				if (indiceArmee >= 1 && indiceArmee <= displayArmee.size()) {
+					break;
+				} else {
+					System.out.println("Indice invalide.");
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Veuillez entrer un nombre valide.");
+			}
+		}
+        i++;
+      }
+      System.out.println("où déployer un guerrier ?");
       List<Batiment> armees = player.getBatimentsParType("Armee");
       if (!armees.isEmpty()) {
         	Armee armee = (Armee) armees.get(0);

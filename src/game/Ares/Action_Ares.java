@@ -24,9 +24,10 @@ public class Action_Ares {
 				currentPlayer.useResources(Ressource.Bois, 1);
 				currentPlayer.useResources(Ressource.Moutons, 1);
 				currentPlayer.useResources(Ressource.Ble, 1);
-				currentPlayer.setWarriors(nb);
+				currentPlayer.setWarriors(-nb);
 				Armee armee = new Armee(t, nb);
 				t.setBatiment(armee);
+                System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a construit une armée sur "+ t.display() + " en déployant " + nb + " guérriers.");
 			} else {
 				System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
 			}

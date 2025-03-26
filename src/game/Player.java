@@ -257,7 +257,12 @@ public class Player {
 		int i = 1;
 		for (Batiment b : batimentsPossedes) {
 			if (b.getType().equalsIgnoreCase(type)) {
-				batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
+				if (b.getType().equalsIgnoreCase("Armee")|| b.getType().equalsIgnoreCase("Camp")) {
+					batimentsFiltres.add(i + ": " + b.getType()+ " ("+this.warriors +") sur "+b.getTuile().display());
+				}
+				else{
+					batimentsFiltres.add(i + ": " + b.getType()+" sur "+b.getTuile().display());
+				}
 				i++;
 			}
 		}
