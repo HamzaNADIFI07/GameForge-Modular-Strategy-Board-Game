@@ -222,7 +222,6 @@ public class Player {
     		warriors--;
     		Armee armee = new Armee(t, 1);
     		t.setBatiment(armee);
-    		System.out.println(name + " a construit une armée sur " + t);
     	} else {
     		System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
     	}
@@ -368,6 +367,19 @@ public class Player {
 	public void setHasSecretWeapon(boolean hasSecretWeapon) {
 		this.hasSecretWeapon = hasSecretWeapon;
 	}
+	/**
+	 * Renvoie le nombre de guerriers actuellement en stock.
+	 *
+	 * @return nombre de guerriers
+	 */
+	public int getWarriorsStock() {
+	    return this.warriors;
+	}
+
+	public void setWarriors(int warriors) {
+		this.warriors = warriors;
+	}
+
 
     public void positionWarriorsInArmy(int quantity) {
         // TODO Auto-generated method stub

@@ -160,6 +160,7 @@ public abstract class Tuile {
     }
 
     public String display() {
-        return this.type.charAt(0) + "( %d , %d )".formatted(this.x, this.y);
+        return String.format("%c( %d , %d )", this.type.charAt(0), this.x, this.y);
+
     }
 }

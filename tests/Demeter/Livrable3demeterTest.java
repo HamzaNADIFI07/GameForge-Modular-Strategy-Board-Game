@@ -1,4 +1,4 @@
-package game.Demeter;
+package Demeter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,10 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import game.Player;
+import game.Demeter.Demeter;
 import ressource.Ressource;
 import tuile.Tuile;
 
-class Livrable3demeterTest {
+public class Livrable3demeterTest {
 	private Demeter game;
 	private Player player;
 	private int fermeX = 2, fermeY = 2;

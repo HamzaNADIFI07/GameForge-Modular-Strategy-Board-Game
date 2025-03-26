@@ -65,7 +65,12 @@ public class Livrable3demeter {
 				System.out.println();
 				System.out.print("Entrez la la coordonnée Y: ");
 				coordonneeY = Integer.parseInt(scanner.nextLine());
-				break;
+
+				if (coordonneeX <= largeur && coordonneeY <= longeur) {
+					break;
+				} else {
+					System.out.println("La coordonnée X doit être inférieur ou égale à " + largeur + " et la coordonnée Y doit être inférieur ou égale à " + longeur +".");
+				}
 			} catch (NumberFormatException e) {
 				System.out.println("Veuillez entrer des nombres valides.");
 			}
@@ -112,13 +117,25 @@ public class Livrable3demeter {
 		
 		System.out.println();
 
-		System.out.print("Entrez la coordonnée X: ");
-		int portX = Integer.parseInt(scanner.nextLine());
-		
-		System.out.println();
+		int portX;
+		int portY;
+		while (true) {
+			try {
+				System.out.print("Entrez la coordonnée X: ");
+				portX = Integer.parseInt(scanner.nextLine());
+				System.out.println();
+				System.out.print("Entrez la la coordonnée Y: ");
+				portY = Integer.parseInt(scanner.nextLine());
 
-		System.out.print("Entrez la la coordonnée Y: ");
-		int portY = Integer.parseInt(scanner.nextLine());
+				if (portX <= largeur && coordonneeY <= portY) {
+					break;
+				} else {
+					System.out.println("La coordonnée X doit être inférieur ou égale à " + largeur + " et la coordonnée Y doit être inférieur ou égale à " + longeur +".");
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Veuillez entrer des nombres valides.");
+			}
+		}
 		
 		System.out.println();
 
@@ -185,6 +202,13 @@ public class Livrable3demeter {
 		// System.out.println();
 
 		demeter.getAction().echangerRessources(1, Ressource.Bois, Ressource.Bois, true);
+
+		System.out.println();
+		System.out.println();
+
+		System.out.println("----> " + player1.getName() + " [ " + player1.getRessources() + " ] veut acheter un voleur.");
+		System.out.println();
+		demeter.getAction().acheterVoleur();
 
 		System.out.println();
 		System.out.println();

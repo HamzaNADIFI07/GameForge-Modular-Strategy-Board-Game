@@ -123,7 +123,7 @@ public class Action_Demeter {
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 2*quantite + " " + r1 + " contre " + quantite + " " + r2);
         }
-        if(currentPlayer.getPort()==0 || !port){
+        else if(currentPlayer.getPort()==0 || !port){
             currentPlayer.useResources(r1, 3*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 3*quantite + " " + r1 + " contre " + quantite + " " + r2);
