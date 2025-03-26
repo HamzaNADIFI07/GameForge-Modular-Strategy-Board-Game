@@ -381,10 +381,20 @@ public class Player {
 	}
 
 
-    public void positionWarriorsInArmy(int quantity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'positionWarriorsInArmy'");
+    public void positionWarriorsInArmy(int quantity) { 
+		if (quantity <= 0) {
+			System.out.println("La quantité doit être positive.");
+			return;
+		}
+		if (quantity > this.warriors) {
+			System.out.println("Quantité insuffisante de guerriers en stock.");
+			return;
+		}
+		this.warriors -= quantity;
+		System.out.println(quantity + " guerriers ont été positionnés dans l'armée.");
+        
     }
+		
 
     public void positionWarriorsInCamp(int quantity) {
         // TODO Auto-generated method stub
