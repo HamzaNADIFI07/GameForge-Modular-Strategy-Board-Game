@@ -396,10 +396,12 @@ public class Player {
     }
 		
 
-    public void positionWarriorsInCamp(int quantity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'positionWarriorsInCamp'");
-    }
+    public void positionWarriorsInCamp(int quantity) {}
+
 
 }
+		
+		
+
+
 

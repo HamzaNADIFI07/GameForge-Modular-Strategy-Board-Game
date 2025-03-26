@@ -570,10 +570,17 @@ Créer les methodes de test
 ## Semaine 11
 
 ### Ce qui a été réalisé
+- resolution du conflit
+- implementation des restes de methodes dans player et ActionAres
+- avancement dans UML
 
 ### Difficultés rencontrées
-
+- Test non exécutable(génération des erreurs)
+- le merge de code pour resoudre le conflit a pris du temps
 ### Objectifs pour la semaine
+- Terminer UML
+- remplir le readme avec les choix de modelisation
+- exécution et complilation des classes de test
 
 ## Semaine 12
 
