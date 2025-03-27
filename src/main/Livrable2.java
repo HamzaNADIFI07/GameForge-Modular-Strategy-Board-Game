@@ -88,7 +88,7 @@ public class Livrable2 {
 						tuile.produireRessource();
 	                    System.out.println("Armée placée sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() +") avec "+ tuile.getBatiment().getDimension() +" guerriers");
 	                } else if (camp == null && !(tuile instanceof Mer)) {
-	                    camp = new Camp(tuile);
+	                    camp = new Camp(tuile,5);
 						tuile.setBatiment(camp);
 						tuile.produireRessource();
 	                    System.out.println("Camp placé sur " + tuile.getType().charAt(0) + "(" + tuile.getX() + ", " + tuile.getY() + ")");

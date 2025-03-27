@@ -122,11 +122,15 @@ public class Action_Demeter {
             currentPlayer.useResources(r1, 2*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 2*quantite + " " + r1 + " contre " + quantite + " " + r2);
+            System.out.println();
+            System.out.println("Ressources de "+ currentPlayer.getName() +": " + currentPlayer.getRessources());
         }
         else if(currentPlayer.getPort()==0 || !port){
             currentPlayer.useResources(r1, 3*quantite);
             currentPlayer.addRessource(r2, quantite);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a échangé "+ 3*quantite + " " + r1 + " contre " + quantite + " " + r2);
+            System.out.println();
+            System.out.println("Ressources de "+ currentPlayer.getName() +": " + currentPlayer.getRessources());
         }
         else{
             System.out.println("Vous ne pouvez pas échanger de ressources");
@@ -145,8 +149,7 @@ public class Action_Demeter {
             currentPlayer.useResources(Ressource.Minerai, 1);
             currentPlayer.useResources(Ressource.Bois, 1);
             currentPlayer.useResources(Ressource.Ble, 1);
-            currentPlayer.setVoleur(1);
-            currentPlayer.setHasSecretWeapon(true);
+            currentPlayer.setHasSecretWeapon(1);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " dispose maintenant d'une arme secrète.");
         }
         else{
@@ -162,7 +165,7 @@ public class Action_Demeter {
     public void jouerVoleur(Ressource ressource) {
         Player currentPlayer = game.getCurrentPlayer();
 
-        if (currentPlayer.getVoleur()>0) {
+        if (currentPlayer.getSecretWeapon()>0) {
             game.getPlayers().forEach(player -> {
                 if (!player.equals(currentPlayer)) {
                     int quantiteVolee = player.getRessources().getOrDefault(ressource, 0);
@@ -176,7 +179,7 @@ public class Action_Demeter {
                 }
             });
 
-            currentPlayer.setVoleur(-1);
+            currentPlayer.setHasSecretWeapon(-1);
         } else {
             System.out.println("Vous n'avez pas de voleur disponible !");
         }

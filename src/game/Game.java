@@ -1,5 +1,4 @@
 package game;
-import java.util.ArrayList;
 import java.util.List;
 import plateau.Plateau;
 import tuile.Tuile;
@@ -108,8 +107,6 @@ public abstract class Game {
 			// Cas pour la ferme
 			if (b.equalsIgnoreCase("ferme")) {
 				return true;	
-			}else {
-				System.out.println("Vous ne pouvez pas construire une ferme sur cette tuile");
 			}
 
 			// Cas pour le port
@@ -117,16 +114,12 @@ public abstract class Game {
 				for (Tuile adjacente : t.getAdjacents(plateau.getTuiles())) {
 					if (adjacente instanceof Mer) {
 						return true;
-					}else {
-						System.out.println("Vous ne pouvez pas construire un port sur cette tuile");
 					}
 				}
 			}
 			// Cas pour la Armee
 			if (b.equalsIgnoreCase("Armee")) {
 				return true;
-			}else {
-				System.out.println("Vous ne pouvez pas construire une armee sur cette tuile");
 			}
 		}
 		if (t != null && !(t.getType().equals("Mer"))){
@@ -134,20 +127,16 @@ public abstract class Game {
 			if (b.equalsIgnoreCase("Exploitation")) {
 				if (t.getBatiment().getType().equals("Ferme")) {
 					return true;
-				}else {
-					System.out.println("Vous ne pouvez pas construire une exploitation sur cette tuile");
 				}
 			}
 			// Cas pour le camp
 			if (b.equalsIgnoreCase("camp")) {
 				if (t.getBatiment().getType().equals("Armee")) {
 					return true;
-				}else {
-					System.out.println("Vous ne pouvez pas construire un camp sur cette tuile");
 				}
 			}
 		}
-
+		System.out.println("Vous ne pouvez pas construire un " + b + " sur cette tuile");
 		return false;
 	}
 	/**

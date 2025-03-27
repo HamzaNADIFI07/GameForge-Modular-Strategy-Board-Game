@@ -12,16 +12,21 @@ public class Camp extends Batiment {
 
     Map<Ressource, Integer> cout = new HashMap<>();
 
+    
+
+    private int nbGuerriers;
+
     /**
      * Constructeur de la classe Camp.
      * 
      * @param tuile la tuile sur laquelle le camp est construit
      */
     
-    public Camp(Tuile tuile) {
-        super("Camp", 3, tuile);
+    public Camp(Tuile tuile, int nombreGuerriers) {
+        super("Camp", nombreGuerriers ,tuile);
         cout.put(Ressource.Bois, 2);
-        cout.put(Ressource.Minerai, 3);  
+        cout.put(Ressource.Minerai, 3); 
+        this.nbGuerriers = nombreGuerriers; 
     }
     //j'ai utilisé  HashMap car elle permet d’associer chaque type de ressource à sa quantité
     
@@ -32,5 +37,12 @@ public class Camp extends Batiment {
     @Override
     public Map<Ressource, Integer> getCout() {
         return this.cout;
+    }
+    public int getNbGuerriers() {
+        return nbGuerriers;
+    }
+
+    public void setNbGuerriers(int nbGuerriers) {
+        this.nbGuerriers = nbGuerriers;
     }
 }

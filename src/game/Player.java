@@ -1,7 +1,6 @@
 package game;
 
 import batiment.Batiment;
-import batiment.type_batiment.Armee;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,15 +24,13 @@ public class Player {
 	/** Nombre de guerriers disponibles. */
 	private int warriors;
 	/** Indique si le joueur possède une arme secrète. */
-	private boolean hasSecretWeapon;
+	private int hasSecretWeapon;
 	/** Liste des bâtiments possédés par le joueur. */
 	private List<Batiment> batimentsPossedes = new ArrayList<>();
 	/** Liste des tuiles contrôlées par le joueur. */
 	private List<Tuile> tuilesPossedes = new ArrayList<>();
 	/** Indique le nombre de ports possédés par le joueur. */
 	private int port;
-	/** Indique le nombre de voleurs possédés par le joueur. */
-	private int voleur;
     
 	/**
      * Constructeur pour créer un nouveau joueur avec un nom donné.
@@ -48,9 +45,8 @@ public class Player {
         	this.ressources.put(r, 10);
         }
         this.warriors = 0;
-        this.hasSecretWeapon = false;
+        this.hasSecretWeapon = 0;
         this.port = 0;
-		this.voleur = 0;
     }
 
 	/**
@@ -217,19 +213,6 @@ public class Player {
     	this.warriors += amount;
     }
 
-	/**
-     * Permet d'acheter une arme secrète.
-     */
-    public void buySecretWeapon() {
-    	if (hasResources(Ressource.Minerai, 1) && hasResources(Ressource.Bois, 1)) {
-    		useResources(Ressource.Minerai, 1);
-    		useResources(Ressource.Bois, 1);
-    		this.hasSecretWeapon = true;
-    		System.out.println(name + " a acheté une arme secrète!");
-    	} else {
-    		System.out.println("Achat impossible : ressources insuffisantes.");
-    	}
-    }
 
 	/**
      * Lance une attaque contre un joueur voisin.
@@ -322,23 +305,9 @@ public class Player {
     	ressources.put(resource, ressources.getOrDefault(resource, 0) + quantite);
 	}
 
-	/**
-     * Renvoie le nombre de voleurs possédés par le joueur.
-     *
-     * @return Nombre de voleurs.
-     */
-	public int getVoleur() {
-		return voleur;
-	}
 
-	/**
-     * Définit le nombre de voleurs possédés par le joueur.
-     *
-     * @param voleur Nombre de voleurs.
-     */
-	public void setVoleur(int voleur) {
-		this.voleur = voleur;
-	}
+
+
 	public void useWarriors(int i) {
 
 	
@@ -350,7 +319,7 @@ public class Player {
      *
      * @return true s'il possède une arme secrète, sinon false.
      */
-	public boolean isHasSecretWeapon() {
+	public int getSecretWeapon() {
 		return hasSecretWeapon;
 	}
 
@@ -359,8 +328,8 @@ public class Player {
      *
      * @param hasSecretWeapon Indicateur de possession d'arme secrète.
      */
-	public void setHasSecretWeapon(boolean hasSecretWeapon) {
-		this.hasSecretWeapon = hasSecretWeapon;
+	public void setHasSecretWeapon(int hasSecretWeapon) {
+		this.hasSecretWeapon = +hasSecretWeapon;
 	}
 	/**
 	 * Renvoie le nombre de guerriers actuellement en stock.
@@ -371,9 +340,7 @@ public class Player {
 	    return this.warriors;
 	}
 
-	public void setWarriors(int warriors) {
-		this.warriors += warriors;
-	}
+
 
 
 }		

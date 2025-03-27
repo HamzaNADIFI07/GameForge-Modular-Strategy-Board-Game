@@ -13,8 +13,6 @@ public class Livrable3demeter {
 	public static void main(String[] args) {
 		System.out.println();
 		System.out.println();
-		System.out.println();
-		System.out.println();
 		Scanner scanner = new Scanner(System.in);
 
 		int largeur, longeur;
@@ -127,7 +125,7 @@ public class Livrable3demeter {
 				System.out.print("Entrez la la coordonnée Y: ");
 				portY = Integer.parseInt(scanner.nextLine());
 
-				if (portX <= largeur && coordonneeY <= portY) {
+				if (portX <= largeur && portY <= longeur) {
 					break;
 				} else {
 					System.out.println("La coordonnée X doit être inférieur ou égale à " + largeur + " et la coordonnée Y doit être inférieur ou égale à " + longeur +".");

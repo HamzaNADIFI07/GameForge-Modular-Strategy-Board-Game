@@ -15,7 +15,7 @@ public class CampTest {
 	@Test
 	public void testCampCreation() {
 		Tuile foretTuile = new Foret(3, 3);
-		Camp camp = new Camp(foretTuile);
+		Camp camp = new Camp(foretTuile,3);
 		assertNotNull(camp);
 		assertEquals("Camp", camp.getType());
 		assertEquals(foretTuile, camp.getTuile());
@@ -24,7 +24,7 @@ public class CampTest {
 	public void testCampPeutEtreConstruit() {
 		Tuile foretTuile = new Foret(3, 3);
 		Armee armee = new Armee(foretTuile, 3);
-		Camp camp = new Camp(foretTuile);
+		Camp camp = new Camp(foretTuile,3);
 		assertTrue(foretTuile.getBatiment().getType().equals("Camp"), "La tuile foret doit contenir un camp");
 	}
 	// @Test

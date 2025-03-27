@@ -61,19 +61,19 @@ public class Livrable3AresTest {
         assertEquals(5, armee.getNbGuerriers());
 
         // Étape 3 : transformer en camp
-        assertTrue(action.remplacerArmeeParCamp(tuileArmee));
-        assertTrue(tuileArmee.getBatiment() instanceof Camp);
+        action.remplacerArmeeCamp(tuileArmee);
+        assertTrue(tuileArmee.getBatiment().getType().equalsIgnoreCase("Camp"));
 
         // Étape 4 : acheter 5 guerriers
-        assertTrue(action.ajouterGuerriersAuStock());
-        assertTrue(player.hasWarriorsInStock(5));
+        action.ajouterGuerriersAuStock();
+        assertTrue(player.hasWarriorsInStock(35));
 
         // Étape 5 : construire un port
         Tuile tuilePort = findValidTuile(ares.getPlateau());
         assertNotNull(tuilePort);
         player.addTuile(tuilePort);
-        assertTrue(action.construirePort(tuilePort));
-        assertTrue(tuilePort.getBatiment() instanceof Port);
+        action.construirePort(tuilePort);
+        assertTrue(tuilePort.getBatiment().getType().equalsIgnoreCase("Port"));
 
         // Étape 6 : échange 3 ressources contre 1
         player.echangerRessources(3, Ressource.Bois, Ressource.Minerai, false);
@@ -81,7 +81,7 @@ public class Livrable3AresTest {
         // Étape 7 : acheter une arme secrète
         player.addRessource(Ressource.Bois, 1);
         player.addRessource(Ressource.Minerai, 1);
-        player.buySecretWeapon();
+        action.acheterArmeSecrete();
         // (pas d'assert ici, la méthode affiche uniquement)
 
         // Étape 8 : vérification finale

@@ -55,6 +55,11 @@ public abstract class Batiment {
         this.dimension = dimension;
     }
 
+    public void increaseDimension(int dimension) {
+        this.dimension += dimension;
+    }
+
+
     /**
      * Retourne la tuile sur laquelle le bâtiment est construit.
      * 
