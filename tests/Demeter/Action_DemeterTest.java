@@ -33,6 +33,7 @@ class Action_DemeterTest {
 		List<Player> players = new ArrayList<>();
 		players.add(player);
 		game = new Demeter(players, 10, 10);
+		plateau = game.getPlateau();
 		actionDemeter = game.getAction();
 		tuile = getFirstNonMerTile();
 		assertNotNull(tuile, "Aucune tuile construisible trouvée.");

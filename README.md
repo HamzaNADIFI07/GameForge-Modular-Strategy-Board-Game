@@ -268,119 +268,268 @@ Tuile (6, 2) produit : 2 Moutons
 ```
 Fenêtre Swing affichée:
 
-![fenêtreSwing10x10](./images/fenêtreSwing10x10.png)
+![fenêtreSwing10x10](./images/Livrable2-fenêtreSwing10x10.png)
 
 ### Difficultés restant à résoudre
 
 ## Livrable 3
 
-### Atteinte des objectifs
-
-Résultats obtenus après éxecution de la commande `make`:
+- Commande pour génerer la JavaDoc:
 
 ```bash
-hamzanadifi@MacBook-Pro-de-Hamza l2s4-projet-2025 % make
-mkdir -p classes
-javac -d classes src/plateau/Plateau.java src/game/Ares/Action_Ares.java src/game/Ares/Livrable3ares.java src/game/Ares/Ares.java src/game/Demeter/Action_Demeter.java src/game/Demeter/Livrable3demeter.java src/game/Demeter/Demeter.java src/game/Player.java src/game/Game.java src/ressource/Ressource.java src/batiment/type_batiment/Exploitation.java src/batiment/type_batiment/Port.java src/batiment/type_batiment/Camp.java src/batiment/type_batiment/Armee.java src/batiment/type_batiment/Ferme.java src/batiment/Batiment.java src/tuile/type_tuile/Montagne.java src/tuile/type_tuile/Champ.java src/tuile/type_tuile/Mer.java src/tuile/type_tuile/Paturage.java src/tuile/type_tuile/Foret.java src/tuile/Tuile.java src/main/PlateauSwing.java src/main/Main.java src/main/Livrable2.java src/listchooser/InteractiveListChooser.java
-jar cfe Livrable2.jar game.Demeter.Livrable3demeter -C classes .
-java -jar Livrable2.jar
+Make javadoc
+```
+
+- Commande pour compiler tous les fichiers Java situés dans le dossier src:
+
+```bash
+make compile	
+```
+
+- Génère le fichier JAR nommé LivrableDemeter.jar exécutable pour la classe Livrable3Demeter:
+
+```bash
+make jar_demeter	
+```
+
+- Génère le fichier JAR nommé LivrableAres.jar exécutable pour la classe Livrable3Ares:
+
+```bash
+make jar_ares
+```
+
+- Commande pour exécuter  uniquement le Jar nommé LivrableDemeter.jar:
+
+```bash
+make run_demeter
+```
+
+- Commande pour exécuter  uniquement le Jar nommé LivrableAres.jar:
+
+```bash
+make run_ares
+```
+
+- Commandes pour compiler et génèrer les deux JARs (LivrableDemeter.jar et LivrableAres.jar):
+
+```bash
+Make
+```
+
+- Commandes pour compiler et exécuter les tests unitaires:
+
+```bash
+Make test
+```
+
+- Commandes pour supprimer les fichier compilés et le Jar et la JavaDoc:
+
+```bash
+Make clean
+```
+
+### Atteinte des objectifs
+
+Pour le troixième livrable, nous avons travaillé sur la **modélisation des actions** 
+
+Les objectifs atteints :
+
+1. Modélisation des différentes **Actions**:
+
+  - Implémentation d'une classe abstraite `Game`, et qui permet de modéliser les méthodes communes entre les deux jeux **Demeter** et **Ares** est des attributs commme `currentPlayer` qui permet de stocker l'information du joueur qui doit jouer (On en aura besoin dans le livrable 4 pour la gestion des tours), `players` la liste des joueurs qui vont jouer pendant cette partie, `plateau` l'instance du plateau de jeu et qui se crée directement avec la création du jeu avec en paramètre les coordonnées **x** et **y** qu'on aura obtenu au début du jeu avec la fonctionnalité **scanner**, `isGameActive`ce boolean permet le stocker l'information de l'état du jeu dont aura besoin dans le livrable 4 pour définir les règles de fin de jeu.
+
+  - Implémentation de deux classe `Demeter` et `Ares` et qui héritent tout les deux de la classe `Game`, chacune de ces deux classes contient un attribut `action` et qui est de type `Action_Demeter` pour la classe `Demeter` et `Action_Ares` pour la classe `Ares`.
+  Ce choix de définir deux classes distincts `Demeter` et `Ares`, est dû au fait qu'on voudrais limiter l'accès au diffèrentes action pour que dans le jeu Demeter, on aura pas l'accès au action de Ares et vice-versa, ainsi qu'on y en aura besoin lorsqu'on aura à définir des règles de début ou fin du jeu.
+
+  - Implémentation de deux classe `Action_Demeter` et `Action_Ares` et qui permettent de modéliser les differentes actions nécessaires pour le déroulement du jeu.
+
+  - Implémentation d'une classe `Player`, qui représente l'instance d'un joueur, avec plusieurs attributs qui stockent les informations dont aura besoins pour vérifier les conditions d'execution d'action, comme `name` qui permettera un affichage intuitif de la trace de l'évolution du jeu, `ressource` qui permet de stocker dans une hashmap les ressources dans le stock du joueurs avec leur quantité et cette attribut nous servira pour vérifier les conditions de présence de ressources nécessaires pour effectuer l'action en question ainsi que des méthodes getters et setters pour modifier ces quantités de ressource après l'éxecution de l'action, et d'autres attributs aussi nécessaires pour le déroulement du jeu.
+
+2. Deux programme principal (nommé `Livrable3Demeter.java` et `Livrable3Ares.java`):
+
+  - Le premier programme principal `Livrable3Demeter.java` permet de:
+
+    - Construit une ferme
+    - Fait évoluer une ferme en une exploitation
+    - Construit un port
+    - Échange 3 ressources contre une
+    - Échange 2 ressources contre une grâce à son port
+    - Achète un voleur
+
+  - Le deuxième programme principal `Livrable3Ares.java` permet de:
+
+    - construit une armée avec 1 guerrier
+    - ajoute des guerriers à son armée pour arriver à 5
+    - fait évoluer son armée en un camp
+    - achète 5 guerriers
+    - construit un port
+    - échange 3 ressources contre une
+    - achète une arme secrète
+
+  - Et dans ces deux cas, nous avons rajouter l'option d'intercation avec l'utilisateur avec la fonctionnalité **scanner** qui permet une interaction écrite via le terminale avec une gestion d'erreurs de type de réponses saisie ainsi qu'au erreurs liée au choix non proposés.
+
+  - Et enfin dans les deux cas , on a affiché à chaque fois les ressources du joueur, y compris après la dernière action, avec un affichage du plateau via le terminale au début du scénario du livrable et un deuxième affichage du plateau de jeu sous forme graphique à la fin du scénario.
+
+3. Tests unitaires:
+
+    - Implémentation des tests pour les méthodes des classes `Player`, `Action_Ares`, `Action_Demeter` afin de valider leur bon fonctionnement et leur conformité avec les contraintes du sujet.
+
+Résultats obtenus après éxecution de la commande `make test`:
+
+```bash
+╷
+├─ JUnit Jupiter ✔
+│  ├─ FermeTest ✔
+│  │  ├─ testFermeCout() ✔
+│  │  └─ testForetCreation() ✔
+│  ├─ ArmeeTest ✔
+│  │  ├─ testArmeeCout() ✔
+│  │  └─ testArmeeCreation() ✔
+│  ├─ PaturageTest ✔
+│  │  └─ testPaturageConstructor() ✔
+│  ├─ ChampTest ✔
+│  │  └─ testChampConstructor() ✔
+│  ├─ MerTest ✔
+│  │  └─ testMerConstructor() ✔
+│  ├─ Livrable3demeterTest ✔
+│  │  └─ testDemeterMainSequence() ✘ expected: <true> but was: <false>
+│  ├─ CampTest ✔
+│  │  ├─ testCampPeutEtreConstruit() ✔
+│  │  └─ testCampCreation() ✔
+│  ├─ PlayerTest ✔
+│  │  ├─ testHasResources() ✔
+│  │  ├─ testAddWarriors() ✔
+│  │  ├─ testUseResources() ✔
+│  │  ├─ testHasPort() ✘ Cannot invoke "tuile.Tuile.setBatiment(batiment.Batiment)" because "<parameter3>" is null
+│  │  └─ testInitialResources() ✔
+│  ├─ PlateauTest ✔
+│  │  ├─ testGenererTuiles() ✘ Le nombre de tuiles Mer doit être d'au moins 2/3 du nombre total de tuiles. ==> expected: <true> but was: <false>
+│  │  └─ testPlateauInitialiseAvecMer() ✘ Tous les éléments du plateau doivent être des tuiles de type Mer au début. ==> expected: <true> but was: <false>
+│  ├─ InteractiveListChooserTest ✔
+│  │  ├─ testEmptyInputReturnsRandom() ✔
+│  │  ├─ testEmptyListThrowsException() ✔
+│  │  └─ testValidChoice() ✔
+│  ├─ Livrable3demeterTest ✔
+│  │  └─ testDemeterMainSequence() ✘ expected: <true> but was: <false>
+│  ├─ Action_DemeterTest ✔
+│  │  ├─ testConstruireExploitation() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  │  ├─ testConstruirePort() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  │  └─ testConstruireFerme() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  ├─ TuileTest ✔
+│  │  ├─ testGetAdjacents() ✔
+│  │  ├─ testGetType() ✔
+│  │  └─ testSetAdjacents() ✔
+│  ├─ Livrable3AresTest ✔
+│  │  └─ testScenarioCompletAres() ✘ Cannot invoke "batiment.type_batiment.Armee.getNbGuerriers()" because "<local6>" is null
+│  ├─ ExploitationTest ✔
+│  │  ├─ testExploitationCout() ✔
+│  │  └─ testExploitationCreation() ✔
+│  ├─ BatimentTest ✔
+│  │  ├─ testGetTuile() ✔
+│  │  ├─ testGetCout() ✔
+│  │  ├─ testGetDimension() ✔
+│  │  └─ testSetDimension() ✔
+│  ├─ Action_DemeterTest ✔
+│  │  ├─ testConstruireExploitation() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  │  ├─ testConstruirePort() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  │  └─ testConstruireFerme() ✘ Cannot invoke "game.Player.hasResources(ressource.Ressource, int)" because "<local4>" is null
+│  ├─ MontagneTest ✔
+│  │  └─ testMontagneConstructor() ✔
+│  ├─ PortTest ✔
+│  │  ├─ testPortCreation() ✔
+│  │  ├─ testPortPeutEtreConstruit() ✔
+│  │  └─ testPortCout() ✔
+│  └─ ForetTest ✔
+│     └─ testForetConstructor() ✔
+├─ JUnit Vintage ✔
+└─ JUnit Platform Suite ✔
+Test run finished after 95 ms
+[        23 containers found      ]
+[         0 containers skipped    ]
+[        23 containers started    ]
+[         0 containers aborted    ]
+[        23 containers successful ]
+[         0 containers failed     ]
+[        42 tests found           ]
+[         0 tests skipped         ]
+[        42 tests started         ]
+[         0 tests aborted         ]
+[        30 tests successful      ]
+[        12 tests failed          ]
+```
+
+4. Organisation et structure du projet :
+
+- Organisation des fichiers sources dans des packages distincts (`game`, `ares`, `demeter`).
+- Modification du Makefile pour la compilation et l'éxcution des tests, la géneration de la `javaDoc` et la génération de deux fichier exécutable `Livrable3Demeter.jar` et `Livrable3Ares.jar`.
+
+Résultats obtenus après éxecution de la commande `make run_demeter `:
+
+```bash
+Entrez la largeur du plateau: 10
 
 
-
-
-Entrez la largeur du plateau: 17
-
-
-Entrez la hauteur du plateau: 17
+Entrez la hauteur du plateau: 10
  -----------------
 ----- DEMETER -----
  -----------------
 
 
-      0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16  
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 0 | Me  | Me  | Mo  |  C  | Me  | Mo  | Me  |  F  |  C  | Me  | Me  | Me  |  F  |  F  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 1 | Me  | Me  | Me  |  C  | Me  |  F  | Me  | Me  | Mo  | Me  | Me  |  F  |  P  |  C  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 2 | Me  | Mo  |  F  | Me  | Mo  | Me  | Me  | Me  | Me  |  F  |  C  |  F  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 3 | Me  |  P  | Me  |  P  |  F  | Me  |  P  |  C  |  C  | Me  |  F  | Me  | Me  |  P  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 4 | Me  | Me  | Me  |  C  | Mo  | Me  | Me  | Me  |  C  | Me  | Me  | Me  |  F  |  F  | Mo  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 5 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  P  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 6 | Me  | Me  | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 7 | Me  | Me  | Me  | Me  | Me  | Me  |  C  | Me  | Me  | Me  | Me  | Me  |  P  | Mo  |  P  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 8 | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Mo  | Me  | Me  |  C  |  F  | Me  | Me  |  F  | Mo  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
- 9 | Me  | Me  | Me  | Me  | Mo  | Me  | Me  |  C  | Me  | Me  |  F  | Me  | Me  | Me  | Me  | Mo  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-10 |  F  |  F  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  F  | Me  | Me  | Me  |  F  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-11 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Mo  |  P  | Me  | Me  | Me  |  C  |  F  | Me  |  F  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-12 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  F  | Me  | Me  |  F  | Mo  | Me  | Me  | Mo  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-13 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-14 | Me  | Me  | Me  | Me  | Me  |  F  |  P  | Mo  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-15 | Mo  |  C  | Me  | Me  | Me  |  P  | Me  |  F  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-16 |  C  | Me  | Me  | Me  |  F  |  F  | Me  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
-   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-----> Leon [ {Moutons=10, Minerai=10, Ble=10, Bois=10} ] veut construire une ferme.
+      0     1     2     3     4     5     6     7     8     9  
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 0 | Mo  |  F  |  C  |  P  | Me  | Me  | Me  | Me  |  F  |  P  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 1 | Me  | Me  | Me  | Me  | Me  |  F  | Me  |  F  | Me  |  P  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 2 | Me  | Me  | Me  | Me  | Me  |  F  | Me  | Mo  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 3 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 4 | Me  | Me  | Mo  | Me  | Me  | Me  | Me  | Me  | Me  |  P  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 5 |  F  | Mo  |  F  | Me  | Me  | Me  | Mo  |  F  |  F  |  P  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 6 | Me  | Me  | Me  | Me  | Me  | Me  | Mo  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 7 | Me  | Me  | Me  | Me  | Me  | Me  |  P  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 8 | Me  | Me  | Mo  | Me  | Me  |  C  | Mo  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 9 | Me  | Mo  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+----> Leon [ {Minerai=10, Moutons=10, Ble=10, Bois=10} ] veut construire une ferme.
 
 Où installer une ferme ?
-Entrez la coordonnée X: 9
+Entrez la coordonnée X: 2
 
-Entrez la la coordonnée Y: 13
-Leon{Moutons=10, Minerai=9, Ble=10, Bois=9} a construit une ferme sur C( 9 , 13 )
+Entrez la la coordonnée Y: 9
+Leon{Minerai=9, Moutons=10, Ble=10, Bois=9} a construit une ferme sur C( 2 , 9 )
 
 
-----> Leon [ {Moutons=10, Minerai=9, Ble=10, Bois=9} ] veut remplacer une ferme par une exploitation.
+----> Leon [ {Minerai=9, Moutons=10, Ble=10, Bois=9} ] veut remplacer une ferme par une exploitation.
 
 quelle ferme transformer en exploitation ?
 
-1: [1: Ferme sur C( 9 , 13 )]
+1: [1: Ferme sur C( 2 , 9 )]
 
 Quelle ferme transformer en exploitation ? 1
-Leon{Moutons=9, Minerai=9, Ble=9, Bois=7} a construit une exploitation sur C( 9 , 13 )
+Leon{Minerai=9, Moutons=9, Ble=9, Bois=7} a construit une exploitation sur C( 2 , 9 )
 
 
-----> Leon [ {Moutons=9, Minerai=9, Ble=9, Bois=7} ] veut construire un port.
+----> Leon [ {Minerai=9, Moutons=9, Ble=9, Bois=7} ] veut construire un port.
 
 Où installer le port ?
 
 Entrez la coordonnée X: 7
 
-Entrez la la coordonnée Y: 15
+Entrez la la coordonnée Y: 5
 
-Vous ne pouvez pas construire une ferme sur cette tuile
-Leon{Moutons=7, Minerai=9, Ble=9, Bois=6} a construit un port sur F( 7 , 15 )
-
-
-----> Leon [ {Moutons=7, Minerai=9, Ble=9, Bois=6} ] veut échanger des ressources sans se servir du port.
-
-Ressources disponibles: {Moutons=7, Minerai=9, Ble=9, Bois=6}
-
-Choisit une ressource à échanger: 
-1: Moutons
-2: Minerai
-3: Blé
-4: Bois
+Leon{Minerai=9, Moutons=7, Ble=9, Bois=6} a construit un port sur F( 7 , 5 )
 
 
-Leon{Moutons=7, Minerai=10, Ble=6, Bois=6} a échangé 3 Ble contre 1 Minerai
+----> Leon [ {Minerai=9, Moutons=7, Ble=9, Bois=6} ] veut échanger des ressources sans se servir du port.
 
-
-----> Leon [ {Moutons=7, Minerai=10, Ble=6, Bois=6} ] veut échanger des ressources grâce à son port.
-
-Ressources disponibles: {Moutons=7, Minerai=10, Ble=6, Bois=6}
+Ressources disponibles: {Minerai=9, Moutons=7, Ble=9, Bois=6}
 
 Choisit une ressource à échanger: 
 1: Moutons
@@ -388,29 +537,179 @@ Choisit une ressource à échanger:
 3: Blé
 4: Bois
 
-Leon{Moutons=7, Minerai=10, Ble=6, Bois=5} a échangé 2 Bois contre 1 Bois
-Vous ne pouvez pas échanger de ressources
+
+Leon{Minerai=10, Moutons=7, Ble=6, Bois=6} a échangé 3 Ble contre 1 Minerai
+
+Ressources de Leon: {Minerai=10, Moutons=7, Ble=6, Bois=6}
 
 
-----> Leon [ {Moutons=7, Minerai=10, Ble=6, Bois=5} ].
-{Moutons=7, Minerai=10, Ble=6, Bois=5}
+----> Leon [ {Minerai=10, Moutons=7, Ble=6, Bois=6} ] veut échanger des ressources grâce à son port.
+
+Ressources disponibles: {Minerai=10, Moutons=7, Ble=6, Bois=6}
+
+Choisit une ressource à échanger: 
+1: Moutons
+2: Minerai
+3: Blé
+4: Bois
+
+Leon{Minerai=10, Moutons=7, Ble=6, Bois=5} a échangé 2 Bois contre 1 Bois
+
+Ressources de Leon: {Minerai=10, Moutons=7, Ble=6, Bois=5}
+
+
+----> Leon [ {Minerai=10, Moutons=7, Ble=6, Bois=5} ] veut acheter un voleur.
+
+Leon{Minerai=9, Moutons=7, Ble=5, Bois=4} dispose maintenant d'une arme secrète.
+
+
+----> Leon [ {Minerai=9, Moutons=7, Ble=5, Bois=4} ].
+{Minerai=9, Moutons=7, Ble=5, Bois=4}
 
 
 ----> liste des bâtiments en sa possession
-[1: Ferme sur C( 9 , 13 ), 2: Port sur F( 7 , 15 )]
+[1: Ferme sur C( 2 , 9 ), 2: Port sur F( 7 , 5 )]
 
 
 ----> liste des tuiles occupées
-[C( 9 , 13 ), F( 7 , 15 )]
+[C( 2 , 9 ), F( 7 , 5 )]
 ```
 
-![fenêtreSwing17x17](./images/fenêtreSwing17x17.png)
+Fenêtre Swing affichée:
+
+![fenêtreSwing10x10](./images/Livrable3Demeter-fenêtreSwing10x10.png)
+
+Résultats obtenus après éxecution de la commande `make run_ares `:
+
+```bash
+Entrez la largeur du plateau: 10
+Entrez la hauteur du plateau: 10
+ ----------------- 
+-----   ARES  -----
+ ----------------- 
+      0     1     2     3     4     5     6     7     8     9  
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 0 | Me  |  C  |  P  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 1 |  C  |  C  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 2 | Me  | Me  |  F  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 3 |  C  |  F  |  F  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 4 | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 5 | Me  | Me  | Me  | Me  | Me  |  C  |  C  |  F  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 6 | Me  | Me  | Mo  | Me  | Me  | Me  | Mo  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 7 | Me  | Me  |  P  | Me  | Me  | Me  | Me  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 8 | Me  | Me  | Mo  | Me  | Mo  | Me  |  C  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ 9 | Me  | Me  |  C  |  P  | Mo  |  C  | Mo  | Me  | Me  | Me  |
+   +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+
+----> Leon: {Minerai=10, Moutons=10, Ble=10, Bois=10} (30 warriors) veut construire une armée
+
+Où installer une armée ?
+
+Entrez la coordonnée X: 2
+
+Entrez la la coordonnée Y: 9
+
+Entrez le nombre de guerriers que vous voulez déployer 3
+
+Leon{Minerai=10, Moutons=9, Ble=9, Bois=9} (27) a construit une armée sur C( 2 , 9 ) (3 warriors) en déployant 3 guérriers.
+
+
+----> Leon: {Minerai=10, Moutons=9, Ble=9, Bois=9} (27 warriors) ajoute des guerriers à son armée pour arriver à 5
+
+où déployer un guerrier ?
+
+1: [1: Armee sur C( 2 , 9 ) (3 warriors)]
+
+Indice de l'armée: 1
+
+Leon{Minerai=10, Moutons=9, Ble=9, Bois=9} (26 warriors) a déployé 1 guérriers dans l'armée C( 2 , 9 ) (4 warriors)
+
+où déployer un guerrier ?
+
+1: [1: Armee sur C( 2 , 9 ) (4 warriors)]
+
+Indice de l'armée: 1
+
+Leon{Minerai=10, Moutons=9, Ble=9, Bois=9} (25 warriors) a déployé 1 guérriers dans l'armée C( 2 , 9 ) (5 warriors)
+
+
+----> Leon: {Minerai=10, Moutons=9, Ble=9, Bois=9} (25 warriors) veut remplacer son armée par un camp
+
+Quelle armée transformer en camp ?
+
+1: [1: Armee sur C( 2 , 9 ) (5 warriors)]
+
+Indice de l'armée: 1
+
+Leon{Minerai=7, Moutons=9, Ble=9, Bois=7} (25) a construit un camp sur C( 2 , 9 ) (5 warriors)
+
+
+----> Leon: {Minerai=7, Moutons=9, Ble=9, Bois=7} (25 warriors) achète 5 guerriers
+
+Leon{Minerai=6, Moutons=7, Ble=7, Bois=7} (30 warriors) a acheté 5 guerriers
+
+
+----> Leon: {Minerai=6, Moutons=7, Ble=7, Bois=7} (30 warriors) veut construire un port.
+
+Où installer le port ?
+
+Entrez la coordonnée X: 1
+
+Entrez la la coordonnée Y: 0
+
+Leon{Minerai=6, Moutons=5, Ble=7, Bois=6} a construit un port sur C( 1 , 0 )
+
+
+----> Leon: {Minerai=6, Moutons=5, Ble=7, Bois=6} (30 warriors) échange des ressources.
+
+Ressources disponibles: {Minerai=6, Moutons=5, Ble=7, Bois=6}
+
+Choisit une ressource à échanger: 
+1: Moutons
+2: Minerai
+3: Blé
+4: Bois
+
+Leon{Minerai=6, Moutons=5, Ble=7, Bois=4} a échangé 3 Bois contre 1 Bois
+
+Ressources de Leon: {Minerai=6, Moutons=5, Ble=7, Bois=4}
+
+
+----> Leon: {Minerai=6, Moutons=5, Ble=7, Bois=4} (30 warriors) achète une arme secrète.
+
+Leon{Minerai=5, Moutons=5, Ble=7, Bois=3} (30 warriors) dispose maintenant d'une arme secrète
+
+----> liste des bâtiments en sa possession
+
+[1: Camp sur C( 2 , 9 ) (5 warriors), 2: Port sur C( 1 , 0 )]
+
+
+----> liste des tuiles occupées
+
+[C( 2 , 9 ) (5 warriors), C( 1 , 0 )]
+```
+
+Fenêtre Swing affichée:
+
+![fenêtreSwing10x10](./images/Livrable3Ares-fenêtreSwing10x10.png)
 
 discription de choix de modelisation :
 Pour ce livrable, nous avons ajouté les classes Action_Demeter et Action_Ares afin de gérer les actions propres à chaque mode de jeu. On a choisi de séparer les logiques dans des classes différentes pour plus de clarté et pour respecter le principe de responsabilité unique. Le joueur interagit maintenant avec ces actions via des programmes principaux (Livrable3demeter et Livrable3ares) qui exécutent automatiquement une série d’actions demandées dans le sujet. Le code a été organisé en plusieurs packages (tuile, batiment, game...) pour faciliter la navigation. Le développement est bien avancé : toutes les fonctionnalités de base sont en place et les actions demandées dans le scénario sont fonctionnelles. On a aussi écrit des classes de tests pour valider certaines méthodes importantes
 
 ### Difficultés restant à résoudre
-il y a encore des tests qui sont pas réussi 
+
+- Il y a encore des tests qui sont pas réussi.
+
+- Des méthodes d'actions ont été implémenter dans la classe `Player`, doivent être migrer dans la classe `Action_Ares`.
 
 ## Livrable 4
 
