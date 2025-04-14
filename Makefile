@@ -1,7 +1,7 @@
 SRC = src
 CLASS = classes
-JAR_DEMETER = LivrableDemeter.jar
-JAR_ARES = LivrableAres.jar
+JAR_DEMETER = ./jar/LivrableDemeter.jar
+JAR_ARES = ./jar/LivrableAres.jar
 MAIN_DEMETER = game.Demeter.Livrable3demeter
 MAIN_ARES = game.Ares.Livrable3ares
 DOCS = docs
