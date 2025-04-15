@@ -160,6 +160,12 @@ public abstract class Game {
 	public void addPlayer(Player player){
 		this.players.add(player);
 	}
+
+	/**
+	 * Vérifie si la partie est terminée.
+	 * @return true si la partie est terminée, sinon false.
+	 */
+	public abstract boolean gameIsOver();
 	    
 
 }

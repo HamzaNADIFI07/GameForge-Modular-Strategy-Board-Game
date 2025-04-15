@@ -1,50 +1,47 @@
 package listchooser;
 
 import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
-public class InteractiveListChooser {
-	private Scanner scanner;
-	private Random random;
-	public InteractiveListChooser() {
-		this.scanner = new Scanner(System.in);
-		this.random = new Random();
-	}
+import listchooser.util.Input;
+
+public class InteractiveListChooser<T> implements ListChooser<T> {
+
 	/**
-	 * Permet à l'utilisateur de choisir un élément dans une liste.
-	 *- Si l'utilisateur entre un numéro valide, il choisit l'élément correspondant.
-	 * - Si l'utilisateur n'entre rien ou une valeur invalide, un choix aléatoire est effectué.
-	 * @param message Message affiché pour demander un choix
-	 * @param options Liste des choix possibles
-	 * @param <T> Type générique des objets dans la liste
-	 * @return L'élément choisi
+	 * Allows one to choose an item from a list of items of type T.
+	 * If the list of items is empty, null is returned.
+	 * The list of items is presented as numbers followed by the 
+	 * string representation of the item. 
+	 * The possibility not to make a choice is automatically added (choice number 0), 
+	 * in this case, null is returned.
+	 * 
+	 * @param msg The asked question.
+	 * @param list The list of items of type T from which one must choose one.
+	 * @return The chosen item. null if the list of items is empty or if the user chooses not to make no choice
 	 */
-	 public <T> T choose(String message, List<T> options) {
-		 if (options.isEmpty()) {
-			 throw new IllegalArgumentException("La liste des choix est vide.");
-		 }
-		 System.out.println(message);
-		 for (int i = 0; i < options.size(); i++) {
-			 System.out.println(i + " - " + options.get(i));
-		 }
-		 System.out.print("Entrez le numéro du choix ou laissez vide pour un choix aléatoire : ");
-		 String input = scanner.nextLine();
-		 if (input.isEmpty()) {
-			 return options.get(random.nextInt(options.size()));
-	 }
-		 try {
-			 int choix = Integer.parseInt(input);
-			 if (choix >= 0 && choix < options.size()) {
-				 return options.get(choix);
-			 }else {
-				 System.out.println("Choix invalide, sélection aléatoire effectuée.");
-				 return options.get(random.nextInt(options.size()));
-		 }}catch (NumberFormatException e) {
-				 System.out.println("Entrée invalide, sélection aléatoire effectuée.");
-				 return options.get(random.nextInt(options.size()));
-			 }
-		 }
-	 }	 
-	 
-
+	public T choose(String msg, List<? extends T> list) {
+		// is there is not possible choice, null is returned
+		if (list.isEmpty()) {
+			return null;
+		}
+		// shows the items until the user made a valid choice
+		int choice = -1;
+		while ((choice < 0) || (choice > list.size())) {
+			System.out.println(msg);
+			System.out.println("      0 - none");
+			int index = 1;
+			for (T element : list) {
+				System.out.println("      " + (index++) + " - " + element);
+			}
+			System.out.println("            choice ?");
+			try {
+				choice = Input.readInt();
+			} catch (java.io.IOException e) {
+				System.out.println("Please, enter a number between 0 and " + (index-1));
+			}
+		}
+		if (choice == 0) {
+				return null;
+		}
+		return list.get(choice-1);
+	}
+}
