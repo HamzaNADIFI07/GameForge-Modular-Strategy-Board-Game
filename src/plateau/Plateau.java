@@ -1,8 +1,7 @@
 package plateau;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import game.Player;
+import java.util.*;
 import tuile.Tuile;
 import tuile.type_tuile.Champ;
 import tuile.type_tuile.Foret;
@@ -319,7 +318,54 @@ public class Plateau {
     }
 
 
+public int getNombreIlesOccupe(Player joueur) {
+    boolean[][] visited = new boolean[this.x][this.y];
+    int count = 0;
 
+    for (int i = 0; i < this.x; i++) {
+        for (int j = 0; j < this.y; j++) {
+            if (!visited[i][j] && !(tuile[i][j] instanceof Mer)) {
+                boolean islandHasPlayerBuilding = ileExplore(i, j, visited, joueur);
+                if (islandHasPlayerBuilding) {
+                    count++;
+                }
+            }
+        }
     }
+    return count;
+}
+
+private boolean ileExplore(int startX, int startY, boolean[][] visited, Player joueur) {
+    boolean occupied = false;
+    Queue<int[]> queue = new LinkedList<>();
+    queue.add(new int[]{startX, startY});
+    visited[startX][startY] = true;
+
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    while (!queue.isEmpty()) {
+        int[] pos = queue.poll();
+        int x = pos[0];
+        int y = pos[1];
+        Tuile t = tuile[x][y];
+
+        if (t.getBatiment() != null && joueur.equals(t.getBatiment().getPlayer())) {
+            occupied = true;
+        }
+
+        for (int[] d : directions) {
+            int nx = x + d[0];
+            int ny = y + d[1];
+            if (nx >= 0 && nx < this.x && ny >= 0 && ny < this.y && !visited[nx][ny] && !(tuile[nx][ny] instanceof Mer)) {
+                visited[nx][ny] = true;
+                queue.add(new int[]{nx, ny});
+            }
+        }
+    }
+
+    return occupied;
+}
+
+}
 	
 

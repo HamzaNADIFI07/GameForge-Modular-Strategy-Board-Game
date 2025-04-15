@@ -1,5 +1,6 @@
 package batiment;
 
+import game.Player;
 import java.util.Map;
 import ressource.Ressource;
 import tuile.Tuile;
@@ -11,6 +12,7 @@ public abstract class Batiment {
     protected String type;// le nom du bâtiment
     protected int dimension;// la dimension du bâtiment
     protected Tuile tuile;// la tuile sur laquelle le bâtiment est construit
+    protected Player player;// le joueur qui possède le bâtiment
     
 
 
@@ -75,5 +77,22 @@ public abstract class Batiment {
      * @return une Map contenant les ressources nécessaires
      */
     public abstract Map<Ressource, Integer> getCout();
+
+    /**
+     * Retourne le joueur qui possède le bâtiment.
+     * 
+     * @return le joueur qui possède le bâtiment
+     */
+    public Player getPlayer() {
+        return player;
+    }
+    /**
+     * Définit le joueur qui possède le bâtiment.
+     * 
+     * @param player le joueur qui possède le bâtiment
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }
 

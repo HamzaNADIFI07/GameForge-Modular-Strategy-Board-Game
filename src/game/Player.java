@@ -49,6 +49,7 @@ public class Player {
         this.warriors = 0;
         this.hasSecretWeapon = 0;
         this.port = 0;
+		this.points = 0;
     }
 
 	/**

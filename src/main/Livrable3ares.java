@@ -1,10 +1,10 @@
-package game.Ares;
+package main;
 
 import game.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import main.PlateauSwing;
+
 import ressource.Ressource;
 import tuile.Tuile;
 

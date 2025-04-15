@@ -36,6 +36,7 @@ public class Action_Ares {
 				Armee armee = new Armee(t, nb);
                 currentPlayer.getBatimentsPossedes().add(armee);
                 currentPlayer.addTuile(t);
+                armee.setPlayer(currentPlayer);
                 System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a construit une armée sur "+ t.display() + " en déployant " + nb + " guérriers.");
 			} else {
 				System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
@@ -63,6 +64,7 @@ public class Action_Ares {
             currentPlayer.getBatimentsPossedes().add(port);
             currentPlayer.setPort(1);
             currentPlayer.addTuile(t);
+            port.setPlayer(currentPlayer);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit un port sur "+ t.display());
         }else{
             System.out.println("Vous ne pouvez pas construire un port sur cette tuile");
@@ -86,8 +88,8 @@ public class Action_Ares {
             currentPlayer.getBatimentsPossedes().remove(armee);
             Camp camp = new Camp(tuile, nbGuerriers );
             currentPlayer.getBatimentsPossedes().add(camp);
-
             camp.setNbGuerriers(nbGuerriers);
+            camp.setPlayer(currentPlayer);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a construit un camp sur "+ tuile.display());
         }else{
             System.out.println("Vous ne pouvez pas construire un camp sur cette tuile");

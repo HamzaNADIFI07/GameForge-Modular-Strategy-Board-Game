@@ -49,6 +49,12 @@ public class Demeter extends Game {
 
 	public boolean gameIsOver() {
 		for (Player player : players) {
+			if (plateau.getNombreIlesOccupe(player)==2) {
+				player.incrementerPoints(1);
+			}
+			 else if (plateau.getNombreIlesOccupe(player)>2) {
+				player.incrementerPoints(2);
+			}
 			if (player.getPoints()>=12) {
 				System.out.println(player.getName() + " a gagné !");
 				return true;

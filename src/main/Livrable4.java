@@ -33,11 +33,11 @@ public class Livrable4 {
         System.out.println("--  Le jeu commence   --");
         System.out.println("    -----------------   ");
 
-        while (!game.isOver()) {
+        while (!game.gameIsOver()) {
             game.playTurn();
         }
 
-        System.out.println("Game over! Winner: " + game.getWinner());
+        System.out.println("Game over! Winner: " + game.getWinner().getName());
  
     }
 }

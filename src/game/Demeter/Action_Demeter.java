@@ -48,6 +48,8 @@ public class Action_Demeter {
             Ferme ferme = new Ferme(t);
             currentPlayer.getBatimentsPossedes().add(ferme);
             currentPlayer.addTuile(t);
+            currentPlayer.incrementerPoints(1);
+            ferme.setPlayer(currentPlayer);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une ferme sur "+ t.display());
         }else{
             System.out.println("Vous ne pouvez pas construire une ferme sur cette tuile");
@@ -74,6 +76,7 @@ public class Action_Demeter {
             currentPlayer.getBatimentsPossedes().add(port);
             currentPlayer.setPort(1);
             currentPlayer.addTuile(t);
+            port.setPlayer(currentPlayer);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit un port sur "+ t.display());
         }else{
             System.out.println("Vous ne pouvez pas construire un port sur cette tuile");
@@ -102,6 +105,8 @@ public class Action_Demeter {
             currentPlayer.getBatimentsPossedes().add(exploitation);
             Batiment ferme = t.getBatiment();
             currentPlayer.getBatimentsPossedes().remove(ferme);
+            currentPlayer.incrementerPoints(2);
+            exploitation.setPlayer(currentPlayer);
             System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " a construit une exploitation sur "+ t.display());
         }else{
             System.out.println("Vous ne pouvez pas construire une exploitation sur cette tuile");

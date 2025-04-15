@@ -1,11 +1,11 @@
-package game.Demeter;
+package main;
 
 import batiment.Batiment;
 import game.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import main.PlateauSwing;
+
 import ressource.Ressource;
 
 public class Livrable3demeter {
