@@ -46,6 +46,16 @@ public class Demeter extends Game {
 	public Action_Demeter getAction() {
 		return action;
 	};
+
+	public boolean gameIsOver() {
+		for (Player player : players) {
+			if (player.getPoints()>=12) {
+				System.out.println(player.getName() + " a gagné !");
+				return true;
+			}
+		}
+		return false;
+	}
 	
 
 }

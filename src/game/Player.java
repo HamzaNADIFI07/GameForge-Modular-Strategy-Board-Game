@@ -31,6 +31,8 @@ public class Player {
 	private List<Tuile> tuilesPossedes = new ArrayList<>();
 	/** Indique le nombre de ports possédés par le joueur. */
 	private int port;
+	/** Indique le nombre de points possédés par le joueur. */
+	private int points;
     
 	/**
      * Constructeur pour créer un nouveau joueur avec un nom donné.
@@ -338,6 +340,29 @@ public class Player {
 	 */
 	public int getWarriorsStock() {
 	    return this.warriors;
+	}
+
+	/**
+	 * Renvoie le nombre de points du joueur.
+	 * @return nombre de points
+	 */
+	public int getPoints() {
+		return points;
+	}
+	/**
+	 * Définit le nombre de points du joueur.
+	 * @param points nombre de points
+	 */
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	/**
+	 * Incrémente le nombre de points du joueur.
+	 * @param points nombre de points à ajouter
+	 */
+	public void incrementerPoints(int points) {
+		this.points += points;
 	}
 
 
