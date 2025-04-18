@@ -176,5 +176,15 @@ public boolean attaquerVoisin(Player voisin) {
             System.out.println("Vous ne pouvez pas échanger de ressources");
         }
     }
+
+    /**
+     * Retourne l'objet Game associé à cette instance d'Action_Ares.
+     *
+     * @return L'instance de Game associée à cette action.
+     */
+    public Game getGame() {
+        return game;
+    }
+
     
 }

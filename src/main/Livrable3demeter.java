@@ -1,11 +1,11 @@
 package main;
 
 import batiment.Batiment;
+import game.Demeter.Demeter;
 import game.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import ressource.Ressource;
 
 public class Livrable3demeter {

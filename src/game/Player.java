@@ -1,12 +1,18 @@
 package game;
 
 import batiment.Batiment;
+import plateau.Plateau;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Random;
 import ressource.Ressource;
 import tuile.Tuile;
+import tuile.type_tuile.Mer;
 
 
 /**
@@ -33,6 +39,8 @@ public class Player {
 	private int port;
 	/** Indique le nombre de points possédés par le joueur. */
 	private int points;
+	/** Indique l'indice d'objectifs du joueur. */
+	private int objectif;
     
 	/**
      * Constructeur pour créer un nouveau joueur avec un nom donné.
@@ -50,6 +58,9 @@ public class Player {
         this.hasSecretWeapon = 0;
         this.port = 0;
 		this.points = 0;
+		Random random = new Random();
+		this.objectif = random.nextInt(3);
+
     }
 
 	/**
@@ -366,8 +377,79 @@ public class Player {
 		this.points += points;
 	}
 
+	/**
+	 * Renvoie l'objectif du joueur.
+	 * @return objectif
+	 */
+	public int getObjectif() {
+		return objectif;
+	}
+	/**
+	 * Définit l'objectif du joueur.
+	 * @param objetctif objectif
+	 */
+	public void setObjectif(int objetctif) {
+		this.objectif = objetctif;
+	}
 
+	/**
+	 * Retourne le nombre de tuiles possédées par le joueur.
+	 * @return nombre de tuiles
+	 */
+	public int getNbTuilePossedee() {
+		return tuilesPossedes.size();
+	}
 
+	public int getNumberOfIslandsOccupied(Plateau plateau) {
+		int largeur = plateau.getX();
+		int hauteur = plateau.getY();
+		Tuile[][] tuiles = plateau.getTuiles();
+
+		boolean[][] visited = new boolean[largeur][hauteur];
+		int count = 0;
+
+		for (int i = 0; i < largeur; i++) {
+			for (int j = 0; j < hauteur; j++) {
+				if (!visited[i][j] && !(tuiles[i][j] instanceof Mer)) {
+					if (exploreIsland(i, j, visited, tuiles)) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+private boolean exploreIsland(int startX, int startY, boolean[][] visited, Tuile[][] tuiles) {
+	boolean occupied = false;
+    Queue<int[]> queue = new LinkedList<>();
+    queue.add(new int[]{startX, startY});
+    visited[startX][startY] = true;
+
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    while (!queue.isEmpty()) {
+        int[] pos = queue.poll();
+        int x = pos[0];
+        int y = pos[1];
+        Tuile t = tuiles[x][y];
+
+        if (t.getBatiment() != null && this.equals(t.getBatiment().getProprietaire())) {
+            occupied = true;
+        }
+
+        for (int[] d : directions) {
+            int nx = x + d[0];
+            int ny = y + d[1];
+            if (nx >= 0 && nx < tuiles.length && ny >= 0 && ny < tuiles[0].length && !visited[nx][ny] && !(tuiles[nx][ny] instanceof Mer)) {
+                visited[nx][ny] = true;
+                queue.add(new int[]{nx, ny});
+            }
+        }
+    }
+
+    return occupied;
+}
 
 }		
 		

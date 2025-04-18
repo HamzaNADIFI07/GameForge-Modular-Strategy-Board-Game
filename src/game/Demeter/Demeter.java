@@ -47,6 +47,11 @@ public class Demeter extends Game {
 		return action;
 	};
 
+	/**
+	 * Vérifie si la partie est terminée.
+	 * @return true si la partie est terminée, sinon false.
+	 * La partie est considérée comme terminée si un joueur a atteint 12 points.
+	 */
 	public boolean gameIsOver() {
 		for (Player player : players) {
 			if (plateau.getNombreIlesOccupe(player)==2) {
@@ -63,7 +68,19 @@ public class Demeter extends Game {
 		return false;
 	}
 	
-
+	/**
+	 * Retourne le joueur gagnant si la partie est terminée.
+	 *
+	 * @return Le joueur gagnant, ou null si aucun joueur n'a gagné.
+	 */
+	public Player getWinner(){
+		for (Player player : players) {
+			if (player.getPoints()>=12) {
+				return player;
+			}
+		}
+		return null;
+	}
 }
 
 

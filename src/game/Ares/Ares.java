@@ -48,4 +48,48 @@ public class Ares extends Game {
 		}
 		return null;
 	}
+
+	/**
+	 * Vérifie si la partie est terminée.
+	 * @return true si la partie est terminée, sinon false.
+	 * La partie est considérée comme terminée si un joueur a atteint son objectif.
+	 * Les objectifs sont les suivants :
+	 * 0 : Avoir 10 tuiles
+	 * 1 : Avoir au moins une île occupée
+	 * 2 : Avoir 50 guerriers
+	 * Si un joueur atteint son objectif, la partie se termine et il est déclaré vainqueur.
+	 */
+	public boolean gameIsOver() {
+		for (Player player : players) {
+			if (player.getObjectif() == 0 && player.getNbTuilePossedee() >= 10) {
+				return true;
+			} 
+			else if (player.getObjectif() == 1 && player.getNumberOfIslandsOccupied(action.getGame().getPlateau()) >= 1) {
+				return true;
+			}
+			else if (player.getObjectif() == 2 && player.getWarriorsStock() >= 50) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Retourne le joueur gagnant si la partie est terminée.
+	 * @return Le joueur gagnant, ou null si aucun joueur n'a gagné.
+	 */
+	public Player getWinner() {
+		for (Player player : players) {
+			if (player.getObjectif() == 0 && player.getNbTuilePossedee() >= 10) {
+				return player;
+			} 
+			else if (player.getObjectif() == 1 && player.getNumberOfIslandsOccupied(action.getGame().getPlateau()) >= 1) {
+				return player;
+			}
+			else if (player.getObjectif() == 2 && player.getWarriorsStock() >= 50) {
+				return player;
+			}
+		}
+		return null;
+	}
 }

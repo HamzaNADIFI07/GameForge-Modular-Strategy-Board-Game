@@ -166,6 +166,13 @@ public abstract class Game {
 	 * @return true si la partie est terminée, sinon false.
 	 */
 	public abstract boolean gameIsOver();
+
+	/**
+	 * Retourne le joueur gagnant de la partie.
+	 *
+	 * @return Joueur gagnant.
+	 */
+	public abstract Player getWinner();
 	    
 
 }
