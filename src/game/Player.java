@@ -1,8 +1,6 @@
 package game;
 
 import batiment.Batiment;
-import plateau.Plateau;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
+import plateau.Plateau;
 import ressource.Ressource;
 import tuile.Tuile;
 import tuile.type_tuile.Mer;
@@ -319,15 +318,6 @@ public class Player {
     	ressources.put(resource, ressources.getOrDefault(resource, 0) + quantite);
 	}
 
-
-
-
-	public void useWarriors(int i) {
-
-	
-		throw new UnsupportedOperationException("Unimplemented method 'useWarriors'");
-	}
-
 	/**
      * Vérifie si le joueur possède une arme secrète.
      *
@@ -400,6 +390,22 @@ public class Player {
 		return tuilesPossedes.size();
 	}
 
+	/**
+	 * Récolte les ressources produites par les tuiles possédées par le joueur.
+	 */
+	public void recolterRessources() {
+		for (Tuile tuile : this.getTuilesPossedes()) {
+			if (tuile.getRessource() != null) {
+				int ressourceProduite = tuile.getQuantiteRessource();
+	
+				int quantiteActuelle = this.ressources.getOrDefault(tuile.getRessource(), 0);
+				this.ressources.put(tuile.getRessource(), quantiteActuelle+ressourceProduite);
+			}
+			afficherRessources();
+		}
+	}
+
+	
 	public int getNumberOfIslandsOccupied(Plateau plateau) {
 		int largeur = plateau.getX();
 		int hauteur = plateau.getY();
@@ -434,7 +440,7 @@ private boolean exploreIsland(int startX, int startY, boolean[][] visited, Tuile
         int y = pos[1];
         Tuile t = tuiles[x][y];
 
-        if (t.getBatiment() != null && this.equals(t.getBatiment().getProprietaire())) {
+        if (t.getBatiment() != null && this.equals(t.getBatiment().getPlayer())) {
             occupied = true;
         }
 

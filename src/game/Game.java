@@ -173,6 +173,10 @@ public abstract class Game {
 	 * @return Joueur gagnant.
 	 */
 	public abstract Player getWinner();
-	    
+	 
+	/**
+	 * Joue un tour de jeu.
+	 */
+	public abstract void play();
 
 }
