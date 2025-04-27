@@ -93,34 +93,7 @@ public class Ares extends Game {
 		return null;
 	}
 
-	public void play(){
-		int i = 1;
-		while (!gameIsOver()) {
-			for (int j =0 ; i<plateau.getX(); j++){
-				for (int k =0 ; j<plateau.getY(); k++){
-					plateau.getTuile(j,k).produireRessource();
-				}
-			}
-			this.plateau.display();
-
-			System.out.println();
-			System.out.println();
-
-			System.out.println("## Tour " + i + " ##");
-			i++;
-
-			System.out.println("RECOLTE DES RESSOURCES");
-			for (Player player : players) {
-				this.currentPlayer = player;
-				player.recolterRessources();
-			}
-			for (Player player : players) {
-				this.currentPlayer = player;
-				System.out.println("### " + player.getName() + " JOUE ###");
-			}
-		}
-		
-	}
+	
 
 
 	
