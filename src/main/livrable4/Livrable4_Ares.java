@@ -51,6 +51,19 @@ public class Livrable4_Ares {
         System.out.println("    -----------------   ");
         System.out.println("--  Le jeu commence   --");
         System.out.println("    -----------------   ");
+        
+        for (int i = 0; i < 2; i++) {
+            for (Player player : players) {
+                System.out.println("Où voulez-vous construire votre armée ?");
+                System.out.println("X : ");
+                int x = Integer.parseInt(scanner.nextLine());
+                System.out.println("Y : ");
+                int y = Integer.parseInt(scanner.nextLine());
+                Tuile t = game.getPlateau().getTuile(x, y);
+                game.getAction().construireArmee(t, 1);
+            }
+        }
+
         int i=1;
         while (!game.gameIsOver()) {
             for (int j =0 ; j<game.getPlateau().getX(); j++){
