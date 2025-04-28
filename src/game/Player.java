@@ -123,46 +123,8 @@ public class Player {
 	public void addTuile(Tuile tuile) {
 		tuilesPossedes.add(tuile);
 	}
-	/**
-     * Permet au joueur de construire un bâtiment sur une tuile donnée,
-     * en vérifiant si les ressources nécessaires sont disponibles.
-     * 
-     * @param b Le bâtiment à construire
-     * @param t La tuile sur laquelle construire le bâtiment
-     * @return
-     */
-    public void construireBatiment(Batiment b, Tuile t) {
-    	Map<Ressource, Integer> cout = b.getCout();
-    	for (Map.Entry<Ressource, Integer> entry : cout.entrySet()) {
-    		if (this.ressources.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
-    			System.out.println("Ressources insuffisantes pour construire " + b.getType());
-    			return;
-    		}
-    	}
-    	for (Map.Entry<Ressource, Integer> entry : cout.entrySet()) {
-    		this.ressources.put(entry.getKey(), this.ressources.get(entry.getKey()) - entry.getValue());
-    	}
-    	t.setBatiment(b);
-    	System.out.println(name + " a construit " + b.getType() + " sur " + t);
-    }
-    /**
-     * Permet au joueur d'échanger des ressources, soit via un port (2:1), soit normalement (3:1).
-     * 
-     * @param nbDonnes Nombre de ressources données
-     * @param rDonnee Ressource donnée
-     * @param rVoulue Ressource souhaitée
-     * @param viaPort Indique si l'échange se fait via un port
-     */
-    public void echangerRessources(int nbDonnes, Ressource rDonnee, Ressource rVoulue, boolean viaPort) {
-    	int ratio = viaPort ? 2 : 3;
-    	if (this.ressources.getOrDefault(rDonnee, 0) < nbDonnes || nbDonnes < ratio) {
-    		System.out.println("Échange impossible : ressources insuffisantes.");
-    		return;
-    	}
-    	this.ressources.put(rDonnee, this.ressources.get(rDonnee) - nbDonnes);
-    	this.ressources.put(rVoulue, this.ressources.getOrDefault(rVoulue, 0) + 1);
-    	System.out.println(nbDonnes + " " + rDonnee + " ont été échangés contre 1 " + rVoulue);
-    }
+
+
 
 	/**
      * Renvoie le nom du joueur.
@@ -227,23 +189,7 @@ public class Player {
     }
 
 
-	/**
-     * Lance une attaque contre un joueur voisin.
-     *
-     * @param voisin Joueur à attaquer.
-     * @return true si l'attaque réussit, sinon false.
-     */
-    public boolean attackNeighbor(Player voisin) {
-		if (hasWarriorsInStock(1)) {			
-			warriors--;
-			System.out.println(name + " a attaqué " + voisin.getName() + "!");
-			return true;
-		} else {
-			System.out.println("Attaque impossible : guerriers insuffisants.");
-			return false; 
-		}
-		/* */
-    }
+
     public List<Batiment> getBatimentsPossedes() {
 		return batimentsPossedes;
 	}
