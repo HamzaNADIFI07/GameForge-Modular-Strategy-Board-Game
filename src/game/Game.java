@@ -105,7 +105,7 @@ public abstract class Game {
 		if (t != null && !(t.getType().equals("Mer")) && t.getBatiment() == null) {
 				
 			// Cas pour la ferme
-			if (b.equalsIgnoreCase("ferme")) {
+			if (b.equalsIgnoreCase("ferme") ) {
 				return true;	
 			}
 

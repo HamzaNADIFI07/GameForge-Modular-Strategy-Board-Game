@@ -723,14 +723,13 @@ Les objectifs atteints :
 
 On a rajouter plusieurs méthodes pour pouvoir gérer les conditions de fin de jeu ainsi que l'implémentation de la fonctionnalité de l'objectif du joueur ainsi de la gestion de la fin du jeu selon chaque joueur.
 
-2. **Programmes principal nommé Livrable4_Ares:**
+2. **Programmes principal nommé Livrable4_Ares et Livrable4_Demeter:**
 
-Ce programme principale permet de modéliser et automatiser tous le scénario de jeu avec version interactive avec les joueur avec plusieurs fonctionnalité cité dans le sujet comme la construction gratuite de deux armées avec 1 guerrierau début du jeu pour chaque joueur, gestion des tours de jeu entre les differents joueurs avec un affichage à chaque tour du plateau de jeu ainsi qu'aux différentes informations comme l'indice du tours le nom du joueur qui doit joué ...etc et à chaque tours une verification des conditions de fin de jeu si elles sont atteintes par l'un des joueurs et si c'est le cas le jeu termine et un message de fin de jeu s'affiche avec le nom du joueur vainqueur.
+Ces programmes principale permet de modéliser et automatiser tous le scénario de jeu avec version interactive avec les joueur avec plusieurs fonctionnalité cité dans le sujet comme la construction gratuite de deux armées avec 1 guerrierau début du jeu pour chaque joueur, gestion des tours de jeu entre les differents joueurs avec un affichage à chaque tour du plateau de jeu ainsi qu'aux différentes informations comme l'indice du tours le nom du joueur qui doit joué ...etc et à chaque tours une verification des conditions de fin de jeu si elles sont atteintes par l'un des joueurs et si c'est le cas le jeu termine et un message de fin de jeu s'affiche avec le nom du joueur vainqueur.
 
 
 ### Difficultés restant à résoudre
 
-- Modélisation du moteur de jeu du jeu Demeter
 - Conception de l'uml à jour pour ce Livrable 4
 - Tests unitaires de quelques fonctions.
 
