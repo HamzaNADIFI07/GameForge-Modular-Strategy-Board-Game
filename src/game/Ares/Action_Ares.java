@@ -70,8 +70,7 @@ public class Action_Ares {
     /**
      * Construit un port sur la tuile aux coordonnées données si les ressources sont suffisantes.
      *
-     * @param x Coordonnée x de la tuile
-     * @param y Coordonnée y de la tuile
+     * @param t Tuile sur laquelle construire le port
      */
     public void construirePort(Tuile t){
         Player currentPlayer = game.getCurrentPlayer();

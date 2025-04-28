@@ -1,6 +1,5 @@
 package main.livrable4;
 
-import batiment.type_batiment.Armee;
 import game.*;
 import game.Ares.Ares;
 import java.util.ArrayList;
@@ -126,10 +125,11 @@ public class Livrable4_Ares {
                 }
                 else if (choix==3) {
                     System.out.println("action choisie: déploie une armée");
-                    System.out.println("choisit une tuile");
-                    game.getPlateau().afficherTuilesDisponibles();
-                    int choix1 = Integer.parseInt(scanner.nextLine());
-                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("X : ");
+                    int x = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y = Integer.parseInt(scanner.nextLine());
+                    Tuile t = game.getPlateau().getTuile(x, y);
                     System.out.println("choisit le nombre de guerriers");
                     int choix2 = Integer.parseInt(scanner.nextLine());
                     game.getAction().construireArmee(t, choix2);
@@ -137,29 +137,29 @@ public class Livrable4_Ares {
                 }
                 else if (choix==4) {
                     System.out.println("action choisie: updrage vers un camp");
-                    System.out.println("quelle armÃ©e transformer en camp ?");
-                    player.getDisplayBatimentsParType("Armee");
-                    int choix1 = Integer.parseInt(scanner.nextLine());
-                    Armee a = (Armee) player.getBatimentsPossedes().get(choix1);
-                    game.getAction().remplacerArmeeCamp(a.getTuile());
+                    System.out.println("X : ");
+                    int x = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y = Integer.parseInt(scanner.nextLine());
+                    Tuile t = game.getPlateau().getTuile(x, y);
+                    game.getAction().remplacerArmeeCamp(t);
                 }
                 else if (choix==5) {
                     System.out.println("action choisie: construit un port");
-                    System.out.println("choisit une tuile");
-                    game.getPlateau().afficherTuilesDisponibles();
-                    int choix1 = Integer.parseInt(scanner.nextLine());
-                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("X : ");
+                    int x = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y = Integer.parseInt(scanner.nextLine());
+                    Tuile t = game.getPlateau().getTuile(x, y);
                     game.getAction().construirePort(t);
                 }
                 else if (choix==6) {
                     System.out.println("action choisie: deployer des guerriers");
-                    System.out.println("choisit une tuile");
-                    List<String> bat = new ArrayList<>();
-                    bat.addAll(player.getDisplayBatimentsParType("Armee"));
-                    bat.addAll(player.getDisplayBatimentsParType("Camp"));
-                    System.out.println(bat);
-                    int choix1 = Integer.parseInt(scanner.nextLine());
-                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("X : ");
+                    int x = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y = Integer.parseInt(scanner.nextLine());
+                    Tuile t = game.getPlateau().getTuile(x, y);
                     game.getAction().positionnerGuerriers(t, 1);
                 }
                 else if (choix==7) {
@@ -173,20 +173,21 @@ public class Livrable4_Ares {
                 else if (choix==9) {
                     System.out.println("action choisie: attaque");
                     System.out.println("choisit le batiment que tu souhaite utiliser");
-                    List<String> bat = new ArrayList<>();
-                    bat.addAll(player.getDisplayBatimentsParType("Armee"));
-                    bat.addAll(player.getDisplayBatimentsParType("Camp"));
-                    System.out.println(bat);
-                    int choix1 = Integer.parseInt(scanner.nextLine());
-                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("X : ");
+                    int x = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y = Integer.parseInt(scanner.nextLine());
+                    Tuile t = game.getPlateau().getTuile(x, y);
                     System.out.println("choisit le joueur que tu souhaite attaquer");
                     System.out.println(players);
                     int choix2 = Integer.parseInt(scanner.nextLine());
                     Player p = players.get(choix2);
                     System.out.println("choisit le batiment que tu souhaite attaquer");
-                    p.getDisplayBatiments();
-                    int choix3 = Integer.parseInt(scanner.nextLine());
-                    Tuile t2 = p.getBatimentsPossedes().get(choix3).getTuile();
+                    System.out.println("X : ");
+                    int x2 = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Y : ");
+                    int y2 = Integer.parseInt(scanner.nextLine());
+                    Tuile t2 = game.getPlateau().getTuile(x2, y2);
                     game.getAction().attaquer( t, p , t2 );
 
 
