@@ -46,6 +46,27 @@ public class Action_Ares {
 			System.out.println("Vous devrez au moins déployer un guerriers pour construire une armée");
 		}
     }
+
+    public void construireArmeeGratuitement(Tuile t, int nb) {
+        Player currentPlayer = game.getCurrentPlayer();
+        if (nb>=1) {
+			if (this.game.batimentPeutEtreConstruit("Armee",t)) {
+
+
+				Armee armee = new Armee(t, nb);
+                currentPlayer.getBatimentsPossedes().add(armee);
+                currentPlayer.addTuile(t);
+                armee.setPlayer(currentPlayer);
+                System.out.println(currentPlayer.getName() + currentPlayer.getRessources() + " (" +currentPlayer.getWarriorsStock() + ") a construit une armée sur "+ t.display() + " en déployant " + nb + " guérriers.");
+			} else {
+				System.out.println("Construction d'armée impossible: ressources ou guerriers insuffisants.");
+			}
+		}else{
+			System.out.println("Vous devrez au moins déployer un guerriers pour construire une armée");
+		}
+    }
+
+
     /**
      * Construit un port sur la tuile aux coordonnées données si les ressources sont suffisantes.
      *
