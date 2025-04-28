@@ -7,6 +7,7 @@ import batiment.type_batiment.Camp;
 import batiment.type_batiment.Port;
 import game.Game;
 import game.Player;
+import java.util.Random;
 import ressource.Ressource;
 import tuile.Tuile;
 
@@ -132,16 +133,76 @@ public class Action_Ares {
 
 /* attaquer son voisin*/
 
-public boolean attaquerVoisin(Player voisin) {
-    Player currentPlayer = game.getCurrentPlayer();
-    if (currentPlayer.hasWarriorsInStock(1)) {
-        currentPlayer.useWarriors(1);
-        return currentPlayer.attackNeighbor(voisin);
-    }
-    return false;
-}
 
-/* acheter une arme secrete*/
+
+    public void attaquer(Tuile batimentAttaquant, Player defenseur, Tuile batimentDefenseur) {
+        Player attaquant = game.getCurrentPlayer();
+        Random random = new Random();
+
+        int nbGuerriersAttaquant = batimentAttaquant.getBatiment().getDimension();
+        int nbGuerriersDefenseur = batimentDefenseur.getBatiment().getDimension();
+
+        int desAttaquant = getNombreDes(nbGuerriersAttaquant);
+        int desDefenseur = getNombreDes(nbGuerriersDefenseur);
+
+        // Si attaquant a une arme secrète
+        if (attaquant.getSecretWeapon() > 0) {
+            desAttaquant++;
+            attaquant.utiliserArmeSecrete();
+            System.out.println(attaquant.getName() + " utilise une arme secrète !");
+        }
+
+        // Si défenseur a une arme secrète (facultatif si tu veux gérer aussi pour défenseur)
+        if (defenseur.getSecretWeapon() > 0) {
+            desDefenseur++;
+            defenseur.utiliserArmeSecrete();
+            System.out.println(defenseur.getName() + " utilise une arme secrète !");
+        }
+
+        // Lancer les dés
+        int sommeAttaquant = lancerDes(desAttaquant, random);
+        int sommeDefenseur = lancerDes(desDefenseur, random);
+
+        System.out.println("Attaquant (" + attaquant.getName() + ") total dés : " + sommeAttaquant);
+        System.out.println("Défenseur (" + defenseur.getName() + ") total dés : " + sommeDefenseur);
+
+        // Résultat
+        if (sommeAttaquant > sommeDefenseur) {
+            System.out.println(attaquant.getName() + " gagne le combat !");
+            perdreGuerrier(defenseur, batimentDefenseur);
+        } else {
+            System.out.println(defenseur.getName() + " repousse l'attaque !");
+            perdreGuerrier(attaquant, batimentAttaquant);
+        }
+    }
+    // Calcul du nombre de dés selon nombre de guerriers
+    private int getNombreDes(int nbGuerriers) {
+        if (nbGuerriers <= 3) return 1;
+        if (nbGuerriers <= 7) return 2;
+        return 3;
+    }
+
+    // Lancer plusieurs dés et faire la somme
+    private int lancerDes(int nbDes, Random random) {
+        int total = 0;
+        for (int i = 0; i < nbDes; i++) {
+            total += random.nextInt(6) + 1; // dé entre 1 et 6
+        }
+        return total;
+    }
+
+    // Faire perdre un guerrier au joueur
+    private void perdreGuerrier(Player joueur, Tuile tuile) {
+        tuile.getBatiment().decreaseDimension(1);
+        if (tuile.getBatiment().getDimension() <= 0) {
+            tuile.setBatiment(null); // la tuile redevient libre
+            System.out.println(joueur.getName() + " perd son bâtiment sur la tuile !");
+        }
+    }
+
+
+
+    /* acheter une arme secrete*/
 
     public void acheterArmeSecrete() {
         Player currentPlayer = game.getCurrentPlayer();

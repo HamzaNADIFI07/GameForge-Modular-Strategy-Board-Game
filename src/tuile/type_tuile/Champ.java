@@ -41,11 +41,11 @@ public class Champ extends Tuile {
      * Produit la resource en incrementant sa quantité
      */
     public void produireRessource() {
-        if (super.getBatiment().getType().equals("Exploitation")||super.getBatiment().getType().equals("Camp")){
+        if (super.getBatiment() != null && 
+            (super.getBatiment().getType().equals("Exploitation") || super.getBatiment().getType().equals("Camp"))) {
             super.incrementerRessource();
             super.incrementerRessource();
-        }
-        else{
+        } else {
             super.incrementerRessource();
         }
     }

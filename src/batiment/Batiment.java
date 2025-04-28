@@ -56,11 +56,23 @@ public abstract class Batiment {
     public void setDimension(int dimension) {
         this.dimension = dimension;
     }
-
+    /**
+     * Augmente la dimension du bâtiment d'une valeur donnée.
+     * 
+     * @param dimension la valeur à ajouter à la dimension actuelle
+     */
     public void increaseDimension(int dimension) {
         this.dimension += dimension;
     }
 
+    /**
+     * Diminue la dimension du bâtiment d'une valeur donnée.
+     * 
+     * @param dimension la valeur à diminuer à la dimension actuelle
+     */
+    public void decreaseDimension(int dimension) {
+        this.dimension -= dimension;
+    }
 
     /**
      * Retourne la tuile sur laquelle le bâtiment est construit.

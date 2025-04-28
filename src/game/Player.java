@@ -328,6 +328,19 @@ public class Player {
 	}
 
 	/**
+	 * Utilise l'arme secrète du joueur.
+	 * Si le joueur n'a pas d'arme secrète, un message est affiché.
+	 */
+	public void utiliserArmeSecrete(){
+		if (hasSecretWeapon > 0) {
+			hasSecretWeapon--;
+			System.out.println(name + " a utilisé son arme secrète !");
+		} else {
+			System.out.println(name + " n'a pas d'arme secrète à utiliser.");
+		}
+	}
+
+	/**
      * Définit si le joueur possède une arme secrète ou non.
      *
      * @param hasSecretWeapon Indicateur de possession d'arme secrète.

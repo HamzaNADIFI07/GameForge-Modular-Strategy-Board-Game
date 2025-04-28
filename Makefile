@@ -1,9 +1,9 @@
 SRC = src
 CLASS = classes
-JAR_DEMETER = ./jar/LivrableDemeter.jar
-JAR_ARES = ./jar/LivrableAres.jar
-MAIN_DEMETER = game.Demeter.Livrable3demeter
-MAIN_ARES = game.Ares.Livrable3ares
+JAR_DEMETER = ./jar/demeter.jar
+JAR_ARES = ./jar/ares.jar
+MAIN_DEMETER = main.livrable4.Livrable4_Demeter
+MAIN_ARES = main.livrable4.Livrable4_Ares
 DOCS = docs
 TEST_CLASS = test_classes
 TEST_SRC = tests
@@ -12,20 +12,20 @@ JUNIT_JAR = lib/junit-platform-console-standalone-1.10.0.jar
 SRC_FILES = $(shell find $(SRC) -name "*.java")
 TEST_FILES = $(shell find $(TEST_SRC) -name "*.java")
 
-all: compile jar_demeter jar_ares
+all: cls demeter.jar ares.jar
 
-javadoc:
+doc:
 	mkdir -p $(DOCS)
 	javadoc -d $(DOCS) $(SRC_FILES)
 
-compile:
+cls:
 	mkdir -p $(CLASS)
 	javac -d $(CLASS) $(SRC_FILES)
 
-jar_demeter: compile
+demeter.jar: cls
 	jar cfe $(JAR_DEMETER) $(MAIN_DEMETER) -C $(CLASS) .
 
-jar_ares: compile
+ares.jar: cls
 	jar cfe $(JAR_ARES) $(MAIN_ARES) -C $(CLASS) .
 
 run_demeter:

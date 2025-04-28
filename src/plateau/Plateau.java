@@ -366,6 +366,19 @@ private boolean ileExplore(int startX, int startY, boolean[][] visited, Player j
     return occupied;
 }
 
+    public void afficherTuilesDisponibles() {
+        System.out.println("Tuiles disponibles (sans bâtiment) :");
+        for (int i = 0; i < this.x; i++) {
+            for (int j = 0; j < this.y; j++) {
+                Tuile t = this.tuile[i][j];
+                if (t.getBatiment() == null && !t.getType().equals("Mer")) {
+                    t.display();
+                }
+            }
+        }
+    }
+
+
 }
 	
 

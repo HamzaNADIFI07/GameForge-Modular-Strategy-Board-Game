@@ -1,23 +1,27 @@
 package main.livrable4;
 
+import batiment.type_batiment.Armee;
 import game.*;
 import game.Ares.Ares;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import ressource.Ressource;
+import tuile.Tuile;
 
 
 
 public class Livrable4_Ares {
     public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.println("You must enter 3 parameters");
-            return;
-        }
-        int width = Integer.parseInt(args[0]);
-        int height = Integer.parseInt(args[1]);
-        int nbPlayers = Integer.parseInt(args[2]);
+        System.out.println("Bienvenue dans le jeu Ares !");
+        System.out.println("Veuillez entrer les dimensions du plateau (largeur, hauteur) et le nombre de joueurs :");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Largeur : ");
+        int width = Integer.parseInt(scanner.nextLine());
+        System.out.print("Hauteur : ");
+        int height = Integer.parseInt(scanner.nextLine());
+        System.out.print("Nombre de joueurs : ");
+        int nbPlayers = Integer.parseInt(scanner.nextLine());
 
         if (width < 10 || height < 10) {
             System.out.println("La largeur et la hauteur du plateau doivent être d'au moins 10 cases.");
@@ -30,7 +34,6 @@ public class Livrable4_Ares {
         }
 
 
-        Scanner scanner = new Scanner(System.in);
         List<Player> players = new ArrayList<>();
 
         System.out.println("Veuillez entrer le nom des " + nbPlayers + " joueurs :");
@@ -73,47 +76,105 @@ public class Livrable4_Ares {
                     System.out.println("ne fait rien ");
                 }
                 else if(choix==2){
-                    System.out.println("échange des ressources");
+                    System.out.println("action choisie: échange des ressources");
                     player.afficherRessources();
 
                     System.out.println("choisit une ressource Ã  Ã©changer");
-                    player.afficherRessources();
+                    System.out.println("[0 - none, 1 - Ore, 2 - Sheep, 3 - Wheat, 4 - Wood]");
                     int choix2 = Integer.parseInt(scanner.nextLine());
 
                     System.out.println("ressource Ã  acquÃ©rir");
                     System.out.println("[0 - none, 1 - Ore, 2 - Sheep, 3 - Wheat, 4 - Wood]");
                     int choix3 = Integer.parseInt(scanner.nextLine());
-                    if (choix3==1) {
-                        game.getAction().echangerRessources(3, player.getRessources().get(choix), Ressource.Ble);
-                    }else if (choix3==2) {
-                        game.getAction().echangerRessources(3, player.getRessources().get(choix), Ressource.Minerai);
-                    }else if (choix3==3) {
-                        game.getAction().echangerRessources(3, player.getRessources().get(choix), Ressource.Moutons);
-                    }else if (choix3==4) {
-                        game.getAction().echangerRessources(3, player.getRessources().get(choix), Ressource.Bois);
+
+                    Ressource ressourceADonner = null;
+                    if (choix2 == 1) {
+                        ressourceADonner = Ressource.Ble;
+                    } else if (choix2 == 2) {
+                        ressourceADonner = Ressource.Moutons;
+                    } else if (choix2 == 3) {
+                        ressourceADonner = Ressource.Minerai;
+                    } else if (choix2 == 4) {
+                        ressourceADonner = Ressource.Bois;
                     }
-                    
+
+                    if (choix3==1) {
+                        game.getAction().echangerRessources(3, ressourceADonner , Ressource.Ble);
+                    }else if (choix3==2) {
+                        game.getAction().echangerRessources(3, ressourceADonner, Ressource.Moutons);
+                    }else if (choix3==3) {
+                        game.getAction().echangerRessources(3, ressourceADonner, Ressource.Minerai);
+                    }else if (choix3==4) {
+                        game.getAction().echangerRessources(3, ressourceADonner, Ressource.Bois);
+                    }
+                    player.afficherRessources();
                 }
                 else if (choix==3) {
-                    System.out.println("déploie une armée");
+                    System.out.println("action choisie: déploie une armée");
+                    System.out.println("choisit une tuile");
+                    game.getPlateau().afficherTuilesDisponibles();
+                    int choix1 = Integer.parseInt(scanner.nextLine());
+                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("choisit le nombre de guerriers");
+                    int choix2 = Integer.parseInt(scanner.nextLine());
+                    game.getAction().construireArmee(t, choix2);
+
                 }
                 else if (choix==4) {
-                    System.out.println("updrage vers un camp");
+                    System.out.println("action choisie: updrage vers un camp");
+                    System.out.println("quelle armÃ©e transformer en camp ?");
+                    player.getDisplayBatimentsParType("Armee");
+                    int choix1 = Integer.parseInt(scanner.nextLine());
+                    Armee a = (Armee) player.getBatimentsPossedes().get(choix1);
+                    game.getAction().remplacerArmeeCamp(a.getTuile());
                 }
                 else if (choix==5) {
-                    System.out.println("construit un port");
+                    System.out.println("action choisie: construit un port");
+                    System.out.println("choisit une tuile");
+                    game.getPlateau().afficherTuilesDisponibles();
+                    int choix1 = Integer.parseInt(scanner.nextLine());
+                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    game.getAction().construirePort(t);
                 }
                 else if (choix==6) {
-                    System.out.println("deployer des guerriers");
+                    System.out.println("action choisie: deployer des guerriers");
+                    System.out.println("choisit une tuile");
+                    List<String> bat = new ArrayList<>();
+                    bat.addAll(player.getDisplayBatimentsParType("Armee"));
+                    bat.addAll(player.getDisplayBatimentsParType("Camp"));
+                    System.out.println(bat);
+                    int choix1 = Integer.parseInt(scanner.nextLine());
+                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    game.getAction().positionnerGuerriers(t, 1);
                 }
                 else if (choix==7) {
-                    System.out.println("achete 5 guerriers");
+                    System.out.println("action choisie: achete 5 guerriers");
+                    game.getAction().ajouterGuerriersAuStock();
                 }
                 else if (choix==8) {
-                    System.out.println("achete une arme secrete");
+                    System.out.println("action choisie: achete une arme secrete");
+                    game.getAction().acheterArmeSecrete();
                 }
                 else if (choix==9) {
-                    System.out.println("attaque");
+                    System.out.println("action choisie: attaque");
+                    System.out.println("choisit le batiment que tu souhaite utiliser");
+                    List<String> bat = new ArrayList<>();
+                    bat.addAll(player.getDisplayBatimentsParType("Armee"));
+                    bat.addAll(player.getDisplayBatimentsParType("Camp"));
+                    System.out.println(bat);
+                    int choix1 = Integer.parseInt(scanner.nextLine());
+                    Tuile t = player.getTuilesPossedes().get(choix1);
+                    System.out.println("choisit le joueur que tu souhaite attaquer");
+                    System.out.println(players);
+                    int choix2 = Integer.parseInt(scanner.nextLine());
+                    Player p = players.get(choix2);
+                    System.out.println("choisit le batiment que tu souhaite attaquer");
+                    p.getDisplayBatiments();
+                    int choix3 = Integer.parseInt(scanner.nextLine());
+                    Tuile t2 = p.getBatimentsPossedes().get(choix3).getTuile();
+                    game.getAction().attaquer( t, p , t2 );
+
+
                 }
 
 			}
@@ -122,4 +183,5 @@ public class Livrable4_Ares {
         System.out.println("Game over! Winner: " + game.getWinner().getName());
  
     }
+
 }

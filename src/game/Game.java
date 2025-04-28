@@ -174,9 +174,6 @@ public abstract class Game {
 	 */
 	public abstract Player getWinner();
 	 
-	/**
-	 * Joue un tour de jeu.
-	 */
-	public abstract void play();
+
 
 }
